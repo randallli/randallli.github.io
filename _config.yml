@@ -21,6 +21,8 @@ author: Randall Li
 
 navbar-links:
   About Me: "aboutme"
+  Games:
+    - Sirtet: "sirtet"
   # Resources:
     # - Beautiful Jekyll: "https://beautifuljekyll.com"
     # - Learn markdown: "https://www.markdowntutorial.com/"
