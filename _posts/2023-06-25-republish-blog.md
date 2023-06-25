@@ -7,4 +7,4 @@ tags: [test, sirtet]
 
 Im back to post about my game development struggles. I got laid off from Google and took a break, built some physical things (pergola) and will be self publishing some games and apps.
 
-For now watch an [old trailer of Sirtet](www.tripleli.com/sirtet).
+For now watch an [old trailer of Sirtet](http://www.tripleli.com/sirtet).
