@@ -18,6 +18,9 @@ A water-fight playground game of survival.
 ## Win
 * Bump or scare everyone else's water out of their cups.
 
+## Rematch
+* Refill your cup in the bucket of water to play again.
+
 ## Details
 
 ### Equipment
