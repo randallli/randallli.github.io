@@ -1,14 +1,16 @@
 
 This is a water-fight playground game of survival. 
 
-The goal of the game is to be the last one standing with water still in your cup. 
+The goal of the game is to be the last one with water still in your cup. 
 
 ## Equipment
-* Paper cups. I tested with 4oz paper "Souffle" cups.
+* Paper cups.
+    * I tested with 4oz paper "Souffle" cups.
 * A bucket of water.
 
 ## Setup:
-* Give everyone a cup
+* Give everyone a cup.
+    * Get them to agree to clean up after you play.
 * Fill their cup from a shared bucket of water you may start.
 
 ## Begin:
@@ -27,6 +29,6 @@ The goal of the game is to be the last one standing with water still in your cup
 * Hold you cup in the palm of your hand with your fingers outstretched.
 * Get everyone to agree to clean up after you play.
 
-## Credit
+## Credits
 Created by Randall Li,
 Inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
