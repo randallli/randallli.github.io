@@ -1,36 +1,40 @@
 # Last cup spilled
 
-This is a water-fight playground game of survival. 
+A water-fight playground game of survival. 
 
-The goal of the game is to be the last one with water still in your cup. 
-
-## Equipment
-* Paper cups.
-    * I tested with 4oz paper "Souffle" cups.
-* A bucket of water.
+## Goal
+* Be the last one with water still in your cup. 
 
 ## Setup:
-* Give everyone a cup.
-    * Get them to agree to clean up after you play.
-* Fill their cup from a shared bucket of water you may start.
+* Give everyone a cup of water.
 
 ## Begin:
-* Raise your cups and say "Cheers."
+* Raise your cups and say "Cheers".
 
 ## Lose
 * Spill your cup of water.
-    * Put your cup back in the bucket
-    * Throw out your cup if it is too damaged to play again
 
 ## Win
-* Bump, scare, tip or knock over everyone else's water out of their cups.
-* Wait for other people to eliminate eachother.
+* Bump or scare everyone else's water out of their cups.
 
-## House rules: 
-* Hold you cup in the palm of your hand with your fingers outstretched.
+## Details
+
+### Equipment
+* Paper cups.
+    * I tested with 4oz paper "Souffle" cups.
+* A bucket of water: because refilling is much faster when everyone can dip their cup in to restart.
+
+### House rules: 
+* A large open space is best. Anywhere you would have a waterballoon fight.
 * Get everyone to agree to clean up after you play.
+* Hold your cup in the palm of your hand with your fingers outstretched.
 
-## Credits
+### Variants:
+* Informal teams?
+* Formal teams?
+* Someone with a larger cup?
+
+### Credits
 Created by Randall Li.
 
 Inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
