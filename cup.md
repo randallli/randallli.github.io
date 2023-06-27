@@ -13,6 +13,7 @@ A water-fight playground game of survival.
 
 ## Lose
 * Spill your cup of water.
+* Once you have no water in your cup you are not allowed to attack anyone else.
 
 ## Win
 * Bump or scare everyone else's water out of their cups.
