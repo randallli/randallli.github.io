@@ -30,5 +30,6 @@ The goal of the game is to be the last one with water still in your cup.
 * Get everyone to agree to clean up after you play.
 
 ## Credits
-Created by Randall Li,
+Created by Randall Li.
+
 Inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
