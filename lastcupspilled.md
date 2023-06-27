@@ -29,4 +29,4 @@ The goal of the game is to be the last one standing with water still in your cup
 
 ## Credit
 Created by Randall Li,
-Inspired by "johann sebastian joust" 
+Inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
