@@ -16,7 +16,7 @@ subtitle: A water-fight (maximize play; minimize setup)
 
 ## Lose
 * Spill your cup of water.
-* Once you have no water in your cup you are not allowed to attack anyone else.
+* Once you have no water in your cup you are out for that round (not allowed to attack anyone else).
 
 ## Win
 * Bump or 
