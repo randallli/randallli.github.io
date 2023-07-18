@@ -19,7 +19,8 @@ subtitle: A water-fight (maximize play; minimize setup)
 * Once you have no water in your cup you are not allowed to attack anyone else.
 
 ## Win
-* Bump or scare everyone else's water out of their cups.
+* Bump or 
+* Scare everyone else's water out of their cups.
 
 ## Rematch
 * Refill your cup in the bucket of water to play again.
