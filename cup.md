@@ -13,7 +13,7 @@ Play outside!
 * Give everyone a cup of water.
 
 ## Begin:
-* Raise your cups and say "Last cupful".
+* Raise your cups and yell "Last cupful".
   * Raising your cup lets everyone know you are ready to play.
 
 ## Lose
