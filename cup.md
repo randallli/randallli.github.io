@@ -54,4 +54,4 @@ Play outside!
 ### Credits
 Created by Randall Li.
 
-Inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
+This game was inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
