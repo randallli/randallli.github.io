@@ -5,7 +5,7 @@ subtitle: A water-fight (maximize play; minimize setup)
 ---
 
 ## Goal
-* Be the last one with water still in your cup. 
+* Be the last one with (the most) water still in your cup. 
 
 ## Setup:
 * Give everyone a cup of water.
