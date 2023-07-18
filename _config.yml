@@ -20,6 +20,7 @@ author: Randall Li
 ###############################################
 
 navbar-links:
+  Cup: "cup"
   Games:
     - Sirtet: "sirtet"
   About Me: "aboutme"
