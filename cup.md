@@ -34,7 +34,7 @@ subtitle: A water-fight (maximize play; minimize setup)
 * A bucket of water: because refilling is much faster when everyone can dip their cup in to restart.
 
 ### House rules: 
-* A large open space is best. Anywhere you would have a waterballoon fight.
+* A large open space that can get wet is best. Anywhere you would have a waterballoon fight.
 * Get everyone to agree to clean up after you play.
 * Hold your cup in the palm of your hand with your fingers outstretched.
 
