@@ -11,7 +11,8 @@ subtitle: A water-fight (maximize play; minimize setup)
 * Give everyone a cup of water.
 
 ## Begin:
-* Raise your cups and say "Cheers". This lets everyone know you are ready to play.
+* Raise your cups and say "Last cupful".
+  * Raising your cup lets everyone know you are ready to play.
 
 ## Lose
 * Spill your cup of water.
