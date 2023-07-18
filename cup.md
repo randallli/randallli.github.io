@@ -1,3 +1,9 @@
+---
+layout: page
+title: Last cup spilled
+subtitle: A water-fight playground game of survival.
+---
+
 # Last cup spilled
 
 A water-fight playground game of survival. 
