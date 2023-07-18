@@ -1,3 +1,8 @@
+---
+layout: page
+title: Sirtet
+subtitle: a secretly social game
+---
 
 More info to come. 
 
