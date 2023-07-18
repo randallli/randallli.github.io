@@ -25,6 +25,7 @@ A water-fight playground game of survival.
 
 ### Equipment
 * Paper cups.
+    * 4 oz "dixie" cups.
     * I tested with 4oz paper "Souffle" cups.
 * A bucket of water: because refilling is much faster when everyone can dip their cup in to restart.
 
