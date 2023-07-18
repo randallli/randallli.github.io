@@ -29,8 +29,8 @@ subtitle: A water-fight (maximize play; minimize setup)
 
 ### Equipment
 * Paper cups.
-    * 4 oz "dixie" cups.
-    ~~ * I tested with 4oz paper "Souffle" cups. ~~
+    * 4 oz "Dixie" cups.
+    * ~~ I tested with 4oz paper "Souffle" cups. ~~
        * note: These collapsed into disks too fast when filled with water. (picture a coffee filter)
 * A bucket of water: because refilling is much faster when everyone can dip their cup in to restart.
 
