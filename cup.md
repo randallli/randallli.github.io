@@ -23,8 +23,8 @@ subtitle: A water-fight (maximize play; minimize setup)
 * Scare everyone else's water out of their cups.
 
 ## Rematch
-* Refill your cup in the bucket of water to play again.
-
+* Refill cups.
+  * A big o' bucket of water makes this easiest.
 ## Details
 
 ### Equipment
