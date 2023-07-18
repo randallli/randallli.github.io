@@ -43,10 +43,10 @@ subtitle: A water-fight (maximize play; minimize setup)
 * Formal teams?
 * Someone with a larger cup?
 
-#### Confirmed not working
+#### Did not work well
 
 * 4oz paper "Souffle" cups:
-    * These collapsed into disks too fast when filled with water. (picture a coffee filter)
+    * When filled with water these collapsed into disks too quickly. Kids only got one round out of the cups.
 
 ### Credits
 Created by Randall Li.
