@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Last cup spilled
-subtitle: A water-fight playground game of survival.
+title: Last cupful
+subtitle: A water-fight (maximize play; minimize setup)
 ---
 
-# Last cup spilled
+# Last cupful
 
-A water-fight playground game of survival. 
+A water-fight (maximize play; minimize setup). 
 
 ## Goal
 * Be the last one with water still in your cup. 
