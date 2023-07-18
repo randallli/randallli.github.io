@@ -4,10 +4,6 @@ title: Last cupful
 subtitle: A water-fight (maximize play; minimize setup)
 ---
 
-# Last cupful
-
-A water-fight (maximize play; minimize setup). 
-
 ## Goal
 * Be the last one with water still in your cup. 
 
