@@ -25,6 +25,7 @@ subtitle: A water-fight (maximize play; minimize setup)
 ## Rematch
 * Refill cups.
   * A big o' bucket of water makes this easiest.
+
 ## Details
 
 ### Equipment
