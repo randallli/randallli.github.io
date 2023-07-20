@@ -35,7 +35,7 @@
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer6" />
+     inkscape:current-layer="layer4" />
   <defs
      id="defs84808" />
   <g
@@ -118,7 +118,7 @@
        inkscape:label="cup">
       <path
          id="path97644"
-         style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
+         style="display:inline;opacity:1;fill:#f8fdff;fill-opacity:1;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
          d="M 136.82487,81.201175 91.095192,132.82576 c -1.426889,1.26383 -2.472438,1.70482 -9.414461,-1.7782 -6.942015,-3.48301 -15.622245,-9.25326 -21.707634,-14.43032 -6.085379,-5.17706 -7.158629,-6.75977 -6.019942,-8.48096 L 84.989574,46.496014 M 138.9738,81.356829 C 137.34205,83.792348 123.68755,77.504713 108.47563,67.312998 93.263693,57.121288 82.254791,46.884892 83.886545,44.449373 c 1.631754,-2.435518 15.286252,3.85212 30.498185,14.04383 15.21193,10.191715 26.22082,20.428107 24.58907,22.863626 z"
          sodipodi:nodetypes="ccssccsssss"
          inkscape:label="path97644" />
