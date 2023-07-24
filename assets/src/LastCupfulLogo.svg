@@ -9,7 +9,7 @@
    id="svg84811"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    sodipodi:docname="LastCupfulLogo.svg"
-   inkscape:export-filename="../img/LastCupfulLogo512.png"
+   inkscape:export-filename="../img/LastCupfulLogoMono.png"
    inkscape:export-xdpi="65.024002"
    inkscape:export-ydpi="65.024002"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -35,7 +35,7 @@
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer4" />
+     inkscape:current-layer="g100989" />
   <defs
      id="defs84808" />
   <g
@@ -126,7 +126,8 @@
     <g
        inkscape:groupmode="layer"
        id="layer5"
-       inkscape:label="water">
+       inkscape:label="water"
+       style="display:none">
       <path
          id="path97680"
          style="display:inline;opacity:1;fill:#4ac8f3;fill-opacity:1;stroke:none;stroke-width:2.23356"
@@ -137,6 +138,22 @@
          style="opacity:1;fill:#4ac8f3;fill-opacity:1;stroke:none;stroke-width:2.5;stroke-dasharray:none;stroke-opacity:1"
          d="m 162.17244,38.070481 c 7.3646,-4.897508 9.98911,-12.700677 13.44159,-17.724788 3.45247,-5.02411 -2.83096,-7.246383 -7.86846,-6.11917 -5.0375,1.127213 -6.59539,5.007737 -8.84567,8.910063 -2.25028,3.902326 -4.09206,19.831403 3.27254,14.933895 z"
          id="path97683"
+         sodipodi:nodetypes="zzzzz" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="g100989"
+       inkscape:label="black water">
+      <path
+         id="path100985"
+         style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.23356"
+         d="m 127.30198,67.466466 c 2.8799,-21.172276 32.99703,-19.158742 25.37126,-8.472705 l -41.81436,47.367009 -5.10697,5.76531 -5.107,5.76531 -5.106986,5.76531 -5.106979,5.76531 c -1.274812,1.12913 -2.208927,1.52312 -8.411075,-1.58868 -6.202141,-3.1118 -13.95724,-8.26706 -19.394053,-12.89235 -5.436805,-4.6253 -6.395669,-6.03932 -5.378342,-7.57707 l 6.932146,-13.767674 c 0,0 19.136569,8.677384 33.242582,4.309838 14.106037,-4.367547 26.999877,-9.267333 29.879777,-30.439608 z"
+         sodipodi:nodetypes="zccccccsscczz"
+         inkscape:label="path97644" />
+      <path
+         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.5;stroke-dasharray:none;stroke-opacity:1"
+         d="m 162.17244,38.070481 c 7.3646,-4.897508 9.98911,-12.700677 13.44159,-17.724788 3.45247,-5.02411 -2.83096,-7.246383 -7.86846,-6.11917 -5.0375,1.127213 -6.59539,5.007737 -8.84567,8.910063 -2.25028,3.902326 -4.09206,19.831403 3.27254,14.933895 z"
+         id="path100987"
          sodipodi:nodetypes="zzzzz" />
     </g>
     <g
@@ -153,10 +170,11 @@
     <g
        inkscape:groupmode="layer"
        id="layer3"
-       inkscape:label="hand">
+       inkscape:label="hand"
+       style="fill:#ffffff;fill-opacity:1">
       <path
          id="rect97583"
-         style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5875;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.5875;stroke-dasharray:none;stroke-opacity:1"
          d="m 83.192849,161.64476 14.977722,-5.7332 c 3.635589,-0.58318 18.525489,-0.97146 22.724039,-9.83801 l -1.30809,-6.18658 c -0.68173,-3.22374 -3.86855,-5.32269 -7.41556,-5.06292 -0.36691,0.0271 -0.73768,0.0787 -1.10995,0.15752 -5.78713,0.50889 -11.538486,1.0998 -16.316685,3.91893 -2.499414,0.52855 -20.658526,3.85491 -20.658526,3.85491 0,0 -16.607265,-2.47203 -21.490378,-2.76864 -4.620464,-0.28066 -13.301043,-0.0791 -13.301043,-0.0791 -4.006969,-0.64574 -7.698494,1.72429 -8.276966,5.31387 l -2.513835,19.03376 c -0.578474,3.58957 5.336107,1.19779 9.343076,1.84353 l 40.470612,12.70343 c 4.74322,1.48886 30.410085,-5.65448 34.249735,-7.22293 l 26.99455,-12.13021 17.556,-10.24248 c 3.68898,-1.6924 13.48508,-9.31605 12.05696,-12.65973 l -0.36553,-0.85516 c -1.11571,-2.61225 -3.89555,-4.04348 -6.8381,-3.78442 -0.82393,0.0724 -1.66047,0.27745 -2.47696,0.62618 l -18.53685,9.06386 -19.79533,5.28843 c -0.0215,-0.20499 -0.0527,-0.41076 -0.0962,-0.61642"
          sodipodi:nodetypes="ccccccccsccccscccccccccc"
          inkscape:label="Hand" />
