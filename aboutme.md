@@ -10,7 +10,7 @@ I am rebooting some old game ideas that I have had before. Ping me at <subscribe
 ### Worked @ Google for 8+ years
 Took a break from making games while working at Google. 
 
-* Got an [Animation patent](https://patents.justia.com/patent/10013789) while working on UI.
+* Got an [Animation patent](https://patents.justia.com/patent/10013789) awarded.
 * Built [Material Components for iOS](https://github.com/material-components/material-components-ios), Google's UI design system, used by 100+ Google iOS apps.
 
 Actually, more life changing, was having two kids ;).
