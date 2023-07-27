@@ -57,3 +57,7 @@ Play outside!
 Created by Randall Li.
 
 This game was inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
+
+### Versions
+#### 1.0
+First published version. 
