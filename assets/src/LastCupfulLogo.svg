@@ -28,14 +28,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.5946522"
-     inkscape:cx="410.32388"
-     inkscape:cy="398.5523"
+     inkscape:cx="302.69795"
+     inkscape:cy="344.73933"
      inkscape:window-width="1409"
      inkscape:window-height="730"
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g100989" />
+     inkscape:current-layer="layer6" />
   <defs
      id="defs84808" />
   <g
@@ -111,7 +111,8 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="whole thing"
-     transform="translate(-2.1376472,3.1186946)">
+     transform="translate(-2.1376472,3.1186946)"
+     style="display:inline">
     <g
        inkscape:groupmode="layer"
        id="layer4"
@@ -127,7 +128,7 @@
        inkscape:groupmode="layer"
        id="layer5"
        inkscape:label="water"
-       style="display:none">
+       style="display:inline">
       <path
          id="path97680"
          style="display:inline;opacity:1;fill:#4ac8f3;fill-opacity:1;stroke:none;stroke-width:2.23356"
@@ -143,7 +144,8 @@
     <g
        inkscape:groupmode="layer"
        id="g100989"
-       inkscape:label="black water">
+       inkscape:label="black water"
+       style="display:none">
       <path
          id="path100985"
          style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.23356"
@@ -179,5 +181,28 @@
          sodipodi:nodetypes="ccccccccsccccscccccccccc"
          inkscape:label="Hand" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';direction:rtl;display:inline;fill:#000000;stroke-width:1.5875"
+       x="-0.27755874"
+       y="145.29863"
+       id="text101194"
+       inkscape:label="text101194"><tspan
+         id="tspan101192"
+         style="stroke-width:1.5875"
+         x="-0.27755696"
+         y="145.29863"
+         sodipodi:role="line">TripleLi.com/cup</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';direction:rtl;fill:#000000;stroke-width:1.5875"
+       x="-0.90847063"
+       y="98.817741"
+       id="text101252"><tspan
+         sodipodi:role="line"
+         id="tspan101250"
+         style="stroke-width:1.5875"
+         x="-0.90847135"
+         y="98.817741">Last cupful</tspan></text>
   </g>
 </svg>
