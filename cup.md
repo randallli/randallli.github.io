@@ -2,6 +2,10 @@
 layout: page
 title: Last cupful
 subtitle: A water-fight (maximize play; minimize setup)
+redirect_from:
+  - /lastcup
+  - /lastcupful
+  - /lastcupfull
 ---
 
 ![Last cupful logo](/assets/img/LastCupfulLogo.png)
