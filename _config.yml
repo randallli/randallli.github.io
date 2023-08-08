@@ -23,7 +23,7 @@ navbar-links:
   Cup: "cup"
   Old Games:
     - Sirtet: "sirtet"
-  Newsletter: "https://dashboard.mailerlite.com/forms/545782/95915993012896971/share"
+  Newsletter: "newsletter"
   About Me: "aboutme"
   # Resources:
     # - Beautiful Jekyll: "https://beautifuljekyll.com"
