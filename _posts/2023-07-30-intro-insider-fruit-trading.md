@@ -2,7 +2,7 @@
 layout: post
 title: Introducing Insider Fruit Trading
 subtitle: Beta testing a board game about markets
-tags: [tabletop game, fruit trading]
+tags: [tabletop game, insider fruit trading]
 cover-img: /assets/img/Insider-Fruit-Trading_Game-pieces2.JPG
 ---
 
