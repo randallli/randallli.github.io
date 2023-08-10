@@ -17,6 +17,6 @@ I also heard someone quote Seneca:
 
 > Luck Is What Happens When Preparation Meets Opportunity
 
-I had difficulty reading some emails on the signup sheet so if know your friends have bad handwriting, or they did not get this message, please ask them to sign up. Feel free to share with others too.
+I had difficulty reading some emails on the signup sheet so if you know your friends have bad handwriting, or they did not get this message, please ask them to sign up for the [mailing list](../newsletter).
 
 [Ping me](mailto:timelapse@TripleLi.com) if you want to watch the timelapse of your session.
