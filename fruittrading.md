@@ -11,4 +11,6 @@ redirect_from:
   - /trading
 ---
 
-This table top game is in development.
+This table top game is in active development. 
+
+Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest.
