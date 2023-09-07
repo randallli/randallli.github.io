@@ -7,6 +7,8 @@ redirect_from:
   - /insiderfruittrading
   - /insiderfruittrader
   - /fruittrader
+  - /trader
+  - /trading
 ---
 
 This table top game is in development.
