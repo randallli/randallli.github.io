@@ -16,3 +16,7 @@ This table top game is in active development.
 Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest.
 
 ![Picture of gameplay elements](/assets/img/Insider-Fruit-Trading_Game-pieces2.JPG)
+
+### Playtesters
+
+Thanks to all the playtesters that helped me improve the game.
