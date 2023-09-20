@@ -15,8 +15,8 @@ title: Play test
 
 <div class="ml-embedded" data-form="vqZXUV"></div>
 
-If you do not see a form to enter your name and email please [try here](https://dashboard.mailerlite.com/forms/545782/99298147153479157/share).
+Enter your name and email above. If you do not see a form above, [use this direct link](https://dashboard.mailerlite.com/forms/545782/99298147153479157/share).
 
 ## Post playtest
 
-If you participated in a playtest please give me [feedback](https://forms.gle/u7k4qXirrengKNQN6).
+If you participated in a playtest please give me [feedback](https://forms.gle/u7k4qXirrengKNQN6) and I will credit you on the [offical playtesters](https://tripleli.com/fruittrading#playtesters) list.
