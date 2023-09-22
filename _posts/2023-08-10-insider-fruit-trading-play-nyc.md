@@ -7,7 +7,7 @@ tags: [tabletop game, insider fruit trading, playtest, Play NYC, conference]
 
 Thank you for taking the time to check out Insider Fruit Trading at Play NYC, especially those who played on the floor.
 
-We played at least 15 complete games, testing multiple parameters. We confirmed improvements, as well as some adjustments that will not be included in the final game. I will be sharing the analysis with my [Patreon supporters](https:/patreon.com/TripleLi), so please consider joining to learn more, offer suggestions, or contribute to the project financially ($$).
+We played at least 15 complete games, testing multiple parameters. We confirmed improvements, as well as some adjustments that will not be included in the final game. I will be sharing the analysis with my [Patreon supporters](https://patreon.com/TripleLi), so please consider joining to learn more, offer suggestions, or contribute to the project financially ($$).
 
 My favorite quote of the evening:
 
