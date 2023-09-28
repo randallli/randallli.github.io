@@ -27,6 +27,9 @@ Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest
 
 Thanks to all the playtesters that helped me improve the game.
 
-#### Recent first
+___
+> Recent first
 
 Jennifer Criollo-Garcia
+
+
