@@ -23,11 +23,14 @@ Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest
 
 ![Picture of gameplay elements](/assets/img/Insider-Fruit-Trading_Game-pieces2.JPG)
 
+___
+### [Patreon](https://patreon.com/TripleLi) supporters
+This work was made possible in part by:
+
 ### Playtesters
 
 Thanks to all the playtesters that helped me improve the game.
 
-___
 * Jennifer Criollo-Garcia 
 * Joshua Hyman
 * Hana Sun
@@ -35,4 +38,4 @@ ___
 
 > Recent first
 
-If you have playtested: fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) and I will add you.
+If you have playtested: fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) and I will add you to this list. 
