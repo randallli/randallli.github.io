@@ -28,9 +28,11 @@ Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest
 Thanks to all the playtesters that helped me improve the game.
 
 ___
-> Recent first
-
 * Jennifer Criollo-Garcia 
 * Joshua Hyman
 * Hana Sun
 * Anthony L. Lowe
+
+> Recent first
+
+If you have playtested: fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) and I will add you.
