@@ -30,7 +30,7 @@ Thanks to all the playtesters that helped me improve the game.
 ___
 > Recent first
 
-Jennifer Criollo-Garcia 
-Joshua Hyman
-Hana Sun
-Anthony L. Lowe
+* Jennifer Criollo-Garcia 
+* Joshua Hyman
+* Hana Sun
+* Anthony L. Lowe
