@@ -24,8 +24,10 @@ Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest
 ![Picture of gameplay elements](/assets/img/Insider-Fruit-Trading_Game-pieces2.JPG)
 
 ___
-### [Patreon](https://patreon.com/TripleLi) supporters
 This work was made possible in part by:
+### [Patreon](https://patreon.com/TripleLi) supporters
+
+* Jacob Stone!
 
 ### Playtesters
 
