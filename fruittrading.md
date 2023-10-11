@@ -42,6 +42,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Polarbearlopez 
 * Anthony L. Lowe
 
-> Recent first
+> Recent playtesters listed first
 
-If you have playtested: fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) and I will add you to this list. 
+If you have playtested: fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) and I will add you to this list.
