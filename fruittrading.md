@@ -35,9 +35,11 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Brian Quiñones
 * Jennifer Criollo-Garcia 
 * Joshua Hyman
 * Hana Sun
+* Polarbearlopez 
 * Anthony L. Lowe
 
 > Recent first
