@@ -46,6 +46,8 @@ Play outside!
 * A large open space that can get wet is best. Anywhere you would have a waterballoon fight.
 * Get everyone to agree to clean up after you play.
 * Hold your cup in the palm of your hand with your fingers outstretched.
+  * When playing with little ones (1st graders) let them just hold the cup.
+  * For an extra challenge place your cup on the back of your hand.
 
 ### Variants:
 * Informal teams?
