@@ -22,7 +22,7 @@ redirect_from:
 
 ![Picture of gameplay elements](/assets/img/Insider-Fruit-Trading_Game-pieces2.JPG)
 
-In Insider Fruit Trading, fruit prices are determined by supply and demand. Strategically spread rumors from your hand of cards to change market prices. Buy low and sell high to maximize your profits. Whoever has the most money at the end of the game wins.
+Buy low and sell high in this board game about Insider Fruit Trading. Fruit prices are set by supply and demand. Strategically spread rumors from your hand of cards to influence the price of fruit. Whoever has the most money at the end of the game wins.
 
 Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest.
 ___
