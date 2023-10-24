@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Last cupful
-subtitle: A water-fight (maximize play; minimize setup)
+subtitle: A water-fight that maximizes play and minimizes re-setup
 redirect_from:
   - /lastcup
   - /lastcupful
