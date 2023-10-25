@@ -25,6 +25,7 @@ redirect_from:
 Buy low and sell high in this board game about Insider Fruit Trading. Fruit prices are set by supply and demand. Strategically spread rumors from your hand of cards to influence the price of fruit. Whoever has the most money at the end of the game wins.
 
 Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest.
+
 ___
 This work was made possible in part by:
 ### [Patreon](https://patreon.com/TripleLi) supporters
