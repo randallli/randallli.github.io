@@ -62,6 +62,8 @@ Play outside!
 ### Credits
 Created by Randall Li.
 
+> For A 'n E
+
 This game was inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
 
 ### Versions
