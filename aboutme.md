@@ -5,7 +5,7 @@ title: About me
 
 ## My story
 
-I am rebooting some old game ideas that I have had before. Ping me at <subscribe@tripleli.com> if you are interested in hearing the latest developments.
+I am rebooting some old game ideas that I have had before ([Insider Fruit Trading](https://TripleLi.com/fruit), and [Last Cupful](https://TripleLi.com/cup)). Sign up for the [newsletter](https://TripleLi.com/newsletter) if you are interested in hearing the latest developments. Or ping me at <about@tripleli.com>.
 
 ### Worked @ Google for 8+ years
 Took a break from making games while working at Google. 
