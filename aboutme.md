@@ -5,12 +5,12 @@ title: About me
 
 ## My story
 
-I am rebooting some old game ideas that I have had before. Ping me at <subscribe@tripleli.com> if your interested in hearing the latest developments.
+I am rebooting some old game ideas that I have had before. Ping me at <subscribe@tripleli.com> if you are interested in hearing the latest developments.
 
 ### Worked @ Google for 8+ years
 Took a break from making games while working at Google. 
 
-* Got an [Animation patent](https://patents.justia.com/patent/10013789) awarded.
+* Got an [Animation patent](https://patents.justia.com/patent/10013789) granted.
 * Built [Material Components for iOS](https://github.com/material-components/material-components-ios), Google's UI design system, used by 100+ Google iOS apps.
 
 Actually, more life changing, was having two kids ;).
@@ -19,7 +19,7 @@ Actually, more life changing, was having two kids ;).
 Self published a couple games:
 
 * [Sirtet, a secretly social game](https://vimeo.com/80443843): tetris backwards.
-* [Hexagonal Rochambeau](https://vimeo.com/36462540): a rock-paper-scissor, real-time strategy game for iPad. Audio by Nathan Tompkins.
+* [Hexagonal Rochambeau](https://vimeo.com/36462540): a rock-paper-scissors, real-time strategy game for iPad. Audio by Nathan Tompkins.
 
 ### Worked @ Powerhead games
 
