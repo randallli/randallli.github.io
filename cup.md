@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Last cupful
-subtitle: A water-fight that maximizes play and minimizes re-setup
+subtitle: A water-fight playground game with a 1 second re-setup
 redirect_from:
   - /lastcup
   - /lastcupful
