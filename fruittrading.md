@@ -38,6 +38,7 @@ Thanks to all the playtesters that helped me improve the game.
 
 * Wilson Young
 * Vivian
+* Gavin Rook
 * Nicole Amato
 * Chris Colasurdo
 * Greenjack
