@@ -36,6 +36,8 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Michelle Jordan 
+* Anderson Addo
 * Wilson Young
 * Vivian
 * Gavin Rook
