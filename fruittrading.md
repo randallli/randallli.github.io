@@ -28,6 +28,10 @@ Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest
 
 ___
 This work was made possible in part by:
+
+Norah
+A&E
+
 ### [Patreon](https://patreon.com/TripleLi) supporters
 
 * Jacob Stone!
