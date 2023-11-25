@@ -30,7 +30,7 @@ ___
 This work was made possible in part by:
 
 * Norah
-* A&E
+* A ‘n E
 
 ### [Patreon](https://patreon.com/TripleLi) supporters
 
