@@ -40,14 +40,18 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Dan Caprera 
+* Sarah Madoff
 * Michelle Jordan 
 * Anderson Addo
+* Tim G.
 * Wilson Young
 * Vivian
 * Gavin Rook
 * Nicole Amato
 * Chris Colasurdo
 * Greenjack
+* Jon Perry
 * John Carimando
 * Brian Quiñones
 * Jennifer Criollo-Garcia 
