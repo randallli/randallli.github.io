@@ -40,7 +40,9 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Ted Zech
 * Dan Caprera 
+* Giovannie Silva
 * Sarah Madoff
 * Michelle Jordan 
 * Anderson Addo
