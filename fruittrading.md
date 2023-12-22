@@ -45,6 +45,8 @@ Thanks to all the playtesters that helped me improve the game.
 * Joshua Hyman
 * Peter
 * Ted Zech
+* Jon Perry
+* Nicole Amato
 * Dan Caprera 
 * Giovannie Silva
 * Sarah Madoff
@@ -54,10 +56,8 @@ Thanks to all the playtesters that helped me improve the game.
 * Wilson Young
 * Vivian
 * Gavin Rook
-* Nicole Amato
 * Chris Colasurdo
 * Greenjack
-* Jon Perry
 * John Carimando
 * Brian Quiñones
 * Jennifer Criollo-Garcia 
