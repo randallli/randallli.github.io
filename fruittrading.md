@@ -66,4 +66,5 @@ Thanks to all the playtesters that helped me improve the game.
 
 > Recent playtesters listed first
 
-If you have playtested: fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) and I will add you to this list. Feel free to fill it out again if you play again and I will move you up in the credit order.
+Playtesters: Fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) to be publicly added to this list. 
+> Fill it out again if you play again to move up in the order.
