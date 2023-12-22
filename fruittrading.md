@@ -42,8 +42,8 @@ Thanks to all the playtesters that helped me improve the game.
 
 * Hana Sun
 * Edgar Valdez
-* Joshua Hyman
 * Peter
+* Joshua Hyman
 * Ted Zech
 * Jon Perry
 * Nicole Amato
