@@ -41,8 +41,9 @@ This work was made possible in part by:
 Thanks to all the playtesters that helped me improve the game.
 
 * Hana Sun
+* Jonathan Cosme
 * Edgar Valdez
-* Peter
+* Peter Y
 * Joshua Hyman
 * Ted Zech
 * Jon Perry
