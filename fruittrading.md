@@ -40,12 +40,17 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Dan Jackson
+* Jason Tavarez
+* Michael Madoff
 * Hana Sun
 * Jonathan Cosme
 * Edgar Valdez
 * Peter Y
 * Joshua Hyman
 * Ted Zech
+* Richard Grasthope
+* Scott L
 * Jon Perry
 * Nicole Amato
 * Dan Caprera 
