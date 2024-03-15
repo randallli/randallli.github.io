@@ -13,4 +13,7 @@ title: Email Newsletter
 </script>
 <!-- End MailerLite Universal -->
 
+Enter your name and email above. If you do not see a form above, [use this direct link](https://dashboard.mailerlite.com/forms/545782/95915993012896971/share).
+
+
 <div class="ml-embedded" data-form="31rLsu"></div>
