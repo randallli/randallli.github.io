@@ -40,6 +40,16 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Jon H
+* Jamie Keffer
+* Ryan Myer
+* Will Foy
+* Rose Fallon
+* Jacob Shaw
+* Matthew Kambic
+* Dillon Nestadt
+* John A. Heath
+* “”
 * Dan Jackson
 * Jason Tavarez
 * Michael Madoff
