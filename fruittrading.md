@@ -40,10 +40,15 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Ryan Gerney
+* Sean Murphy
+* Elijah D
 * Jon H
 * Jamie Keffer
 * Ryan Myer
 * Will Foy
+* Troy
+* Brian Kemp
 * Rose Fallon
 * Jacob Shaw
 * Matthew Kambic
