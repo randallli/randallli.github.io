@@ -49,6 +49,7 @@ Thanks to all the playtesters that helped me improve the game.
 * Will Foy
 * Troy
 * Brian Kemp
+* Nicole Amato
 * Rose Fallon
 * Jacob Shaw
 * Matthew Kambic
@@ -67,7 +68,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Richard Grasthope
 * Scott L
 * Jon Perry
-* Nicole Amato
 * Dan Caprera 
 * Giovannie Silva
 * Sarah Madoff
