@@ -87,9 +87,9 @@ Thanks to all the playtesters that helped me improve the game.
 
 > Recent playtesters listed first
 
-Playtesters: Fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) to be publicly added to this list. 
-> Fill it out again if you play again to move up in the order.
+Playtesters: Fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) to be added to this public list. 
+> If you play again I will move you up in the order. Comparing versions is important. Please use the same form to detail changes you experienced, better and worse. 
 
 ## Newsletter
 
-If you have not got a chance to play or are just interested in information please sign up for my [newsletter](https://tripleli.com/newsletter)
+If you have not had a chance to play or are just interested in information please sign up for my [newsletter](https://tripleli.com/newsletter).
