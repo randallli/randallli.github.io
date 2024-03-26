@@ -32,7 +32,7 @@ This work was made possible in part by:
 * Norah
 * A ‘n E
 
-### [Patreon](https://patreon.com/TripleLi) supporters
+### [Patreon](https://patreon.com/TripleLi) supporters {#patreon}
 
 * Jacob Stone!
 
