@@ -40,6 +40,8 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Jacob Stone
+* Avi H
 * Ryan Gerney
 * Sean Murphy
 * Elijah D
@@ -56,12 +58,13 @@ Thanks to all the playtesters that helped me improve the game.
 * Dillon Nestadt
 * John A. Heath
 * “”
+* Nicholas Kirkpatrick
+* Edgar Valdez
 * Dan Jackson
 * Jason Tavarez
 * Michael Madoff
 * Hana Sun
 * Jonathan Cosme
-* Edgar Valdez
 * Peter Y
 * Joshua Hyman
 * Ted Zech
