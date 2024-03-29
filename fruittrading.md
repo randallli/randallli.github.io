@@ -44,6 +44,7 @@ Thanks to all the playtesters that helped me improve the game.
 
 * Jacob Stone
 * Avi H
+* y
 * Ryan Gerney
 * Sean Murphy
 * Elijah D
