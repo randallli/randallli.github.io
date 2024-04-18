@@ -42,6 +42,11 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Caleb Horning
+*  
+* Alanna Valdez
+* Jacob Shaw
+* Ian Tarter
 * Jacob Stone
 * Avi H
 * y
@@ -57,7 +62,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Brian Kemp
 * Nicole Amato
 * Rose Fallon
-* Jacob Shaw
 * Matthew Kambic
 * Dillon Nestadt
 * John A. Heath
