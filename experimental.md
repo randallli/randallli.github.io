@@ -16,12 +16,10 @@ Expect this to be broken
 
 <script>
     const r = new rive.Rive({
-        src: "https://cdn.rive.app/animations/vehicles.riv",
-        // OR the path to a discoverable and public Rive asset
-        // src: '/public/example.riv',
+        src: '../assets/rive/star_rating.riv',
         canvas: document.getElementById("canvas"),
         autoplay: true,
-        stateMachines: "bumpy",
+        stateMachines: "State Machine 1",
         onLoad: () => {
           r.resizeDrawingSurfaceToCanvas();
         },
