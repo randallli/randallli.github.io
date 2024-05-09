@@ -12,7 +12,7 @@ Expect this to be broken
 
 <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
 
-<canvas id="canvas" width="500" height="500"></canvas>
+<canvas id="canvas" width="100" height="100"></canvas>
 
 <script>
     const r = new rive.Rive({
