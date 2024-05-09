@@ -4,6 +4,7 @@ title: Experimental
 subtitle: Trying out some things
 redirect_from:
   - /experiment
+  - /x
 ---
 Expect this to be broken
 
