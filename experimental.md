@@ -16,13 +16,13 @@ Expect this to be broken
 <canvas id="3Li_Logo" width="500" height="500"></canvas>
 
 <script>
-    const r = new rive.Rive({
+    const r3Li = new rive.Rive({
         src: '../assets/rive/tripleli_logo.riv',
         canvas: document.getElementById("3Li_Logo"),
         autoplay: true,
         stateMachines: "State Machine 1",
         onLoad: () => {
-          r.resizeDrawingSurfaceToCanvas();
+          r3Li.resizeDrawingSurfaceToCanvas();
         },
     });
 </script>
