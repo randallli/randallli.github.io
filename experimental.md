@@ -27,7 +27,7 @@ Expect this to be broken
     });
 </script>
 
-<canvas id="canvas" width="100" height="100"></canvas>
+<canvas id="canvas" width="100" height="25"></canvas>
 
 <script>
     const r = new rive.Rive({

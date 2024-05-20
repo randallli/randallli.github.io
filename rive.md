@@ -26,7 +26,7 @@ Here I have tried out some [rive](https://rive.app/) animations. Some are intera
 
 ## Rive tutorial
 
-<canvas id="canvas" width="100" height="100"></canvas>
+<canvas id="canvas" width="100" height="25"></canvas>
 
 <script>
     const r = new rive.Rive({
