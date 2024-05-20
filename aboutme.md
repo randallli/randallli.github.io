@@ -25,9 +25,9 @@ Self published a couple games:
 
 ### Worked @ Powerhead games
 
-#### Some iPhone games:
+#### Some IGF games:
 
-* [Independent Games Festival: Best mobile game winner](https://web.archive.org/web/20120819091444/http://www.igf.com/02finalists.html#async): Async Corp: Match 4 puzzle game as the programmer.
+* [Independent Games Festival: Best mobile game: finalist](https://web.archive.org/web/20120819091444/http://www.igf.com/02finalists.html#async): Async Corp: Match 4 puzzle game as the programmer.
 * [Independent Mobile Games Festival: Best game design winner](https://web.archive.org/web/20100212170831/http://www.igfmobile.com/): Glow Artisan: A color mixing puzzle game as the main programmer. (Also released on DSi and windows mobile 7)
 
 #### Some Nintendo DS games
