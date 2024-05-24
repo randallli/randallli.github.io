@@ -45,6 +45,10 @@ Thanks to all the playtesters that helped me improve the game.
 * Dennis Rojas
 * Peter Allen Clark
 * Yan Rodriguez
+* Tim G.
+* Connie Shi
+* Jonathan Cosme
+* Hana Sun
 * Caleb Horning
 * Alanna Valdez
 * Jacob Shaw
@@ -72,8 +76,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Dan Jackson
 * Jason Tavarez
 * Michael Madoff
-* Hana Sun
-* Jonathan Cosme
 * Peter Y
 * Joshua Hyman
 * Ted Zech
@@ -85,7 +87,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Sarah Madoff
 * Michelle Jordan 
 * Anderson Addo
-* Tim G.
 * Wilson Young
 * Vivian
 * Gavin Rook
