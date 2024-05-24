@@ -42,15 +42,16 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Dennis Rojas
+* Peter Allen Clark
+* Yan Rodriguez
 * Caleb Horning
-*  
 * Alanna Valdez
 * Jacob Shaw
 * Ian Tarter
 * Jacob Stone
 * Avi H
 * y
-* “”
 * Ryan Gerney
 * Sean Murphy
 * Elijah D
@@ -60,12 +61,12 @@ Thanks to all the playtesters that helped me improve the game.
 * Will Foy
 * Troy
 * Brian Kemp
+* Mireille Pilloud
 * Nicole Amato
 * Rose Fallon
 * Matthew Kambic
 * Dillon Nestadt
 * John A. Heath
-* “”
 * Nicholas Kirkpatrick
 * Edgar Valdez
 * Dan Jackson
