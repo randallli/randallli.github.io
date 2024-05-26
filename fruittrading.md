@@ -46,6 +46,10 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Sevinc Yuksel
+* Jason Tavarez
+* Stanley Tan
+* Asli
 * Dennis Rojas
 * Peter Allen Clark
 * Yan Rodriguez
@@ -78,7 +82,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Nicholas Kirkpatrick
 * Edgar Valdez
 * Dan Jackson
-* Jason Tavarez
 * Michael Madoff
 * Peter Y
 * Joshua Hyman
