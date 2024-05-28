@@ -46,6 +46,8 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Alanna Valdez
+* Edgar Valdez
 * Sevinc Yuksel
 * Jason Tavarez
 * Stanley Tan
@@ -58,7 +60,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Jonathan Cosme
 * Hana Sun
 * Caleb Horning
-* Alanna Valdez
 * Jacob Shaw
 * Ian Tarter
 * Jacob Stone
@@ -80,7 +81,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Dillon Nestadt
 * John A. Heath
 * Nicholas Kirkpatrick
-* Edgar Valdez
 * Dan Jackson
 * Michael Madoff
 * Peter Y
