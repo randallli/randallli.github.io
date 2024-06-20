@@ -46,6 +46,9 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Jeff Cornfield
+* Philip Erikson 
+* Sebastian
 * Alanna Valdez
 * Edgar Valdez
 * Sevinc Yuksel
@@ -65,6 +68,7 @@ Thanks to all the playtesters that helped me improve the game.
 * Jacob Stone
 * Avi H
 * y
+* “”
 * Ryan Gerney
 * Sean Murphy
 * Elijah D
