@@ -46,10 +46,13 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Noah Tervalon
+* Ted Southard
 * Eric McGlohon 
 * Shannon Emmons
 * Russ Steger
 * Schoon
+* Hunter Johnson
 * Jeff Cornfield
 * Philip Erikson 
 * Sebastian
@@ -72,7 +75,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Jacob Stone
 * Avi H
 * y
-* “”
 * Ryan Gerney
 * Sean Murphy
 * Elijah D
