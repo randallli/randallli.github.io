@@ -46,6 +46,14 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Eric Dittmore
+* Sofia Pesiou
+* Joshua Adams
+* Heather Newton/Protospiel Online
+* Danei
+* Dominick DiMercurio II
+* Rick W
+* Dickie Adams
 * Janella Hong
 * Rich Hong
 * Anthony Bisio
