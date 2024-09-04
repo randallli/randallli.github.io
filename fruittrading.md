@@ -50,12 +50,13 @@ Thanks to all the playtesters that helped me improve the game.
 * Sofia Pesiou
 * Joshua Adams
 * Heather Newton/Protospiel Online
+* Derwent Ready
 * Danei
 * Dominick DiMercurio II
 * Rick W
 * Dickie Adams
 * Janella Hong
-* Rich Hong
+* Richard Hahn
 * Anthony Bisio
 * Sara Rosenberg
 * Krishna Rao
