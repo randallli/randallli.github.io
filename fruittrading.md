@@ -46,6 +46,7 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Yuhao Spollen
 * Eric Dittmore
 * Sofia Pesiou
 * Joshua Adams
@@ -84,11 +85,11 @@ Thanks to all the playtesters that helped me improve the game.
 * Jonathan Cosme
 * Hana Sun
 * Caleb Horning
+*  
 * Jacob Shaw
 * Ian Tarter
 * Jacob Stone
 * Avi H
-* y
 * Ryan Gerney
 * Sean Murphy
 * Elijah D
