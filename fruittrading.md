@@ -46,6 +46,20 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Jack Johnson
+* Jason Bracich
+* Amit O
+* Cat Drayer 
+* Dave Sprout
+* Anissa
+* Jason Tavarez
+* Jamie
+* Jeff
+* Sevinc Yuksel
+* Margaret
+* Charles Griebell
+* Sam Oppenheim
+* Michael Sprague
 * Yuhao Spollen
 * Eric Dittmore
 * Sofia Pesiou
@@ -73,8 +87,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Sebastian
 * Alanna Valdez
 * Edgar Valdez
-* Sevinc Yuksel
-* Jason Tavarez
 * Stanley Tan
 * Asli
 * Dennis Rojas
@@ -85,7 +97,6 @@ Thanks to all the playtesters that helped me improve the game.
 * Jonathan Cosme
 * Hana Sun
 * Caleb Horning
-*  
 * Jacob Shaw
 * Ian Tarter
 * Jacob Stone
