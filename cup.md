@@ -34,6 +34,12 @@ Created by Randall Li.
 
 This game was inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
 
+## Variants:
+* Hard mode: Place your cup on the top of your head
+* Informal teams
+* Formal teams
+* Someone with a larger cup
+
 ### Versions
 #### 1.1
 Switched to scilicon cupcakes from paper cups
