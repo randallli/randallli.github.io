@@ -13,26 +13,24 @@ Play outside!
 ![Last cupful logo](/assets/img/LastCupfulLogo.png)
 
 ## Goal
-* Be the last one with (the most) water still in your cup. 
+* Be the last one with any water in your cup.
 
 ## Setup:
-* Give everyone a cup of water.
+* Find an open outdoor space
+* Fill everyone’s cups with water
 
-## Begin:
-* Raise your cups and yell "Last cupful".
-  * Raising your cup lets everyone know you are ready to play.
-
-## Lose
-* Spill your cup of water.
-* Once you have no water in your cup you are out for that round (not allowed to attack anyone else).
+## Game play:
+* Raise your cups and yell “Last cup standing”.
+* Knock the water out of everyone else’s cups.
+* When there is no more water in your cup, you are eliminated from this round.
 
 ## Win
-* Bump or 
-* Scare everyone else's water out of their cups.
+* Be the last one with water left in your cup.
 
 ## Rematch
 * Refill cups.
   * A big o' bucket of water makes this easiest.
+
 
 ## Details
 
