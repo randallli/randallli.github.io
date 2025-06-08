@@ -16,6 +16,7 @@ Play outside!
 * Last person with water in their cup wins
 
 ## Setup:
+* Find a large open space that can get wet.
 * Fill everyone’s cups with water
 
 ## Game play:
@@ -25,22 +26,6 @@ Play outside!
 
 ## Rematch
 * Refill cups by dunking in a big bucket of water
-
-## Details
-
-### Equipment
-* Silicon cupcake liners
-* *Optional*: A bucket for fast refills
-
-### House rules: 
-* A large open space that can get wet is best. Anywhere you would have a waterballoon fight.
-* Get everyone to agree to clean up after you play
-* Hard mode: Place your cup on the top of your head
-
-### Variants:
-* Informal teams?
-* Formal teams?
-* Someone with a larger cup?
 
 ### Credits
 Created by Randall Li.
@@ -54,8 +39,9 @@ This game was inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
 Switched to scilicon cupcakes from paper cups
 
 #### 1.0
-First published version. 
+First published version.
 
 #### 0.~
 * 4oz paper "Souffle" cups:
-    * When filled with water these collapsed into disks too quickly. Kids only got one round out of the cups.
+   * When filled with water these collapsed into disks too quickly. Kids only got one round out of the cups.
+
