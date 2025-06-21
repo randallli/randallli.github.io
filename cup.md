@@ -3,6 +3,7 @@ layout: page
 title: Last cupful
 subtitle: A water-fight playground game with a 1 second re-setup
 redirect_from:
+  - /cupQRv1
   - /lastcup
   - /lastcupful
   - /lastcupfull
@@ -42,7 +43,7 @@ This game was inspired by [Johann Sebastian Joust](http://www.jsjoust.com/)
 
 ### Versions
 #### 1.1
-Switched to scilicon cupcakes from paper cups
+Switched to silicone cupcakes from paper cups
 
 #### 1.0
 First published version.
