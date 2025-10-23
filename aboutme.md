@@ -17,8 +17,10 @@ Took a break from making games while working at Google.
 
 Actually, more life changing, was having two kids ;).
 
-### Worked at a couple startups
-Self published a couple games:
+### Worked at startups (2011-2014)
+Worked as an iOS Engineer at **App Orchard** and other startups, building apps including point-of-sale systems (ShopKeep), an avionics SDK for iPads, and video chat applications.
+
+During this same period, self-published a couple iOS games on nights and weekends:
 
 * [Sirtet, a secretly social game](https://vimeo.com/80443843): tetris backwards.
 * [Hexagonal Rochambeau](https://vimeo.com/36462540): a rock-paper-scissors, real-time strategy game for iPad. Audio by Nathan Tompkins.
