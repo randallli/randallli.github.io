@@ -1805,6 +1805,259 @@ for await number in Counter(limit: 5) {
 }
 ```
 
+### Sendable Protocol & Data Race Safety
+
+The `Sendable` protocol (Swift 5.5+) marks types that can be safely shared across concurrent contexts without causing data races.
+
+#### Understanding Sendable
+
+```swift
+// Sendable types are safe to share across threads
+protocol Sendable {}
+
+// Most value types are implicitly Sendable
+struct User: Sendable {  // Automatic conformance
+    let name: String
+    let age: Int
+}
+
+// Reference types need explicit conformance
+final class Counter: @unchecked Sendable {
+    // @unchecked means you're responsible for thread safety
+    private let lock = NSLock()
+    private var value = 0
+
+    func increment() {
+        lock.lock()
+        defer { lock.unlock() }
+        value += 1
+    }
+}
+```
+
+#### When Types are Sendable
+
+```swift
+// ✅ Automatically Sendable:
+// - Basic value types (Int, String, Bool, etc.)
+// - Structs with all Sendable properties
+// - Enums with Sendable associated values
+// - Immutable classes with Sendable properties
+// - Actors (always Sendable)
+
+struct Location: Sendable {  // ✅ Auto-conforms
+    let latitude: Double
+    let longitude: Double
+}
+
+enum Status: Sendable {  // ✅ Auto-conforms
+    case active
+    case inactive(reason: String)
+}
+
+final class ImmutableUser: Sendable {  // ✅ Can conform
+    let name: String
+    let id: UUID
+
+    init(name: String, id: UUID) {
+        self.name = name
+        self.id = id
+    }
+}
+
+// ❌ Not automatically Sendable:
+// - Classes with mutable state
+// - Structs/enums containing non-Sendable types
+// - Closures capturing non-Sendable values
+
+class MutableUser {  // ❌ Cannot be Sendable
+    var name: String = ""
+    var loginCount: Int = 0
+}
+```
+
+#### Sendable Closures
+
+```swift
+// @Sendable marks closures that can be shared safely
+func performAsync(work: @Sendable @escaping () -> Void) {
+    Task.detached {
+        work()  // Safe to call from any thread
+    }
+}
+
+// Using @Sendable closures
+func example() {
+    let immutableValue = 42  // Captured values must be Sendable
+
+    performAsync { @Sendable in
+        print(immutableValue)  // ✅ Int is Sendable
+    }
+
+    var mutableValue = 0
+    performAsync { @Sendable in
+        // ❌ Error: Capture of 'mutableValue' with non-sendable type
+        // print(mutableValue)
+    }
+}
+```
+
+#### Sendable with async/await
+
+```swift
+// Functions taking Sendable parameters
+func process(user: sending User) async {
+    // 'sending' keyword ensures the value is sent, not shared
+    await saveToDatabase(user)
+}
+
+// Actor isolation and Sendable
+actor DataStore {
+    private var cache: [String: any Sendable] = [:]
+
+    func store<T: Sendable>(_ value: T, key: String) {
+        cache[key] = value
+    }
+
+    func retrieve<T: Sendable>(_ type: T.Type, key: String) -> T? {
+        cache[key] as? T
+    }
+}
+```
+
+#### Conditional Sendable Conformance
+
+```swift
+// Generic types can conditionally conform
+struct Box<T> {
+    let value: T
+}
+
+// Box is Sendable only if T is Sendable
+extension Box: Sendable where T: Sendable {}
+
+// Usage
+let intBox = Box(value: 42)  // ✅ Sendable
+let userBox = Box(value: MutableUser())  // ❌ Not Sendable
+```
+
+#### @unchecked Sendable
+
+```swift
+// Use when you guarantee thread safety manually
+final class ThreadSafeCache: @unchecked Sendable {
+    private var storage: [String: Any] = [:]
+    private let queue = DispatchQueue(label: "cache.queue",
+                                     attributes: .concurrent)
+
+    func set(_ value: Any, for key: String) {
+        queue.async(flags: .barrier) {
+            self.storage[key] = value
+        }
+    }
+
+    func get(_ key: String) -> Any? {
+        queue.sync {
+            storage[key]
+        }
+    }
+}
+```
+
+#### Global Variables and Sendable
+
+```swift
+// Global variables must be Sendable in strict concurrency
+let globalConfig = Configuration()  // ✅ If Configuration is Sendable
+
+// Use @unchecked for legacy code
+@unchecked Sendable
+var legacyGlobalState: LegacyClass?  // Be careful!
+```
+
+#### Best Practices
+
+```swift
+// 1. Prefer value types for concurrent code
+struct Message: Sendable {
+    let id: UUID
+    let text: String
+    let timestamp: Date
+}
+
+// 2. Use actors for mutable shared state
+actor MessageQueue {
+    private var messages: [Message] = []
+
+    func enqueue(_ message: Message) {
+        messages.append(message)
+    }
+
+    func dequeue() -> Message? {
+        messages.isEmpty ? nil : messages.removeFirst()
+    }
+}
+
+// 3. Mark completion handlers as @Sendable
+func fetchData(completion: @Sendable @escaping (Result<Data, Error>) -> Void) {
+    Task.detached {
+        do {
+            let data = try await loadData()
+            completion(.success(data))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+}
+
+// 4. Use sending parameters for ownership transfer
+func transfer(data: sending Data) async {
+    // Takes ownership of data, original can't be used
+    await process(data)
+}
+```
+
+#### Common Errors and Solutions
+
+```swift
+// Error: Type does not conform to Sendable
+struct BadExample {
+    let closure: () -> Void  // ❌ Closures aren't automatically Sendable
+}
+
+// Solution: Mark closure as @Sendable
+struct GoodExample: Sendable {
+    let closure: @Sendable () -> Void  // ✅
+}
+
+// Error: Capture of non-Sendable type
+class ViewModel {
+    var count = 0
+
+    func startTimer() {
+        Task.detached {
+            // ❌ Error: Capture of 'self' with non-sendable type
+            self.count += 1
+        }
+    }
+}
+
+// Solution: Use actor or ensure Sendable
+actor ViewModelActor {
+    var count = 0
+
+    func startTimer() {
+        Task.detached {
+            await self.incrementCount()  // ✅ Actor is Sendable
+        }
+    }
+
+    func incrementCount() {
+        count += 1
+    }
+}
+```
+
 ---
 
 ## Collection Operators
