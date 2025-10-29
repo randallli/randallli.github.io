@@ -737,6 +737,194 @@ func testAsyncWithExpectation() {
 
 ---
 
+## Testing Error Scenarios
+
+### Comprehensive Error Testing
+
+```swift
+import XCTest
+@testable import MyApp
+
+class ErrorHandlingTests: XCTestCase {
+
+    // Test specific error types
+    func testNetworkErrorMapping() {
+        // Test each error case
+        let testCases: [(URLError.Code, NetworkError)] = [
+            (.notConnectedToInternet, .noConnection),
+            (.timedOut, .timeout),
+            (.cannotFindHost, .invalidURL),
+            (.badServerResponse, .invalidResponse)
+        ]
+
+        for (urlErrorCode, expectedNetworkError) in testCases {
+            let urlError = URLError(urlErrorCode)
+            let mappedError = NetworkError.from(urlError)
+
+            XCTAssertEqual(
+                mappedError,
+                expectedNetworkError,
+                "URLError code \(urlErrorCode) should map to \(expectedNetworkError)"
+            )
+        }
+    }
+
+    // Test error recovery
+    func testRetryMechanism() async throws {
+        // Arrange
+        let service = MockService()
+        service.failureCount = 2  // Fail first 2 attempts
+        let retryHandler = RetryHandler(maxAttempts: 3)
+
+        // Act
+        let result = try await retryHandler.execute {
+            try await service.fetchData()
+        }
+
+        // Assert
+        XCTAssertNotNil(result)
+        XCTAssertEqual(service.callCount, 3)  // Called 3 times
+    }
+
+    // Test error propagation
+    func testErrorPropagation() async {
+        let viewModel = DataViewModel()
+        let expectedError = NetworkError.serverError(statusCode: 500)
+
+        viewModel.service = MockService(error: expectedError)
+
+        await viewModel.loadData()
+
+        XCTAssertNil(viewModel.data)
+        XCTAssertNotNil(viewModel.error)
+        XCTAssertEqual(viewModel.error as? NetworkError, expectedError)
+    }
+}
+```
+
+### Testing Throwing Functions
+
+```swift
+class ThrowingFunctionTests: XCTestCase {
+
+    func testFunctionThrowsCorrectError() {
+        // Using XCTAssertThrowsError
+        XCTAssertThrowsError(
+            try validateEmail("invalid"),
+            "Should throw validation error"
+        ) { error in
+            // Verify specific error type
+            XCTAssertEqual(error as? ValidationError, ValidationError.invalidFormat)
+        }
+    }
+
+    func testFunctionDoesNotThrow() {
+        XCTAssertNoThrow(
+            try validateEmail("user@example.com"),
+            "Valid email should not throw"
+        )
+    }
+
+    func testMultipleErrorConditions() {
+        let testCases: [(input: String, expectedError: ValidationError?)] = [
+            ("", .empty),
+            ("a", .tooShort),
+            ("user@", .invalidFormat),
+            ("user@example.com", nil)  // Valid case
+        ]
+
+        for testCase in testCases {
+            if let expectedError = testCase.expectedError {
+                XCTAssertThrowsError(try validate(testCase.input)) { error in
+                    XCTAssertEqual(error as? ValidationError, expectedError)
+                }
+            } else {
+                XCTAssertNoThrow(try validate(testCase.input))
+            }
+        }
+    }
+}
+```
+
+### Testing Error UI States
+
+```swift
+class ErrorUITests: XCTestCase {
+    var sut: ErrorViewController!
+
+    override func setUp() {
+        super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        sut = storyboard.instantiateViewController(withIdentifier: "ErrorViewController") as? ErrorViewController
+        sut.loadViewIfNeeded()
+    }
+
+    func testErrorStateDisplay() {
+        // Given
+        let error = NetworkError.noConnection
+
+        // When
+        sut.showError(error)
+
+        // Then
+        XCTAssertFalse(sut.contentView.isHidden)
+        XCTAssertTrue(sut.errorView.isHidden == false)
+        XCTAssertEqual(sut.errorLabel.text, error.localizedDescription)
+        XCTAssertTrue(sut.retryButton.isEnabled)
+    }
+
+    func testErrorRecovery() {
+        // Given
+        let expectation = expectation(description: "Retry called")
+        sut.onRetry = {
+            expectation.fulfill()
+        }
+
+        // When
+        sut.showError(NetworkError.timeout)
+        sut.retryButton.sendActions(for: .touchUpInside)
+
+        // Then
+        wait(for: [expectation], timeout: 1)
+    }
+}
+```
+
+### Testing Error Analytics
+
+```swift
+class ErrorAnalyticsTests: XCTestCase {
+    var mockAnalytics: MockAnalytics!
+    var errorReporter: ErrorReporter!
+
+    override func setUp() {
+        super.setUp()
+        mockAnalytics = MockAnalytics()
+        errorReporter = ErrorReporter(analytics: mockAnalytics)
+    }
+
+    func testErrorLogging() {
+        // Given
+        let error = NetworkError.serverError(statusCode: 503)
+        let context = ["user_id": "12345", "action": "fetch_profile"]
+
+        // When
+        errorReporter.report(error, context: context)
+
+        // Then
+        XCTAssertEqual(mockAnalytics.loggedEvents.count, 1)
+
+        let event = mockAnalytics.loggedEvents.first
+        XCTAssertEqual(event?.name, "error_occurred")
+        XCTAssertEqual(event?.parameters["error_type"] as? String, "NetworkError")
+        XCTAssertEqual(event?.parameters["error_code"] as? Int, 503)
+        XCTAssertEqual(event?.parameters["user_id"] as? String, "12345")
+    }
+}
+```
+
+---
+
 ## UI Testing
 
 ### UI Testing Basics

@@ -802,6 +802,138 @@ func fetchUser(id: String) async throws -> User {
 }
 ```
 
+### Advanced Error Recovery
+
+```swift
+// Retry logic with exponential backoff
+class NetworkRetryManager {
+    static func retry<T>(
+        maxAttempts: Int = 3,
+        initialDelay: TimeInterval = 1.0,
+        operation: @escaping () async throws -> T
+    ) async throws -> T {
+        var lastError: Error?
+        var delay = initialDelay
+
+        for attempt in 1...maxAttempts {
+            do {
+                return try await operation()
+            } catch NetworkError.timeout, NetworkError.noConnection {
+                lastError = error
+
+                if attempt < maxAttempts {
+                    print("Attempt \(attempt) failed, retrying in \(delay)s...")
+                    try await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+                    delay *= 2  // Exponential backoff
+                }
+            } catch {
+                // Don't retry for other errors
+                throw error
+            }
+        }
+
+        throw lastError ?? NetworkError.timeout
+    }
+}
+
+// Usage
+func fetchDataWithRetry() async throws -> Data {
+    try await NetworkRetryManager.retry {
+        try await fetchData()
+    }
+}
+```
+
+### Error Aggregation
+
+```swift
+// Handling multiple errors in parallel operations
+struct MultipleErrors: Error {
+    let errors: [Error]
+
+    var localizedDescription: String {
+        errors.map { $0.localizedDescription }.joined(separator: ", ")
+    }
+}
+
+func fetchMultipleResources() async throws -> (users: [User], posts: [Post]) {
+    async let usersResult = Task { try await fetchUsers() }
+    async let postsResult = Task { try await fetchPosts() }
+
+    var errors: [Error] = []
+    var users: [User] = []
+    var posts: [Post] = []
+
+    do {
+        users = try await usersResult.value
+    } catch {
+        errors.append(error)
+    }
+
+    do {
+        posts = try await postsResult.value
+    } catch {
+        errors.append(error)
+    }
+
+    if !errors.isEmpty {
+        throw MultipleErrors(errors: errors)
+    }
+
+    return (users, posts)
+}
+```
+
+### Error Context Enhancement
+
+```swift
+// Adding context to errors
+struct ErrorContext {
+    let originalError: Error
+    let context: String
+    let file: String
+    let line: Int
+    let function: String
+
+    init(
+        _ error: Error,
+        context: String,
+        file: String = #file,
+        line: Int = #line,
+        function: String = #function
+    ) {
+        self.originalError = error
+        self.context = context
+        self.file = file
+        self.line = line
+        self.function = function
+    }
+}
+
+extension ErrorContext: LocalizedError {
+    var errorDescription: String? {
+        """
+        Error: \(originalError.localizedDescription)
+        Context: \(context)
+        Location: \(file):\(line) in \(function)
+        """
+    }
+}
+
+// Usage
+func processData() throws {
+    do {
+        let data = try loadData()
+        try validateData(data)
+    } catch {
+        throw ErrorContext(
+            error,
+            context: "Failed to process user data for sync"
+        )
+    }
+}
+```
+
 ### Result Type
 
 ```swift
