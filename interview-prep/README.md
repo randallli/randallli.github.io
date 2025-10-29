@@ -13,22 +13,22 @@ Comprehensive reference materials for iOS senior engineering interviews, organiz
 ## Quick Links by Category
 
 ### Language Fundamentals
-- [Swift Language Features](swift_language_features) - Optionals, protocols, generics, closures, error handling, memory management, modern concurrency
+- [Swift Language Features](swift_language_features.md) - Optionals, protocols, generics, closures, error handling, memory management, modern concurrency
 
 ### UI Frameworks
-- [UIKit Mastery Guide](uikit_mastery_guide) - UIViewController lifecycle, Auto Layout, UITableView/UICollectionView optimization, animations
-- [SwiftUI State Management](swiftui_state_management_guide) - @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject
+- [UIKit Mastery Guide](uikit_mastery_guide.md) - UIViewController lifecycle, Auto Layout, UITableView/UICollectionView optimization, animations
+- [SwiftUI State Management](swiftui_state_management_guide.md) - @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject
 
 ### Architecture & Design
-- [iOS Architecture Patterns](ios_architecture_patterns) - MVC, MVVM, MVVM-C, VIPER, Clean Architecture, dependency injection
-- [Modern iOS Development](modern_ios_development) - SwiftUI, Combine, async/await, modern app architecture, best practices
+- [iOS Architecture Patterns](ios_architecture_patterns.md) - MVC, MVVM, MVVM-C, VIPER, Clean Architecture, dependency injection
+- [Modern iOS Development](modern_ios_development.md) - SwiftUI, Combine, async/await, modern app architecture, best practices
 
 ### Backend & Data
-- [iOS Networking & Data Guide](ios_networking_data_guide) - URLSession, Combine networking, Codable, Core Data, persistence strategies
+- [iOS Networking & Data Guide](ios_networking_data_guide.md) - URLSession, Combine networking, Codable, Core Data, persistence strategies
 
 ### Quality & Performance
-- [iOS Testing Guide](ios_testing_guide) - Unit testing, UI testing, XCTest, mocking, TDD strategies
-- [iOS Performance Optimization](ios_performance_optimization) - Memory management, rendering, profiling tools, optimization techniques
+- [iOS Testing Guide](ios_testing_guide.md) - Unit testing, UI testing, XCTest, mocking, TDD strategies
+- [iOS Performance Optimization](ios_performance_optimization.md) - Memory management, rendering, profiling tools, optimization techniques
 
 ---
 
