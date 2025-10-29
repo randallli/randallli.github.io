@@ -1391,6 +1391,169 @@ let delegate = SSLPinningDelegate(pinnedCertificates: [pinnedCert])
 let session = URLSession(configuration: .default, delegate: delegate, delegateQueue: nil)
 ```
 
+### Privacy Manifest (iOS 17+)
+
+Starting with iOS 17, Apple requires apps to declare their use of certain APIs through a privacy manifest file (`PrivacyInfo.xcprivacy`). This is crucial for networking code that collects data.
+
+#### Required Reasons APIs for Networking
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSPrivacyTracking</key>
+    <false/>
+
+    <key>NSPrivacyTrackingDomains</key>
+    <array>
+        <!-- List domains used for tracking if applicable -->
+    </array>
+
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeUserID</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+    </array>
+
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string> <!-- Access user defaults for app functionality -->
+            </array>
+        </dict>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>35F9.1</string> <!-- Used for measuring network request timing -->
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>
+```
+
+#### Common Networking-Related Privacy Requirements
+
+```swift
+// When using device identifiers in network requests
+struct NetworkTracker {
+    // ⚠️ Requires privacy manifest declaration
+    func trackEvent(_ event: String) async {
+        let deviceID = UIDevice.current.identifierForVendor?.uuidString
+
+        // Must declare use of device identifier in privacy manifest
+        let body = [
+            "event": event,
+            "device_id": deviceID,
+            "timestamp": Date().timeIntervalSince1970
+        ]
+
+        // Send to analytics endpoint
+        try? await apiService.post("/analytics", body: body)
+    }
+}
+
+// When collecting user data
+struct UserDataCollector {
+    // ⚠️ Must declare in NSPrivacyCollectedDataTypes
+    func collectUserData() -> UserData {
+        return UserData(
+            userId: getUserId(),          // NSPrivacyCollectedDataTypeUserID
+            email: getEmail(),            // NSPrivacyCollectedDataTypeEmailAddress
+            location: getLocation(),      // NSPrivacyCollectedDataTypeCoarseLocation
+            deviceInfo: getDeviceInfo()   // NSPrivacyCollectedDataTypeDeviceID
+        )
+    }
+}
+```
+
+#### Third-Party SDK Compliance
+
+```swift
+// Check third-party SDKs for privacy manifest requirements
+class NetworkingSDKManager {
+    func validateSDKPrivacyCompliance() {
+        // Common networking SDKs that require privacy manifests:
+        // - Analytics SDKs (Firebase, Amplitude, Mixpanel)
+        // - Crash reporting (Crashlytics, Sentry)
+        // - Ad networks (AdMob, Facebook Ads)
+        // - Social SDKs (Facebook, Twitter)
+
+        // Example: Ensure Firebase includes its privacy manifest
+        #if canImport(FirebaseAnalytics)
+        // Firebase SDK must include its own PrivacyInfo.xcprivacy
+        // Your app inherits these requirements
+        #endif
+    }
+}
+```
+
+#### Best Practices for Privacy Compliance
+
+```swift
+// 1. Minimize data collection
+struct MinimalDataNetworkClient {
+    func makeRequest() async throws {
+        // ✅ Good: Only collect necessary data
+        let request = APIRequest(
+            endpoint: "/api/data",
+            headers: ["Content-Type": "application/json"]
+        )
+
+        // ❌ Avoid: Unnecessary data collection
+        // let request = APIRequest(
+        //     endpoint: "/api/data",
+        //     headers: [
+        //         "X-Device-ID": UIDevice.current.identifierForVendor,
+        //         "X-User-Location": getCurrentLocation(),
+        //         "X-Contacts-Count": getContactsCount()
+        //     ]
+        // )
+    }
+}
+
+// 2. Declare all API usage accurately
+extension NetworkManager {
+    // If using UserDefaults for caching
+    func cacheResponse(_ data: Data, for key: String) {
+        // ⚠️ Requires NSPrivacyAccessedAPICategoryUserDefaults
+        UserDefaults.standard.set(data, forKey: key)
+    }
+
+    // If measuring timing
+    func measureRequestDuration() -> TimeInterval {
+        // ⚠️ Requires NSPrivacyAccessedAPICategorySystemBootTime
+        let bootTime = ProcessInfo.processInfo.systemUptime
+        return bootTime
+    }
+}
+
+// 3. Document privacy practices
+/// NetworkClient handles all API communication
+/// Privacy: This class collects user ID for authentication only.
+/// No tracking or third-party sharing occurs.
+class NetworkClient {
+    // Implementation
+}
+```
+
 ---
 
 ## Data Persistence
