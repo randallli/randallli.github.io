@@ -806,6 +806,251 @@ class MyClass {
 }
 ```
 
+### Advanced @Observable Patterns (iOS 17+)
+
+#### Nested @Observable Objects
+```swift
+@Observable
+class Address {
+    var street = ""
+    var city = ""
+    var zipCode = ""
+}
+
+@Observable
+class UserProfile {
+    var name = ""
+    var address = Address()  // Nested @Observable
+    var contacts: [Contact] = []
+
+    // Changes to nested objects are automatically observed!
+}
+
+struct ProfileEditView: View {
+    var profile = UserProfile()
+
+    var body: some View {
+        Form {
+            TextField("Name", text: Bindable(profile).name)
+
+            // Nested object properties are reactive too
+            TextField("Street", text: Bindable(profile.address).street)
+            TextField("City", text: Bindable(profile.address).city)
+
+            Text("Full Address: \(profile.address.street), \(profile.address.city)")
+                // Updates when ANY address property changes!
+        }
+    }
+}
+```
+
+#### Async Operations with @Observable
+```swift
+@Observable
+class WeatherViewModel {
+    var temperature: Double?
+    var isLoading = false
+    var errorMessage: String?
+
+    // Use nonisolated for async operations
+    nonisolated init() {}
+
+    func fetchWeather() async {
+        // @MainActor ensures UI updates on main thread
+        await MainActor.run {
+            isLoading = true
+            errorMessage = nil
+        }
+
+        do {
+            // Simulate API call
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+            let temp = Double.random(in: -20...40)
+
+            await MainActor.run {
+                self.temperature = temp
+                self.isLoading = false
+            }
+        } catch {
+            await MainActor.run {
+                self.errorMessage = error.localizedDescription
+                self.isLoading = false
+            }
+        }
+    }
+}
+
+struct WeatherView: View {
+    var viewModel = WeatherViewModel()
+
+    var body: some View {
+        VStack {
+            if viewModel.isLoading {
+                ProgressView()
+            } else if let temp = viewModel.temperature {
+                Text("Temperature: \(temp, specifier: "%.1f")°C")
+            } else if let error = viewModel.errorMessage {
+                Text("Error: \(error)")
+                    .foregroundColor(.red)
+            }
+
+            Button("Refresh") {
+                Task {
+                    await viewModel.fetchWeather()
+                }
+            }
+        }
+        .task {
+            await viewModel.fetchWeather()
+        }
+    }
+}
+```
+
+#### @Observable with Combine Publishers
+```swift
+import Combine
+
+@Observable
+class SearchViewModel {
+    var searchText = ""
+    var searchResults: [String] = []
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        // @Observable properties can still work with Combine
+        $searchText
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .sink { [weak self] text in
+                self?.performSearch(text)
+            }
+            .store(in: &cancellables)
+    }
+
+    private func performSearch(_ query: String) {
+        guard !query.isEmpty else {
+            searchResults = []
+            return
+        }
+
+        // Simulate search
+        searchResults = ["Result for: \(query)"]
+    }
+}
+```
+
+#### Testing @Observable Classes
+```swift
+import XCTest
+@testable import MyApp
+
+// Testing @Observable is simpler than ObservableObject
+final class ViewModelTests: XCTestCase {
+    func testObservableViewModel() {
+        // Given
+        let viewModel = UserViewModel()
+        var observedChanges = 0
+
+        // Use withObservationTracking for testing
+        withObservationTracking {
+            _ = viewModel.name
+        } onChange: {
+            observedChanges += 1
+        }
+
+        // When
+        viewModel.name = "John"
+
+        // Then
+        XCTAssertEqual(observedChanges, 1)
+        XCTAssertEqual(viewModel.name, "John")
+    }
+
+    func testNestedObservation() {
+        let profile = UserProfile()
+        var addressChanges = 0
+
+        withObservationTracking {
+            _ = profile.address.city
+        } onChange: {
+            addressChanges += 1
+        }
+
+        profile.address.city = "San Francisco"
+
+        XCTAssertEqual(addressChanges, 1)
+    }
+}
+```
+
+#### @Observable with SwiftData (iOS 17+)
+```swift
+import SwiftData
+
+// SwiftData models are automatically observable in iOS 17+
+@Model
+class TodoItem {
+    var title: String
+    var isCompleted: Bool
+    var createdDate: Date
+
+    init(title: String) {
+        self.title = title
+        self.isCompleted = false
+        self.createdDate = Date()
+    }
+}
+
+// ViewModel using SwiftData models
+@Observable
+class TodoListViewModel {
+    var todos: [TodoItem] = []
+    var showCompleted = true
+
+    var visibleTodos: [TodoItem] {
+        showCompleted ? todos : todos.filter { !$0.isCompleted }
+    }
+
+    func toggleTodo(_ todo: TodoItem) {
+        todo.isCompleted.toggle()
+        // SwiftData model changes are automatically observed!
+    }
+}
+```
+
+#### Optimizing Performance with @Observable
+```swift
+@Observable
+class OptimizedViewModel {
+    var frequentlyChangingValue = 0
+
+    @ObservationIgnored
+    var cachedComputations: [String: Any] = [:]
+
+    @ObservationIgnored
+    private var updateTimer: Timer?
+
+    // Use computed properties wisely
+    var expensiveComputation: String {
+        // This runs every time it's accessed if dependencies change
+        // Consider caching if expensive
+        if let cached = cachedComputations["expensive"] as? String {
+            return cached
+        }
+
+        let result = performExpensiveWork()
+        cachedComputations["expensive"] = result
+        return result
+    }
+
+    private func performExpensiveWork() -> String {
+        // Expensive operation
+        return "Result"
+    }
+}
+```
+
 ---
 
 ## Decision Flow Chart
