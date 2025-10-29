@@ -958,6 +958,179 @@ struct SimpleWidgetView: View {
 }
 ```
 
+### iOS 18 & Swift 6.0 Features (2024-2025)
+
+```swift
+// iOS 18 Features
+
+// 1. Control Center Widget API
+import WidgetKit
+import AppIntents
+
+struct MusicControlWidget: ControlWidget {
+    var body: some ControlWidgetConfiguration {
+        AppIntentControlConfiguration(
+            kind: "com.example.music-control",
+            provider: MusicControlProvider()
+        ) { config in
+            ControlWidgetButton(action: PlayPauseIntent()) {
+                Label("Play/Pause", systemImage: "playpause.fill")
+            }
+        }
+    }
+}
+
+// 2. Enhanced App Intents
+struct AddTaskIntent: AppIntent {
+    static let title: LocalizedStringResource = "Add Task"
+
+    @Parameter(title: "Task Title")
+    var taskTitle: String
+
+    @Parameter(title: "Due Date")
+    var dueDate: Date?
+
+    func perform() async throws -> some IntentResult {
+        let task = await TaskManager.shared.addTask(
+            title: taskTitle,
+            dueDate: dueDate
+        )
+        return .result(value: task)
+    }
+}
+
+// 3. SwiftUI Animation Enhancements
+struct AnimationView: View {
+    @State private var isExpanded = false
+
+    var body: some View {
+        VStack {
+            // New keyframe animator
+            Text("Swift 6.0")
+                .keyframeAnimator(
+                    initialValue: AnimationValues(),
+                    repeating: true
+                ) { content, value in
+                    content
+                        .scaleEffect(value.scale)
+                        .rotationEffect(value.rotation)
+                } keyframes: { _ in
+                    KeyframeTrack(\.scale) {
+                        LinearKeyframe(1.2, duration: 0.5)
+                        SpringKeyframe(1.0, spring: .bouncy)
+                    }
+                }
+
+            // SF Symbols 6 animations
+            Image(systemName: "heart.fill")
+                .symbolEffect(.bounce, value: isExpanded)
+                .symbolEffect(.variableColor.iterative)
+        }
+    }
+}
+
+// Swift 6.0 Language Features
+
+// 1. Complete Concurrency Checking
+// Enable: SWIFT_STRICT_CONCURRENCY = complete
+actor DataManager {
+    private var cache: [String: Data] = [:]
+
+    func store(_ data: Data, key: String) {
+        cache[key] = data
+    }
+
+    func process(_ items: [any Sendable]) async {
+        // Enforces Sendable checking
+    }
+}
+
+// 2. Typed Throws
+enum NetworkError: Error {
+    case timeout
+    case invalidResponse
+    case serverError(Int)
+}
+
+func fetchData() throws(NetworkError) -> Data {
+    throw NetworkError.timeout
+}
+
+// Usage
+do {
+    let data = try fetchData()
+} catch let error: NetworkError {
+    switch error {
+    case .timeout:
+        print("Timeout")
+    case .invalidResponse:
+        print("Invalid")
+    case .serverError(let code):
+        print("Error: \(code)")
+    }
+}
+
+// 3. Noncopyable Types
+@noncopyable
+struct FileHandle {
+    private let descriptor: Int32
+
+    init(path: String) {
+        descriptor = open(path, O_RDONLY)
+    }
+
+    deinit {
+        close(descriptor)
+    }
+
+    consuming func transfer() -> FileHandle {
+        return self
+    }
+}
+
+// 4. Pack Iteration
+func processMultiple<each T>(_ items: repeat each T) {
+    repeat print(each items)
+}
+
+// 5. Enhanced @MainActor
+@MainActor
+class ViewModel {
+    var text = ""
+
+    func updateUI() {
+        text = "Updated"
+    }
+
+    nonisolated func backgroundWork() async {
+        let result = await compute()
+        await MainActor.run {
+            text = result
+        }
+    }
+}
+
+// 6. Live Activities Push-to-Start
+import ActivityKit
+
+func startLiveActivityViaPush() async {
+    let attributes = DeliveryActivity(orderNumber: "12345")
+
+    let activity = try? Activity.request(
+        attributes: attributes,
+        content: .init(state: .init(
+            status: "Preparing",
+            time: Date()
+        ), staleDate: nil),
+        pushType: .token  // iOS 18
+    )
+
+    if let token = activity?.pushToken {
+        await registerToken(token)
+    }
+}
+```
+
 ---
 
 ## SwiftUI vs UIKit - When to Use What

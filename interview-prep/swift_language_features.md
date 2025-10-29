@@ -1807,7 +1807,7 @@ for await number in Counter(limit: 5) {
 
 ### Sendable Protocol & Data Race Safety
 
-The `Sendable` protocol (Swift 5.5+) marks types that can be safely shared across concurrent contexts without causing data races.
+The `Sendable` protocol (Swift 5.5+) marks types that can be safely shared across concurrent contexts without causing data races. **Swift 6.0 enforces strict concurrency checking by default.**
 
 #### Understanding Sendable
 
@@ -2055,6 +2055,139 @@ actor ViewModelActor {
     func incrementCount() {
         count += 1
     }
+}
+```
+
+### Swift 6.0 New Features (2024-2025)
+
+#### Typed Throws
+```swift
+// Define specific error types
+enum ValidationError: Error {
+    case tooShort
+    case tooLong
+    case invalidFormat
+}
+
+// Function can only throw ValidationError
+func validate(_ input: String) throws(ValidationError) -> Bool {
+    guard input.count >= 3 else {
+        throw ValidationError.tooShort
+    }
+    guard input.count <= 20 else {
+        throw ValidationError.tooLong
+    }
+    return true
+}
+
+// Compiler knows the error type
+do {
+    try validate("ab")
+} catch {
+    // error is ValidationError, not Error
+    switch error {
+    case .tooShort:
+        print("Input too short")
+    case .tooLong:
+        print("Input too long")
+    case .invalidFormat:
+        print("Invalid format")
+    }
+}
+```
+
+#### Complete Concurrency Checking
+```swift
+// Swift 6.0 enables strict concurrency by default
+// Compile with: -strict-concurrency=complete
+
+class LegacyClass {  // Warning: not Sendable
+    var counter = 0
+}
+
+// Swift 6.0 will warn about data races
+func problematicCode() {
+    let legacy = LegacyClass()
+
+    Task {
+        legacy.counter += 1  // ⚠️ Data race warning
+    }
+
+    Task {
+        print(legacy.counter)  // ⚠️ Data race warning
+    }
+}
+
+// Fix with actor or @MainActor
+@MainActor
+class SafeClass {
+    var counter = 0
+}
+```
+
+#### Noncopyable Types
+```swift
+// Resource that shouldn't be copied
+@noncopyable
+struct UniqueResource {
+    private let handle: Int
+
+    init() {
+        handle = createResource()
+    }
+
+    deinit {
+        destroyResource(handle)
+    }
+
+    // Use 'consuming' to transfer ownership
+    consuming func take() -> UniqueResource {
+        return self
+    }
+
+    // Use 'borrowing' for read-only access
+    borrowing func read() -> Int {
+        return handle
+    }
+}
+
+// Usage
+func useResource() {
+    let resource = UniqueResource()
+    let value = resource.read()  // Borrowing
+    let transferred = resource.take()  // Consuming - resource no longer usable
+    // print(resource.handle)  // ❌ Error: resource was consumed
+}
+```
+
+#### Parameter Packs (Variadic Generics)
+```swift
+// Work with multiple types at once
+func zip<each T, each U>(_ first: repeat each T, with second: repeat each U) -> (repeat (each T, each U)) {
+    return (repeat (each first, each second))
+}
+
+// Usage
+let result = zip(1, "hello", true, with: 2.0, "world", false)
+// result is ((Int, Double), (String, String), (Bool, Bool))
+```
+
+#### Improved Existential Types
+```swift
+// Swift 6.0 allows 'any' keyword for clarity
+protocol Drawable {
+    func draw()
+}
+
+// Old way (still works)
+let shapes: [Drawable] = []
+
+// New way (clearer)
+let shapes: [any Drawable] = []
+
+// Use 'some' for opaque types
+func makeShape() -> some Drawable {
+    return Circle()
 }
 ```
 
