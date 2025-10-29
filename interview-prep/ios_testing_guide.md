@@ -11,14 +11,15 @@ subtitle: "Complete Reference for Senior iOS Engineers"
 
 ## Table of Contents
 1. [Unit Testing with XCTest](#unit-testing-with-xctest)
-2. [UI Testing](#ui-testing)
-3. [Test-Driven Development (TDD)](#test-driven-development-tdd)
-4. [Mocking & Dependency Injection](#mocking--dependency-injection)
-5. [Testing Async Code](#testing-async-code)
+2. [Testing Error Handling](#testing-error-handling)
+3. [Mocking & Dependency Injection](#mocking--dependency-injection)
+4. [Testing Async Code](#testing-async-code)
+5. [UI Testing](#ui-testing)
 6. [Testing ViewModels](#testing-viewmodels)
-7. [Test Best Practices](#test-best-practices)
-8. [Code Coverage](#code-coverage)
-9. [Interview Questions](#interview-questions)
+7. [Test-Driven Development (TDD)](#test-driven-development)
+8. [Test Best Practices](#test-best-practices)
+9. [Code Coverage](#code-coverage)
+10. [Interview Questions](#interview-questions)
 
 ---
 
