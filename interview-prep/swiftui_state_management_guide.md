@@ -1,23 +1,49 @@
 ---
 layout: page
 title: "SwiftUI State Management: Complete Guide"
-subtitle: "Understanding @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject"
+subtitle: "Understanding @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject, and @Observable"
 ---
 
 # SwiftUI State Management: Complete Guide
-## Understanding @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject
+## Understanding @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject, and @Observable
 
 ---
 
 ## Overview Table
 
+### iOS 13-16 (ObservableObject)
+
 | Property Wrapper | Ownership | Lifecycle | Use Case | Value/Reference |
 |-----------------|-----------|-----------|----------|-----------------|
 | @State | View owns data | Tied to view | Simple value types in single view | Value type |
 | @Binding | View borrows data | Parent controls | Two-way connection to parent's state | Reference to value |
-| @StateObject | View owns object | View creates & owns | Reference type owned by view | Reference type |
-| @ObservedObject | View observes object | External ownership | Reference type owned elsewhere | Reference type |
-| @EnvironmentObject | View observes object | Injected from ancestor | Shared data across view hierarchy | Reference type |
+| @StateObject | View owns object | View creates & owns | Reference type owned by view (ObservableObject) | Reference type |
+| @ObservedObject | View observes object | External ownership | Reference type owned elsewhere (ObservableObject) | Reference type |
+| @EnvironmentObject | View observes object | Injected from ancestor | Shared data across view hierarchy (ObservableObject) | Reference type |
+
+### iOS 17+ (@Observable - Modern Way)
+
+| Property Wrapper | Ownership | Lifecycle | Use Case | Value/Reference |
+|-----------------|-----------|-----------|----------|-----------------|
+| @State | View owns data | Tied to view | Simple value types in single view | Value type |
+| @Binding | View borrows data | Parent controls | Two-way connection to parent's state | Reference to value |
+| `var` (no wrapper!) | View owns/observes object | Automatic | Reference type with @Observable macro | Reference type |
+| @Bindable | Provides $ syntax | Same as parent | Two-way binding to @Observable properties | Reference type |
+| @Environment | Observes from environment | Injected from ancestor | Shared @Observable across view hierarchy | Reference type |
+
+---
+
+## Table of Contents
+1. [@State](#state)
+2. [@Binding](#binding)
+3. [@StateObject vs @ObservedObject](#stateobject-vs-observedobject)
+4. [@EnvironmentObject](#environmentobject)
+5. [ObservableObject Protocol](#observableobject-protocol)
+6. [@Observable - The Modern Way (iOS 17+)](#observable---the-modern-way-ios-17)
+7. [Decision Flow Chart](#decision-flow-chart)
+8. [Common Patterns & Best Practices](#common-patterns--best-practices)
+9. [Common Mistakes & How to Fix](#common-mistakes--how-to-fix)
+10. [Interview Questions](#interview-questions-you-might-get)
 
 ---
 
@@ -375,6 +401,413 @@ class MyViewModel: ObservableObject {
 
 ---
 
+## @Observable - The Modern Way (iOS 17+)
+
+### What Changed in iOS 17
+
+Apple introduced the **Observation framework** in iOS 17, which fundamentally changes how state management works in SwiftUI. The new `@Observable` macro **replaces** `ObservableObject` and dramatically simplifies code.
+
+### Old Way vs New Way
+
+```swift
+// ❌ OLD WAY (iOS 13-16) - ObservableObject
+class UserViewModel: ObservableObject {
+    @Published var name = ""
+    @Published var email = ""
+    @Published var isLoading = false
+    @Published var users: [User] = []
+}
+
+struct ContentView: View {
+    @StateObject private var viewModel = UserViewModel()  // Need @StateObject
+
+    var body: some View {
+        Text(viewModel.name)
+    }
+}
+
+// ✅ NEW WAY (iOS 17+) - @Observable
+@Observable
+class UserViewModel {
+    var name = ""            // No @Published needed!
+    var email = ""
+    var isLoading = false
+    var users: [User] = []
+}
+
+struct ContentView: View {
+    var viewModel = UserViewModel()  // No property wrapper needed!
+
+    var body: some View {
+        Text(viewModel.name)  // Still reactive!
+    }
+}
+```
+
+### Key Differences
+
+| Feature | ObservableObject (Old) | @Observable (New) |
+|---------|----------------------|-------------------|
+| **Property Wrapper for Properties** | @Published required | None needed |
+| **View Property Wrapper** | @StateObject/@ObservedObject | None needed (just `var`) |
+| **Protocol Conformance** | Must conform to ObservableObject | Just add @Observable macro |
+| **Observation Granularity** | Whole object | Per-property (more efficient!) |
+| **Boilerplate** | High | Minimal |
+| **iOS Version** | iOS 13+ | iOS 17+ |
+
+### How @Observable Works
+
+```swift
+@Observable
+class ShoppingCart {
+    var items: [Item] = []
+    var total: Double = 0.0
+    var discountCode: String = ""
+
+    func addItem(_ item: Item) {
+        items.append(item)
+        calculateTotal()
+    }
+
+    private func calculateTotal() {
+        total = items.reduce(0) { $0 + $1.price }
+    }
+}
+
+struct CartView: View {
+    var cart = ShoppingCart()  // No @StateObject!
+
+    var body: some View {
+        VStack {
+            // View automatically updates when cart.items or cart.total changes
+            Text("Items: \(cart.items.count)")
+            Text("Total: $\(cart.total, specifier: "%.2f")")
+
+            Button("Add Item") {
+                cart.addItem(Item(name: "Widget", price: 9.99))
+            }
+        }
+    }
+}
+```
+
+### @Observable with Different Patterns
+
+#### Pattern 1: Simple View Model
+```swift
+@Observable
+class CounterViewModel {
+    var count = 0
+
+    func increment() {
+        count += 1
+    }
+}
+
+struct CounterView: View {
+    var viewModel = CounterViewModel()
+
+    var body: some View {
+        VStack {
+            Text("Count: \(viewModel.count)")
+            Button("Increment") {
+                viewModel.increment()
+            }
+        }
+    }
+}
+```
+
+#### Pattern 2: Passing to Child Views
+```swift
+@Observable
+class AppState {
+    var user: User?
+    var isAuthenticated = false
+}
+
+struct ParentView: View {
+    var appState = AppState()
+
+    var body: some View {
+        ChildView(appState: appState)  // Just pass it!
+    }
+}
+
+struct ChildView: View {
+    var appState: AppState  // No property wrapper!
+
+    var body: some View {
+        if appState.isAuthenticated {
+            Text("Welcome, \(appState.user?.name ?? "User")")
+        }
+    }
+}
+```
+
+#### Pattern 3: Environment (replaces @EnvironmentObject)
+```swift
+@Observable
+class AppSettings {
+    var isDarkMode = false
+    var fontSize: Double = 16
+}
+
+@main
+struct MyApp: App {
+    var settings = AppSettings()
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environment(settings)  // Inject into environment
+        }
+    }
+}
+
+struct SettingsView: View {
+    @Environment(AppSettings.self) var settings  // Access from environment
+
+    var body: some View {
+        Toggle("Dark Mode", isOn: $settings.isDarkMode)
+    }
+}
+```
+
+### Bindable for Two-Way Binding
+
+When you need `$` syntax for binding with @Observable, use `@Bindable`:
+
+```swift
+@Observable
+class FormViewModel {
+    var username = ""
+    var email = ""
+}
+
+struct FormView: View {
+    var viewModel = FormViewModel()
+
+    var body: some View {
+        Form {
+            // ❌ This won't work: TextField("Username", text: $viewModel.username)
+
+            // ✅ Use @Bindable to get $ syntax
+            BindableFormFields(viewModel: viewModel)
+        }
+    }
+}
+
+struct BindableFormFields: View {
+    @Bindable var viewModel: FormViewModel
+
+    var body: some View {
+        TextField("Username", text: $viewModel.username)
+        TextField("Email", text: $viewModel.email)
+    }
+}
+```
+
+### Computed Properties Still Work
+
+```swift
+@Observable
+class UserProfileViewModel {
+    var firstName = ""
+    var lastName = ""
+
+    // Computed properties are automatically observed!
+    var fullName: String {
+        "\(firstName) \(lastName)"
+    }
+
+    var initials: String {
+        let first = firstName.prefix(1)
+        let last = lastName.prefix(1)
+        return "\(first)\(last)"
+    }
+}
+
+struct ProfileView: View {
+    var viewModel = UserProfileViewModel()
+
+    var body: some View {
+        VStack {
+            Text("Full Name: \(viewModel.fullName)")  // Updates when firstName/lastName change
+            Text("Initials: \(viewModel.initials)")
+        }
+    }
+}
+```
+
+### Ignoring Properties with @ObservationIgnored
+
+```swift
+@Observable
+class DataViewModel {
+    var publicData = ""              // Observed
+
+    @ObservationIgnored
+    var cachedData: [String] = []    // Not observed (won't trigger view updates)
+
+    @ObservationIgnored
+    private var internalState = 0    // Not observed
+}
+```
+
+### Migration Guide: ObservableObject → @Observable
+
+```swift
+// BEFORE (iOS 13-16)
+class OldViewModel: ObservableObject {
+    @Published var name = ""
+    @Published var items: [Item] = []
+
+    var notPublished = ""  // Won't trigger updates
+}
+
+struct OldView: View {
+    @StateObject private var viewModel = OldViewModel()
+
+    var body: some View {
+        Text(viewModel.name)
+    }
+}
+
+// AFTER (iOS 17+)
+@Observable
+class NewViewModel {
+    var name = ""       // Remove @Published
+    var items: [Item] = []
+
+    @ObservationIgnored
+    var notPublished = ""  // Explicitly mark as not observed
+}
+
+struct NewView: View {
+    var viewModel = NewViewModel()  // Remove @StateObject
+
+    var body: some View {
+        Text(viewModel.name)
+    }
+}
+```
+
+### Performance Benefits
+
+The new Observation framework is **more efficient** than ObservableObject:
+
+```swift
+@Observable
+class OptimizedViewModel {
+    var name = ""      // Only observes THIS property
+    var email = ""     // Only observes THIS property
+    var age = 0        // Only observes THIS property
+}
+
+// With ObservableObject:
+// - Any @Published property change triggers ALL observers
+// - Views re-render even if they don't use the changed property
+
+// With @Observable:
+// - Only views that read the changed property re-render
+// - Fine-grained observation at the property level
+```
+
+### When to Use Which
+
+| Use Case | Use This |
+|----------|----------|
+| **New iOS 17+ project** | @Observable |
+| **Supporting iOS 13-16** | ObservableObject |
+| **Need backwards compatibility** | ObservableObject |
+| **SwiftUI-only modern app** | @Observable |
+| **Integrating with UIKit** | Either works |
+
+### Mixing Old and New (Transition Period)
+
+You can mix both in the same app:
+
+```swift
+// Old code (still works)
+class LegacyViewModel: ObservableObject {
+    @Published var data = ""
+}
+
+struct LegacyView: View {
+    @StateObject var viewModel = LegacyViewModel()
+    // ...
+}
+
+// New code
+@Observable
+class ModernViewModel {
+    var data = ""
+}
+
+struct ModernView: View {
+    var viewModel = ModernViewModel()
+    // ...
+}
+```
+
+### Common Gotchas
+
+#### 1. @Bindable is needed for bindings
+```swift
+@Observable class VM { var text = "" }
+
+struct MyView: View {
+    var vm = VM()
+
+    var body: some View {
+        // ❌ Won't work
+        // TextField("Text", text: $vm.text)
+
+        // ✅ Correct - wrap in child view with @Bindable
+        InputField(vm: vm)
+    }
+}
+
+struct InputField: View {
+    @Bindable var vm: VM
+
+    var body: some View {
+        TextField("Text", text: $vm.text)  // ✅ Now works!
+    }
+}
+```
+
+#### 2. Environment syntax is different
+```swift
+// Old way
+struct View1: View {
+    @EnvironmentObject var settings: AppSettings  // ObservableObject
+}
+
+// New way
+struct View2: View {
+    @Environment(AppSettings.self) var settings  // @Observable
+}
+```
+
+#### 3. @Observable only works with classes
+```swift
+// ❌ Error: Can't use @Observable with structs
+@Observable
+struct MyStruct {  // Won't compile!
+    var value = 0
+}
+
+// ✅ Use class
+@Observable
+class MyClass {
+    var value = 0
+}
+```
+
+---
+
 ## Decision Flow Chart
 
 ```
@@ -557,6 +990,42 @@ struct MyView: View {
 ### Q: "What happens if you use @ObservedObject where you should use @StateObject?"
 **A:** The object will be recreated every time the view re-renders, losing all its state. This is a common bug that can cause unexpected behavior and performance issues.
 
+### Q: "What's the difference between ObservableObject and @Observable?"
+**A:** ObservableObject is the old iOS 13-16 approach requiring `@Published` on properties and `@StateObject/@ObservedObject` in views. @Observable is the modern iOS 17+ approach using a macro - no property wrappers needed on properties or in views. @Observable is more efficient with per-property observation instead of whole-object observation, and has less boilerplate.
+
+### Q: "When would you use @Observable vs ObservableObject?"
+**A:** Use @Observable for new iOS 17+ projects or when you can drop support for older iOS versions. It's simpler, more efficient, and has less boilerplate. Use ObservableObject when you need to support iOS 13-16 or are maintaining existing code. You can mix both in the same app during migration.
+
+### Q: "How do you use bindings with @Observable?"
+**A:** Use `@Bindable` wrapper in the view that needs binding access. Unlike @StateObject which automatically provides bindings, @Observable requires explicit @Bindable annotation to get the `$` syntax for two-way binding.
+
+Example:
+```swift
+@Observable class VM { var text = "" }
+
+struct FormView: View {
+    @Bindable var viewModel: VM  // @Bindable provides $ syntax
+
+    var body: some View {
+        TextField("Text", text: $viewModel.text)
+    }
+}
+```
+
+### Q: "What's @ObservationIgnored?"
+**A:** It's used with @Observable to mark properties that shouldn't trigger view updates. By default, all properties in an @Observable class are observed. Use @ObservationIgnored for cached data, internal state, or properties that don't affect the UI.
+
+Example:
+```swift
+@Observable
+class ViewModel {
+    var displayName = ""  // Observed
+
+    @ObservationIgnored
+    var cachedData: [Item] = []  // Not observed
+}
+```
+
 ---
 
 ## Memory Aid
@@ -582,11 +1051,12 @@ struct MyView: View {
 
 ## Quick Reference Code
 
+### Old Way (iOS 13-16)
 ```swift
 // LOCAL VALUE TYPE
 @State private var count = 0
 
-// LOCAL REFERENCE TYPE
+// LOCAL REFERENCE TYPE (ObservableObject)
 @StateObject private var viewModel = ViewModel()
 
 // RECEIVED BINDING
@@ -604,6 +1074,34 @@ ChildView(text: $myText)
 // INJECTING ENVIRONMENT
 ContentView()
     .environmentObject(mySettings)
+```
+
+### New Way (iOS 17+)
+```swift
+// LOCAL VALUE TYPE (unchanged)
+@State private var count = 0
+
+// LOCAL REFERENCE TYPE (@Observable)
+var viewModel = ViewModel()  // No property wrapper!
+
+// RECEIVED BINDING (unchanged)
+@Binding var isOn: Bool
+
+// PASSED REFERENCE TYPE (@Observable)
+var sharedVM: SharedViewModel  // No @ObservedObject!
+
+// BINDABLE FOR $ SYNTAX
+@Bindable var viewModel: ViewModel  // For TextField, Toggle, etc.
+
+// ENVIRONMENT (@Observable)
+@Environment(AppSettings.self) var settings
+
+// PASSING OBSERVABLE
+ChildView(viewModel: viewModel)
+
+// INJECTING ENVIRONMENT
+ContentView()
+    .environment(mySettings)
 ```
 
 Good luck with your interview! These concepts are fundamental to SwiftUI and will definitely come up.
