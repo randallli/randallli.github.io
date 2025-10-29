@@ -13,18 +13,18 @@ Comprehensive reference materials for iOS senior engineering interviews, organiz
 ## Quick Links by Category
 
 ### Language Fundamentals
-- [Swift Language Features](swift_language_features.md) - Optionals, protocols, generics, closures, error handling, memory management, modern concurrency
+- [Swift Language Features](swift_language_features.md) - Optionals, protocols, generics, closures, error handling, memory management, modern concurrency, Sendable protocol
 
 ### UI Frameworks
 - [UIKit Mastery Guide](uikit_mastery_guide.md) - UIViewController lifecycle, Auto Layout, UITableView/UICollectionView optimization, animations
-- [SwiftUI State Management](swiftui_state_management_guide.md) - @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject
+- [SwiftUI State Management](swiftui_state_management_guide.md) - @State, @Binding, @StateObject, @ObservedObject, @EnvironmentObject, @Observable (iOS 17+)
 
 ### Architecture & Design
 - [iOS Architecture Patterns](ios_architecture_patterns.md) - MVC, MVVM, MVVM-C, VIPER, Clean Architecture, dependency injection
 - [Modern iOS Development](modern_ios_development.md) - SwiftUI, Combine, async/await, modern app architecture, best practices
 
 ### Backend & Data
-- [iOS Networking & Data Guide](ios_networking_data_guide.md) - URLSession, Combine networking, Codable, Core Data, persistence strategies
+- [iOS Networking & Data Guide](ios_networking_data_guide.md) - URLSession, Combine networking, Codable, Core Data, persistence strategies, Privacy Manifest (iOS 17+)
 
 ### Quality & Performance
 - [iOS Testing Guide](ios_testing_guide.md) - Unit testing, UI testing, XCTest, mocking, TDD strategies
@@ -50,14 +50,17 @@ When you need quick answers during pair programming:
 | Optionals | Swift Language Features | §1 |
 | Protocol-Oriented Programming | Swift Language Features | §3 |
 | async/await | Swift Language Features | §12 |
+| Sendable Protocol | Swift Language Features | §12.6 |
 | Memory Management/ARC | Swift Language Features | §7 |
 | MVVM Pattern | iOS Architecture Patterns | §2 |
 | Combine Framework | Modern iOS Development | §2 |
-| URLSession | iOS Networking & Data | - |
+| URLSession | iOS Networking & Data | §1 |
+| Privacy Manifest (iOS 17+) | iOS Networking & Data | §8.4 |
 | XCTest Strategies | iOS Testing Guide | - |
 | Performance Profiling | iOS Performance Optimization | - |
 | Auto Layout | UIKit Mastery Guide | - |
 | SwiftUI State | SwiftUI State Management | All |
+| @Observable (iOS 17+) | SwiftUI State Management | §6 |
 
 ---
 
