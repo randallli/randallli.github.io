@@ -2032,6 +2032,507 @@ class ImageCell: UITableViewCell {
 
 ---
 
+## Real-Time Networking with AsyncStream
+
+### WebSocket Streaming
+
+```swift
+import Foundation
+
+// WebSocket message stream
+class WebSocketStream {
+    private let url: URL
+    private var task: URLSessionWebSocketTask?
+
+    init(url: URL) {
+        self.url = url
+    }
+
+    func messages() -> AsyncThrowingStream<URLSessionWebSocketTask.Message, Error> {
+        AsyncThrowingStream { continuation in
+            let session = URLSession(configuration: .default)
+            let task = session.webSocketTask(with: url)
+            self.task = task
+
+            func receiveMessage() {
+                task.receive { result in
+                    switch result {
+                    case .success(let message):
+                        continuation.yield(message)
+                        receiveMessage() // Continue receiving
+                    case .failure(let error):
+                        continuation.finish(throwing: error)
+                    }
+                }
+            }
+
+            task.resume()
+            receiveMessage()
+
+            continuation.onTermination = { [weak self] _ in
+                self?.task?.cancel(with: .goingAway, reason: nil)
+            }
+        }
+    }
+
+    func send(_ message: URLSessionWebSocketTask.Message) async throws {
+        try await task?.send(message)
+    }
+}
+
+// Usage
+let websocket = WebSocketStream(url: URL(string: "wss://example.com/socket")!)
+
+Task {
+    do {
+        for try await message in websocket.messages() {
+            switch message {
+            case .string(let text):
+                print("Received text: \(text)")
+            case .data(let data):
+                print("Received data: \(data.count) bytes")
+            @unknown default:
+                break
+            }
+        }
+    } catch {
+        print("WebSocket error: \(error)")
+    }
+}
+
+// Send messages
+try await websocket.send(.string("Hello, Server!"))
+```
+
+### Server-Sent Events (SSE)
+
+```swift
+// SSE stream implementation
+class ServerSentEventStream {
+    struct Event {
+        let id: String?
+        let event: String?
+        let data: String
+        let retry: Int?
+    }
+
+    func events(from url: URL) -> AsyncThrowingStream<Event, Error> {
+        AsyncThrowingStream { continuation in
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    continuation.finish(throwing: error)
+                    return
+                }
+            }
+
+            // Use URLSession delegate for streaming
+            let delegate = SSEDelegate { event in
+                continuation.yield(event)
+            }
+
+            let streamSession = URLSession(
+                configuration: .default,
+                delegate: delegate,
+                delegateQueue: nil
+            )
+
+            let streamTask = streamSession.dataTask(with: url)
+            streamTask.resume()
+
+            continuation.onTermination = { _ in
+                streamTask.cancel()
+            }
+        }
+    }
+}
+
+// SSE Delegate
+private class SSEDelegate: NSObject, URLSessionDataDelegate {
+    private let onEvent: (ServerSentEventStream.Event) -> Void
+    private var buffer = Data()
+
+    init(onEvent: @escaping (ServerSentEventStream.Event) -> Void) {
+        self.onEvent = onEvent
+    }
+
+    func urlSession(_ session: URLSession,
+                   dataTask: URLSessionDataTask,
+                   didReceive data: Data) {
+        buffer.append(data)
+
+        // Parse SSE format
+        if let string = String(data: buffer, encoding: .utf8) {
+            let lines = string.components(separatedBy: "\n")
+
+            for line in lines {
+                if line.hasPrefix("data: ") {
+                    let data = String(line.dropFirst(6))
+                    let event = ServerSentEventStream.Event(
+                        id: nil,
+                        event: nil,
+                        data: data,
+                        retry: nil
+                    )
+                    onEvent(event)
+                }
+            }
+
+            // Clear processed data
+            if string.hasSuffix("\n\n") {
+                buffer = Data()
+            }
+        }
+    }
+}
+
+// Usage
+let sseStream = ServerSentEventStream()
+for try await event in sseStream.events(from: sseURL) {
+    print("SSE Event: \(event.data)")
+    // React to server events in real-time
+}
+```
+
+### Streaming JSON Parsing
+
+```swift
+// Stream large JSON arrays without loading entire file
+struct StreamingJSONParser {
+    func parseArray<T: Decodable>(
+        from url: URL,
+        type: T.Type
+    ) -> AsyncThrowingStream<T, Error> {
+        AsyncThrowingStream { continuation in
+            let session = URLSession.shared
+            let task = session.dataTask(with: url)
+
+            let delegate = StreamingDelegate(
+                type: type,
+                onItem: { item in
+                    continuation.yield(item)
+                },
+                onComplete: {
+                    continuation.finish()
+                },
+                onError: { error in
+                    continuation.finish(throwing: error)
+                }
+            )
+
+            let streamSession = URLSession(
+                configuration: .default,
+                delegate: delegate,
+                delegateQueue: nil
+            )
+
+            let streamTask = streamSession.dataTask(with: url)
+            streamTask.resume()
+
+            continuation.onTermination = { _ in
+                streamTask.cancel()
+            }
+        }
+    }
+}
+
+// Streaming delegate for JSON parsing
+private class StreamingDelegate<T: Decodable>: NSObject, URLSessionDataDelegate {
+    private var buffer = Data()
+    private let decoder = JSONDecoder()
+    private let onItem: (T) -> Void
+    private let onComplete: () -> Void
+    private let onError: (Error) -> Void
+
+    init(type: T.Type,
+         onItem: @escaping (T) -> Void,
+         onComplete: @escaping () -> Void,
+         onError: @escaping (Error) -> Void) {
+        self.onItem = onItem
+        self.onComplete = onComplete
+        self.onError = onError
+    }
+
+    func urlSession(_ session: URLSession,
+                   dataTask: URLSessionDataTask,
+                   didReceive data: Data) {
+        buffer.append(data)
+
+        // Try to parse complete JSON objects from buffer
+        do {
+            // Simple approach: assume newline-delimited JSON
+            if let string = String(data: buffer, encoding: .utf8) {
+                let lines = string.components(separatedBy: "\n")
+
+                for line in lines where !line.isEmpty {
+                    if let lineData = line.data(using: .utf8) {
+                        do {
+                            let item = try decoder.decode(T.self, from: lineData)
+                            onItem(item)
+                        } catch {
+                            // Incomplete object, keep in buffer
+                            continue
+                        }
+                    }
+                }
+
+                // Keep last incomplete line in buffer
+                if let lastLine = lines.last,
+                   !lastLine.isEmpty,
+                   let lastData = lastLine.data(using: .utf8) {
+                    buffer = lastData
+                } else {
+                    buffer = Data()
+                }
+            }
+        } catch {
+            onError(error)
+        }
+    }
+
+    func urlSession(_ session: URLSession,
+                   task: URLSessionTask,
+                   didCompleteWithError error: Error?) {
+        if let error = error {
+            onError(error)
+        } else {
+            onComplete()
+        }
+    }
+}
+
+// Usage
+let parser = StreamingJSONParser()
+for try await user in parser.parseArray(from: largeJSONURL, type: User.self) {
+    print("Parsed user: \(user.name)")
+    // Process each user as it's parsed, without loading entire array
+}
+```
+
+### Progress Reporting with AsyncStream
+
+```swift
+// Download with progress updates
+struct DownloadManager {
+    struct DownloadProgress {
+        let bytesWritten: Int64
+        let totalBytes: Int64
+        let progress: Double
+    }
+
+    func download(
+        from url: URL,
+        to destination: URL
+    ) -> (
+        task: Task<URL, Error>,
+        progress: AsyncStream<DownloadProgress>
+    ) {
+        let (progressStream, progressContinuation) = AsyncStream<DownloadProgress>.makeStream()
+
+        let task = Task {
+            let delegate = DownloadDelegate(
+                destination: destination,
+                onProgress: { progress in
+                    progressContinuation.yield(progress)
+                },
+                onComplete: {
+                    progressContinuation.finish()
+                }
+            )
+
+            let session = URLSession(
+                configuration: .default,
+                delegate: delegate,
+                delegateQueue: nil
+            )
+
+            let downloadTask = session.downloadTask(with: url)
+            downloadTask.resume()
+
+            return try await withCheckedThrowingContinuation { continuation in
+                delegate.completion = { result in
+                    continuation.resume(with: result)
+                }
+            }
+        }
+
+        return (task, progressStream)
+    }
+}
+
+// Download delegate
+private class DownloadDelegate: NSObject, URLSessionDownloadDelegate {
+    let destination: URL
+    let onProgress: (DownloadManager.DownloadProgress) -> Void
+    let onComplete: () -> Void
+    var completion: ((Result<URL, Error>) -> Void)?
+
+    init(destination: URL,
+         onProgress: @escaping (DownloadManager.DownloadProgress) -> Void,
+         onComplete: @escaping () -> Void) {
+        self.destination = destination
+        self.onProgress = onProgress
+        self.onComplete = onComplete
+    }
+
+    func urlSession(_ session: URLSession,
+                   downloadTask: URLSessionDownloadTask,
+                   didWriteData bytesWritten: Int64,
+                   totalBytesWritten: Int64,
+                   totalBytesExpectedToWrite: Int64) {
+        let progress = DownloadManager.DownloadProgress(
+            bytesWritten: totalBytesWritten,
+            totalBytes: totalBytesExpectedToWrite,
+            progress: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
+        )
+        onProgress(progress)
+    }
+
+    func urlSession(_ session: URLSession,
+                   downloadTask: URLSessionDownloadTask,
+                   didFinishDownloadingTo location: URL) {
+        do {
+            try FileManager.default.moveItem(at: location, to: destination)
+            completion?(.success(destination))
+            onComplete()
+        } catch {
+            completion?(.failure(error))
+        }
+    }
+}
+
+// Usage
+let manager = DownloadManager()
+let (downloadTask, progressStream) = manager.download(
+    from: fileURL,
+    to: destinationURL
+)
+
+// Monitor progress
+Task {
+    for await progress in progressStream {
+        print("Download: \(Int(progress.progress * 100))%")
+        updateProgressBar(progress.progress)
+    }
+}
+
+// Wait for completion
+Task {
+    do {
+        let finalURL = try await downloadTask.value
+        print("Downloaded to: \(finalURL)")
+    } catch {
+        print("Download failed: \(error)")
+    }
+}
+```
+
+### Chunked Transfer Encoding
+
+```swift
+// Handle chunked responses
+class ChunkedResponseHandler {
+    func streamChunks(from url: URL) -> AsyncThrowingStream<Data, Error> {
+        AsyncThrowingStream { continuation in
+            var request = URLRequest(url: url)
+            request.setValue("chunked", forHTTPHeaderField: "Transfer-Encoding")
+
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: request)
+
+            let delegate = ChunkDelegate { chunk in
+                continuation.yield(chunk)
+            }
+
+            let chunkSession = URLSession(
+                configuration: .default,
+                delegate: delegate,
+                delegateQueue: nil
+            )
+
+            let chunkTask = chunkSession.dataTask(with: request)
+            chunkTask.resume()
+
+            continuation.onTermination = { _ in
+                chunkTask.cancel()
+            }
+        }
+    }
+}
+
+// Process chunks as they arrive
+let handler = ChunkedResponseHandler()
+for try await chunk in handler.streamChunks(from: streamingURL) {
+    // Process each chunk immediately
+    processChunk(chunk)
+    // Don't need to wait for entire response
+}
+```
+
+### Combine to AsyncStream Bridge
+
+```swift
+import Combine
+
+// Convert Combine publishers to AsyncStream
+extension Publisher {
+    func asAsyncStream() -> AsyncStream<Output> {
+        AsyncStream { continuation in
+            let cancellable = self.sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        continuation.finish()
+                    case .failure:
+                        // For non-throwing stream, just finish
+                        continuation.finish()
+                    }
+                },
+                receiveValue: { value in
+                    continuation.yield(value)
+                }
+            )
+
+            continuation.onTermination = { _ in
+                cancellable.cancel()
+            }
+        }
+    }
+
+    func asAsyncThrowingStream() -> AsyncThrowingStream<Output, Failure> {
+        AsyncThrowingStream { continuation in
+            let cancellable = self.sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        continuation.finish()
+                    case .failure(let error):
+                        continuation.finish(throwing: error)
+                    }
+                },
+                receiveValue: { value in
+                    continuation.yield(value)
+                }
+            )
+
+            continuation.onTermination = { _ in
+                cancellable.cancel()
+            }
+        }
+    }
+}
+
+// Usage
+let publisher = URLSession.shared.dataTaskPublisher(for: url)
+    .map(\.data)
+
+for await data in publisher.asAsyncThrowingStream() {
+    print("Received \(data.count) bytes")
+}
+```
+
+---
+
 ## Offline Support
 
 ### Network Reachability

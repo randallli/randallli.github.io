@@ -1805,6 +1805,360 @@ for await number in Counter(limit: 5) {
 }
 ```
 
+### AsyncStream & AsyncSequence
+
+AsyncStream provides a way to create asynchronous sequences of values, perfect for converting callback-based APIs to async/await.
+
+#### Basic AsyncStream Creation
+
+```swift
+// Simple AsyncStream
+func countdown(from: Int) -> AsyncStream<Int> {
+    AsyncStream { continuation in
+        Task {
+            for i in (0...from).reversed() {
+                continuation.yield(i)
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
+            continuation.finish()
+        }
+    }
+}
+
+// Usage
+for await number in countdown(from: 5) {
+    print("Countdown: \(number)")
+}
+
+// Using makeStream for more control
+func generateNumbers() -> AsyncStream<Int> {
+    let (stream, continuation) = AsyncStream<Int>.makeStream()
+
+    Task {
+        for i in 1...10 {
+            continuation.yield(i)
+            try? await Task.sleep(nanoseconds: 500_000_000)
+        }
+        continuation.finish()
+    }
+
+    return stream
+}
+```
+
+#### Converting Callbacks to AsyncStream
+
+```swift
+import CoreLocation
+
+// Convert delegate-based API to AsyncStream
+class LocationStreamer: NSObject {
+    func locationUpdates() -> AsyncStream<CLLocation> {
+        AsyncStream { continuation in
+            let manager = CLLocationManager()
+            let delegate = StreamDelegate(continuation: continuation)
+
+            manager.delegate = delegate
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+
+            continuation.onTermination = { _ in
+                manager.stopUpdatingLocation()
+            }
+        }
+    }
+}
+
+private class StreamDelegate: NSObject, CLLocationManagerDelegate {
+    let continuation: AsyncStream<CLLocation>.Continuation
+
+    init(continuation: AsyncStream<CLLocation>.Continuation) {
+        self.continuation = continuation
+    }
+
+    func locationManager(_ manager: CLLocationManager,
+                        didUpdateLocations locations: [CLLocation]) {
+        for location in locations {
+            continuation.yield(location)
+        }
+    }
+}
+
+// Usage
+let streamer = LocationStreamer()
+for await location in streamer.locationUpdates() {
+    print("New location: \(location.coordinate)")
+}
+```
+
+#### AsyncThrowingStream for Error Handling
+
+```swift
+// Stream that can throw errors
+func fetchDataStream(urls: [URL]) -> AsyncThrowingStream<Data, Error> {
+    AsyncThrowingStream { continuation in
+        Task {
+            for url in urls {
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    continuation.yield(data)
+                } catch {
+                    continuation.finish(throwing: error)
+                    return
+                }
+            }
+            continuation.finish()
+        }
+    }
+}
+
+// Usage with error handling
+do {
+    for try await data in fetchDataStream(urls: myURLs) {
+        print("Received \(data.count) bytes")
+    }
+} catch {
+    print("Stream error: \(error)")
+}
+```
+
+#### Buffering and Backpressure
+
+```swift
+// AsyncStream with buffering policy
+func bufferedStream() -> AsyncStream<Int> {
+    AsyncStream(bufferingPolicy: .bufferingNewest(5)) { continuation in
+        // If consumer is slow, keeps only the 5 newest values
+        Task {
+            for i in 1...100 {
+                continuation.yield(i)
+                // Simulating fast producer
+                try? await Task.sleep(nanoseconds: 100_000_000)
+            }
+            continuation.finish()
+        }
+    }
+}
+
+// Different buffering strategies
+enum BufferingExample {
+    static func unbuffered() -> AsyncStream<Int> {
+        AsyncStream(bufferingPolicy: .unbounded) { continuation in
+            // Keeps all values (may use lots of memory)
+        }
+    }
+
+    static func dropOldest() -> AsyncStream<Int> {
+        AsyncStream(bufferingPolicy: .bufferingOldest(10)) { continuation in
+            // Keeps oldest 10 values, drops new ones if buffer full
+        }
+    }
+}
+```
+
+#### Custom AsyncSequence Implementation
+
+```swift
+// Custom async sequence for paginated API
+struct PaginatedDataSequence: AsyncSequence {
+    typealias Element = [Item]
+
+    let baseURL: URL
+    let pageSize: Int
+
+    struct AsyncIterator: AsyncIteratorProtocol {
+        let baseURL: URL
+        let pageSize: Int
+        var currentPage = 0
+        var hasMore = true
+
+        mutating func next() async throws -> [Item]? {
+            guard hasMore else { return nil }
+
+            var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!
+            components.queryItems = [
+                URLQueryItem(name: "page", value: "\(currentPage)"),
+                URLQueryItem(name: "size", value: "\(pageSize)")
+            ]
+
+            let (data, _) = try await URLSession.shared.data(from: components.url!)
+            let response = try JSONDecoder().decode(PageResponse.self, from: data)
+
+            hasMore = response.hasNext
+            currentPage += 1
+
+            return response.items
+        }
+    }
+
+    func makeAsyncIterator() -> AsyncIterator {
+        AsyncIterator(baseURL: baseURL, pageSize: pageSize)
+    }
+}
+
+// Usage
+let paginated = PaginatedDataSequence(baseURL: apiURL, pageSize: 20)
+for try await items in paginated {
+    print("Processing \(items.count) items")
+    // Automatically fetches next page when needed
+}
+```
+
+#### Combining Multiple AsyncStreams
+
+```swift
+// Merge multiple streams
+func merge<T>(_ streams: AsyncStream<T>...) -> AsyncStream<T> {
+    AsyncStream { continuation in
+        Task {
+            await withTaskGroup(of: Void.self) { group in
+                for stream in streams {
+                    group.addTask {
+                        for await value in stream {
+                            continuation.yield(value)
+                        }
+                    }
+                }
+            }
+            continuation.finish()
+        }
+    }
+}
+
+// Zip streams together
+func zip<T, U>(_ first: AsyncStream<T>, _ second: AsyncStream<U>) -> AsyncStream<(T, U)> {
+    AsyncStream { continuation in
+        Task {
+            var firstIterator = first.makeAsyncIterator()
+            var secondIterator = second.makeAsyncIterator()
+
+            while let value1 = await firstIterator.next(),
+                  let value2 = await secondIterator.next() {
+                continuation.yield((value1, value2))
+            }
+            continuation.finish()
+        }
+    }
+}
+```
+
+#### Real-Time Updates with AsyncStream
+
+```swift
+// NotificationCenter as AsyncStream
+extension NotificationCenter {
+    func notifications(named name: Notification.Name,
+                       object: Any? = nil) -> AsyncStream<Notification> {
+        AsyncStream { continuation in
+            let observer = self.addObserver(
+                forName: name,
+                object: object,
+                queue: .main
+            ) { notification in
+                continuation.yield(notification)
+            }
+
+            continuation.onTermination = { _ in
+                self.removeObserver(observer)
+            }
+        }
+    }
+}
+
+// Usage
+for await notification in NotificationCenter.default.notifications(
+    named: UIApplication.didBecomeActiveNotification
+) {
+    print("App became active")
+}
+
+// Timer as AsyncStream
+func timer(interval: TimeInterval) -> AsyncStream<Date> {
+    AsyncStream { continuation in
+        let timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
+            continuation.yield(Date())
+        }
+
+        continuation.onTermination = { _ in
+            timer.invalidate()
+        }
+    }
+}
+
+// Usage
+for await timestamp in timer(interval: 1.0) {
+    print("Tick at \(timestamp)")
+}
+```
+
+#### Testing AsyncStreams
+
+```swift
+import XCTest
+
+class AsyncStreamTests: XCTestCase {
+    func testAsyncStreamValues() async {
+        // Create test stream
+        let stream = AsyncStream<Int> { continuation in
+            continuation.yield(1)
+            continuation.yield(2)
+            continuation.yield(3)
+            continuation.finish()
+        }
+
+        // Collect values
+        var collected: [Int] = []
+        for await value in stream {
+            collected.append(value)
+        }
+
+        // Assert
+        XCTAssertEqual(collected, [1, 2, 3])
+    }
+
+    func testAsyncStreamWithError() async throws {
+        // Create throwing stream
+        let stream = AsyncThrowingStream<Int, Error> { continuation in
+            continuation.yield(1)
+            continuation.finish(throwing: TestError.failed)
+        }
+
+        // Test error handling
+        var values: [Int] = []
+        do {
+            for try await value in stream {
+                values.append(value)
+            }
+            XCTFail("Should have thrown")
+        } catch {
+            XCTAssertEqual(values, [1])
+            XCTAssertTrue(error is TestError)
+        }
+    }
+
+    func testAsyncStreamTimeout() async {
+        let expectation = expectation(description: "Stream completes")
+
+        let stream = AsyncStream<Int> { continuation in
+            Task {
+                try? await Task.sleep(nanoseconds: 100_000_000)
+                continuation.yield(42)
+                continuation.finish()
+                expectation.fulfill()
+            }
+        }
+
+        var result: Int?
+        for await value in stream {
+            result = value
+        }
+
+        await fulfillment(of: [expectation], timeout: 1)
+        XCTAssertEqual(result, 42)
+    }
+}
+```
+
 ### Sendable Protocol & Data Race Safety
 
 The `Sendable` protocol (Swift 5.5+) marks types that can be safely shared across concurrent contexts without causing data races. **Swift 6.0 enforces strict concurrency checking by default.**

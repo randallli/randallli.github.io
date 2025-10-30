@@ -1405,6 +1405,532 @@ struct ErrorView: View {
 
 ---
 
+## Practical AsyncStream Patterns
+
+### Location Updates with AsyncStream
+
+```swift
+import CoreLocation
+import Foundation
+
+// Location manager with AsyncStream
+@MainActor
+class LocationManager: NSObject, ObservableObject {
+    @Published var location: CLLocation?
+    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
+
+    private let manager = CLLocationManager()
+    private var continuation: AsyncStream<CLLocation>.Continuation?
+
+    override init() {
+        super.init()
+        manager.delegate = self
+    }
+
+    func locationUpdates() -> AsyncStream<CLLocation> {
+        AsyncStream { continuation in
+            self.continuation = continuation
+
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+
+            continuation.onTermination = { [weak self] _ in
+                self?.manager.stopUpdatingLocation()
+            }
+        }
+    }
+
+    func startMonitoring() {
+        Task {
+            for await location in locationUpdates() {
+                self.location = location
+                print("📍 Location: \(location.coordinate)")
+            }
+        }
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager,
+                        didUpdateLocations locations: [CLLocation]) {
+        for location in locations {
+            continuation?.yield(location)
+        }
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        authorizationStatus = manager.authorizationStatus
+    }
+}
+
+// Usage in SwiftUI
+struct LocationView: View {
+    @StateObject private var locationManager = LocationManager()
+
+    var body: some View {
+        VStack {
+            if let location = locationManager.location {
+                Text("Lat: \(location.coordinate.latitude)")
+                Text("Lon: \(location.coordinate.longitude)")
+            } else {
+                Text("Waiting for location...")
+            }
+        }
+        .task {
+            locationManager.startMonitoring()
+        }
+    }
+}
+```
+
+### Core Bluetooth Streaming
+
+```swift
+import CoreBluetooth
+
+// Bluetooth device scanner with AsyncStream
+class BluetoothScanner: NSObject {
+    private var centralManager: CBCentralManager!
+    private var peripheralContinuation: AsyncStream<CBPeripheral>.Continuation?
+
+    func scanForPeripherals() -> AsyncStream<CBPeripheral> {
+        AsyncStream { continuation in
+            self.peripheralContinuation = continuation
+
+            centralManager = CBCentralManager(delegate: self, queue: nil)
+
+            continuation.onTermination = { [weak self] _ in
+                self?.centralManager.stopScan()
+            }
+        }
+    }
+
+    // Stream data from characteristic
+    func characteristicUpdates(
+        for characteristic: CBCharacteristic
+    ) -> AsyncStream<Data> {
+        AsyncStream { continuation in
+            // Set up notification for characteristic
+            // Yield data when received
+
+            continuation.onTermination = { _ in
+                // Clean up notifications
+            }
+        }
+    }
+}
+
+extension BluetoothScanner: CBCentralManagerDelegate {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
+            central.scanForPeripherals(withServices: nil, options: nil)
+        }
+    }
+
+    func centralManager(_ central: CBCentralManager,
+                       didDiscover peripheral: CBPeripheral,
+                       advertisementData: [String : Any],
+                       rssi RSSI: NSNumber) {
+        peripheralContinuation?.yield(peripheral)
+    }
+}
+
+// Usage
+let scanner = BluetoothScanner()
+Task {
+    for await peripheral in scanner.scanForPeripherals() {
+        print("Found device: \(peripheral.name ?? "Unknown")")
+    }
+}
+```
+
+### NotificationCenter as AsyncStream
+
+```swift
+import UIKit
+
+extension NotificationCenter {
+    // Convert notifications to AsyncStream
+    func notifications(
+        named name: Notification.Name,
+        object: Any? = nil
+    ) -> AsyncStream<Notification> {
+        AsyncStream { continuation in
+            let observer = self.addObserver(
+                forName: name,
+                object: object,
+                queue: .main
+            ) { notification in
+                continuation.yield(notification)
+            }
+
+            continuation.onTermination = { _ in
+                self.removeObserver(observer)
+            }
+        }
+    }
+}
+
+// Monitor app lifecycle
+class AppLifecycleMonitor {
+    func startMonitoring() {
+        Task {
+            await withTaskGroup(of: Void.self) { group in
+                // Monitor foreground events
+                group.addTask {
+                    for await _ in NotificationCenter.default.notifications(
+                        named: UIApplication.willEnterForegroundNotification
+                    ) {
+                        print("App will enter foreground")
+                        await self.handleForeground()
+                    }
+                }
+
+                // Monitor background events
+                group.addTask {
+                    for await _ in NotificationCenter.default.notifications(
+                        named: UIApplication.didEnterBackgroundNotification
+                    ) {
+                        print("App did enter background")
+                        await self.handleBackground()
+                    }
+                }
+
+                // Monitor memory warnings
+                group.addTask {
+                    for await _ in NotificationCenter.default.notifications(
+                        named: UIApplication.didReceiveMemoryWarningNotification
+                    ) {
+                        print("Memory warning!")
+                        await self.handleMemoryWarning()
+                    }
+                }
+            }
+        }
+    }
+
+    private func handleForeground() async {
+        // Refresh data, resume operations
+    }
+
+    private func handleBackground() async {
+        // Save state, pause operations
+    }
+
+    private func handleMemoryWarning() async {
+        // Clear caches, reduce memory usage
+    }
+}
+```
+
+### Timer/Ticker Implementation
+
+```swift
+import Foundation
+
+// Ticker with AsyncStream
+struct Ticker {
+    let interval: TimeInterval
+
+    func tick() -> AsyncStream<Date> {
+        AsyncStream { continuation in
+            let timer = Timer.scheduledTimer(
+                withTimeInterval: interval,
+                repeats: true
+            ) { _ in
+                continuation.yield(Date())
+            }
+
+            RunLoop.current.add(timer, forMode: .common)
+
+            continuation.onTermination = { _ in
+                timer.invalidate()
+            }
+        }
+    }
+}
+
+// Countdown timer
+struct CountdownTimer {
+    let duration: TimeInterval
+    let interval: TimeInterval
+
+    func countdown() -> AsyncStream<TimeInterval> {
+        AsyncStream { continuation in
+            var remaining = duration
+
+            let timer = Timer.scheduledTimer(
+                withTimeInterval: interval,
+                repeats: true
+            ) { timer in
+                remaining -= interval
+
+                if remaining <= 0 {
+                    continuation.yield(0)
+                    continuation.finish()
+                    timer.invalidate()
+                } else {
+                    continuation.yield(remaining)
+                }
+            }
+
+            RunLoop.current.add(timer, forMode: .common)
+
+            continuation.onTermination = { _ in
+                timer.invalidate()
+            }
+        }
+    }
+}
+
+// Usage in SwiftUI
+struct TimerView: View {
+    @State private var currentTime = Date()
+    @State private var countdown: TimeInterval = 60
+
+    var body: some View {
+        VStack {
+            Text("Current: \(currentTime.formatted())")
+            Text("Countdown: \(Int(countdown))s")
+        }
+        .task {
+            // Update clock every second
+            for await time in Ticker(interval: 1.0).tick() {
+                currentTime = time
+            }
+        }
+        .task {
+            // Countdown from 60 seconds
+            for await remaining in CountdownTimer(duration: 60, interval: 1).countdown() {
+                countdown = remaining
+            }
+            print("Countdown finished!")
+        }
+    }
+}
+```
+
+### Combine Publisher to AsyncStream Bridge
+
+```swift
+import Combine
+import SwiftUI
+
+// Bridge Combine to async/await
+extension Publisher {
+    func asAsyncStream() -> AsyncStream<Output> {
+        AsyncStream { continuation in
+            let cancellable = self.sink(
+                receiveCompletion: { _ in
+                    continuation.finish()
+                },
+                receiveValue: { value in
+                    continuation.yield(value)
+                }
+            )
+
+            continuation.onTermination = { _ in
+                cancellable.cancel()
+            }
+        }
+    }
+}
+
+// Use existing Combine publishers with async/await
+class DataService: ObservableObject {
+    @Published var searchText = ""
+    @Published var results: [SearchResult] = []
+
+    private var cancellables = Set<AnyCancellable>()
+
+    func setupSearch() {
+        Task {
+            // Convert Combine publisher to AsyncStream
+            for await query in $searchText
+                .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+                .removeDuplicates()
+                .asAsyncStream() {
+
+                await performSearch(query)
+            }
+        }
+    }
+
+    private func performSearch(_ query: String) async {
+        guard !query.isEmpty else {
+            results = []
+            return
+        }
+
+        do {
+            // Perform async search
+            results = try await searchAPI(query: query)
+        } catch {
+            print("Search error: \(error)")
+        }
+    }
+}
+```
+
+### Sensor Data Streaming
+
+```swift
+import CoreMotion
+
+// Motion sensor data as AsyncStream
+class MotionManager {
+    private let motionManager = CMMotionManager()
+
+    func accelerometerUpdates(
+        interval: TimeInterval = 0.1
+    ) -> AsyncThrowingStream<CMAccelerometerData, Error> {
+        AsyncThrowingStream { continuation in
+            guard motionManager.isAccelerometerAvailable else {
+                continuation.finish(throwing: MotionError.notAvailable)
+                return
+            }
+
+            motionManager.accelerometerUpdateInterval = interval
+            motionManager.startAccelerometerUpdates(
+                to: .main
+            ) { data, error in
+                if let error = error {
+                    continuation.finish(throwing: error)
+                } else if let data = data {
+                    continuation.yield(data)
+                }
+            }
+
+            continuation.onTermination = { [weak self] _ in
+                self?.motionManager.stopAccelerometerUpdates()
+            }
+        }
+    }
+
+    func gyroUpdates(
+        interval: TimeInterval = 0.1
+    ) -> AsyncThrowingStream<CMGyroData, Error> {
+        AsyncThrowingStream { continuation in
+            guard motionManager.isGyroAvailable else {
+                continuation.finish(throwing: MotionError.notAvailable)
+                return
+            }
+
+            motionManager.gyroUpdateInterval = interval
+            motionManager.startGyroUpdates(
+                to: .main
+            ) { data, error in
+                if let error = error {
+                    continuation.finish(throwing: error)
+                } else if let data = data {
+                    continuation.yield(data)
+                }
+            }
+
+            continuation.onTermination = { [weak self] _ in
+                self?.motionManager.stopGyroUpdates()
+            }
+        }
+    }
+}
+
+enum MotionError: Error {
+    case notAvailable
+}
+
+// Usage
+let motion = MotionManager()
+Task {
+    do {
+        for try await data in motion.accelerometerUpdates() {
+            print("X: \(data.acceleration.x)")
+            print("Y: \(data.acceleration.y)")
+            print("Z: \(data.acceleration.z)")
+        }
+    } catch {
+        print("Motion error: \(error)")
+    }
+}
+```
+
+### File System Monitoring
+
+```swift
+import Foundation
+
+// Monitor file changes with AsyncStream
+class FileMonitor {
+    private var source: DispatchSourceFileSystemObject?
+
+    func monitorFile(at url: URL) -> AsyncStream<FileEvent> {
+        AsyncStream { continuation in
+            let fileDescriptor = open(url.path, O_EVTONLY)
+            guard fileDescriptor >= 0 else {
+                continuation.finish()
+                return
+            }
+
+            let source = DispatchSource.makeFileSystemObjectSource(
+                fileDescriptor: fileDescriptor,
+                eventMask: [.write, .delete, .rename],
+                queue: .main
+            )
+
+            source.setEventHandler { [weak self] in
+                let flags = source.data
+
+                if flags.contains(.write) {
+                    continuation.yield(.modified)
+                }
+                if flags.contains(.delete) {
+                    continuation.yield(.deleted)
+                    continuation.finish()
+                }
+                if flags.contains(.rename) {
+                    continuation.yield(.renamed)
+                }
+            }
+
+            source.setCancelHandler {
+                close(fileDescriptor)
+            }
+
+            source.resume()
+            self.source = source
+
+            continuation.onTermination = { [weak self] _ in
+                self?.source?.cancel()
+                self?.source = nil
+            }
+        }
+    }
+}
+
+enum FileEvent {
+    case modified
+    case deleted
+    case renamed
+}
+
+// Usage
+let monitor = FileMonitor()
+Task {
+    for await event in monitor.monitorFile(at: configFileURL) {
+        switch event {
+        case .modified:
+            print("Config file changed, reloading...")
+            reloadConfiguration()
+        case .deleted:
+            print("Config file deleted!")
+        case .renamed:
+            print("Config file renamed")
+        }
+    }
+}
+```
+
+---
+
 ## Migration Strategies
 
 ### Gradual UIKit → SwiftUI Migration
