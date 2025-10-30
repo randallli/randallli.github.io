@@ -96,17 +96,26 @@ This document tracks all improvements needed for the iOS interview preparation m
 ## Priority 2: Important Updates to Existing Documents
 
 ### swift_language_features.md
-- [ ] Add Sendable protocol section
-  - [ ] Sendable conformance rules
-  - [ ] @Sendable closures
-  - [ ] Actor isolation
+- [x] Add Sendable protocol section ✅
+  - [x] Sendable conformance rules
+  - [x] @Sendable closures
+  - [x] Actor isolation
 - [ ] Expand Swift 6.0 features
-  - [ ] Strict concurrency checking
+  - [x] Strict concurrency checking ✅
   - [ ] Complete concurrency annotations
 - [ ] Add Swift Macros (Xcode 15+)
   - [ ] @Observable macro deep dive
   - [ ] Custom macro examples
 - [ ] Add Distributed Actors section
+- [ ] Add AsyncStream and AsyncSequence section
+  - [ ] Basic AsyncStream creation and usage
+  - [ ] Converting callbacks to AsyncStream
+  - [ ] AsyncThrowingStream for error handling
+  - [ ] Custom AsyncSequence implementation
+  - [ ] Backpressure and buffering strategies
+  - [ ] Real-time data streaming examples
+  - [ ] Combining multiple AsyncStreams
+  - [ ] Testing AsyncStreams
 - [ ] Add advanced generics patterns
   - [ ] Higher-order type constraints
   - [ ] Opaque return types edge cases
@@ -167,14 +176,20 @@ This document tracks all improvements needed for the iOS interview preparation m
 - [ ] Add memory leak detection strategies
 
 ### ios_networking_data_guide.md
-- [ ] Add Privacy Manifest handling
-  - [ ] Network privacy requirements
-  - [ ] Third-party SDK compliance
+- [x] Add Privacy Manifest handling ✅
+  - [x] Network privacy requirements
+  - [x] Third-party SDK compliance
 - [ ] Add HTTP/3 and QUIC details
 - [ ] Add proxy and VPN handling
 - [ ] Add network privacy settings
 - [ ] Add more dependency injection patterns
 - [ ] Add GraphQL integration examples
+- [ ] Add AsyncStream for real-time networking
+  - [ ] WebSocket to AsyncStream conversion
+  - [ ] Server-sent events (SSE) with AsyncStream
+  - [ ] Streaming JSON parsing
+  - [ ] Progress reporting with AsyncStream
+  - [ ] Chunked transfer encoding handling
 
 ### ios_performance_optimization.md
 - [ ] Add MetricKit integration
@@ -195,10 +210,16 @@ This document tracks all improvements needed for the iOS interview preparation m
   - [ ] Phase animations
   - [ ] scrollTransition modifier
   - [ ] containerRelativeFrame
-- [ ] Add @Observable vs ObservableObject comparison
+- [x] Add @Observable vs ObservableObject comparison ✅
 - [ ] Add Observation framework details
 - [ ] Add SwiftUI/UIKit interop patterns
 - [ ] Add macOS/iOS shared code strategies
+- [ ] Add AsyncStream practical patterns
+  - [ ] Location updates with AsyncStream
+  - [ ] Core Bluetooth streaming
+  - [ ] Notification center as AsyncStream
+  - [ ] Timer/Ticker implementation
+  - [ ] Combine publisher to AsyncStream bridge
 
 ---
 
@@ -249,16 +270,108 @@ This document tracks all improvements needed for the iOS interview preparation m
 
 ---
 
+## Example: AsyncStream Implementation Topics
+
+### Basic AsyncStream Creation
+```swift
+// Converting delegate callbacks to AsyncStream
+func locationUpdates() -> AsyncStream<CLLocation> {
+    AsyncStream { continuation in
+        let manager = CLLocationManager()
+        manager.delegate = LocationDelegate { location in
+            continuation.yield(location)
+        }
+        manager.startUpdatingLocation()
+
+        continuation.onTermination = { _ in
+            manager.stopUpdatingLocation()
+        }
+    }
+}
+```
+
+### WebSocket Streaming
+```swift
+// Real-time data streaming
+func connectWebSocket(url: URL) -> AsyncThrowingStream<Message, Error> {
+    AsyncThrowingStream { continuation in
+        let task = URLSession.shared.webSocketTask(with: url)
+
+        func receiveMessage() {
+            task.receive { result in
+                switch result {
+                case .success(let message):
+                    continuation.yield(message)
+                    receiveMessage() // Continue receiving
+                case .failure(let error):
+                    continuation.finish(throwing: error)
+                }
+            }
+        }
+
+        task.resume()
+        receiveMessage()
+
+        continuation.onTermination = { _ in
+            task.cancel()
+        }
+    }
+}
+```
+
+### Progress Reporting
+```swift
+// Download progress with AsyncStream
+func downloadWithProgress(url: URL) -> (
+    data: Task<Data, Error>,
+    progress: AsyncStream<Double>
+) {
+    let (progressStream, progressContinuation) = AsyncStream<Double>.makeStream()
+
+    let dataTask = Task {
+        // URLSession with progress delegate
+        // Yield progress updates to continuation
+    }
+
+    return (dataTask, progressStream)
+}
+```
+
+### Combine Bridge
+```swift
+// Converting Combine publishers to AsyncStream
+extension Publisher {
+    func asAsyncStream() -> AsyncStream<Output> {
+        AsyncStream { continuation in
+            let cancellable = self.sink(
+                receiveCompletion: { _ in
+                    continuation.finish()
+                },
+                receiveValue: { value in
+                    continuation.yield(value)
+                }
+            )
+
+            continuation.onTermination = { _ in
+                cancellable.cancel()
+            }
+        }
+    }
+}
+```
+
+---
+
 ## Tracking Progress
 
 ### Completion Status by Priority
 | Priority | Total Tasks | Completed | Percentage |
 |----------|------------|-----------|------------|
 | Priority 1 | 36 | 0 | 0% |
-| Priority 2 | 48 | 0 | 0% |
+| Priority 2 | 66 | 4 | 6% |
 | Priority 3 | 18 | 0 | 0% |
 | Quick Fixes | 7 | 7 | 100% |
-| **TOTAL** | **109** | **7** | **6.4%** |
+| **TOTAL** | **127** | **11** | **8.7%** |
 
 ### Document Creation Status
 | New Document | Status | Word Count | Reviewer |
