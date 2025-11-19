@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Find the First Forgery
-subtitle: Can you spot the fake?
+subtitle: Secretly improve (my kids') handwriting
 redirect_from:
   - /findthefirstforgery
   - /firstforgery
