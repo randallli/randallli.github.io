@@ -11,6 +11,3 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
-
-# claude code settings
-.claude/settings.local.json
