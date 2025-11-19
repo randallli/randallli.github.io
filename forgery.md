@@ -14,6 +14,8 @@ redirect_from:
 > **NOTE**
 > This table top game is in active development.
 
+![Find the First Forgery gameplay](/assets/img/forgery-gameplay.jpg)
+
 A board game where players must identify forgeries and uncover the truth.
 
 Reach out to me <playtest@TripleLi.com> if you would like to schedule a playtest.
