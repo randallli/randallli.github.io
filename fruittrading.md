@@ -34,13 +34,14 @@ This work was made possible in part by:
 
 ### [Patreon](https://patreon.com/TripleLi) supporters {#patreon}
 
-* Jacob Stone!
-* Tim G.
-* Hana Sun
-* Connie Shi
-* Anissa
-* Jeff
+* Nicholas Kirkpatrick
 * Jason Tavarez
+* Shifan Mahroof
+* Anissa
+* hana
+* Peter Y
+* Tim G
+* Jeff Verkoeyen
 
 ### Playtesters
 
