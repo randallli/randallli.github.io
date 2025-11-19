@@ -38,6 +38,10 @@ This work was made possible in part by:
 
 Thanks to all the playtesters that helped me improve the game.
 
+* Andrew Kirk
+* Andrew J. Brown
+* Pam Perwien
+
 > Recent playtesters listed first
 
 Playtesters: Fill out [this form](https://forms.gle/fdDuG1Amtx1wXTn28) to be added to this public list.
