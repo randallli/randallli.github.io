@@ -34,14 +34,14 @@ This work was made possible in part by:
 
 ### [Patreon](https://patreon.com/TripleLi) supporters {#patreon}
 
-* Nicholas Kirkpatrick
-* Jason Tavarez
-* Shifan Mahroof
-* Anissa
-* hana
-* Peter Y
-* Tim G
 * Jeff Verkoeyen
+* Tim G
+* Peter Y
+* hana
+* Anissa
+* Shifan Mahroof
+* Jason Tavarez
+* Nicholas Kirkpatrick
 
 ### Playtesters
 
