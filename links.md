@@ -56,6 +56,6 @@ Help make these games a reality:
 
 Show others this QR code to bring them here:
 
-![QR Code to TripleLi.com/qr](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://tripleli.com/qr)
+![QR Code to TripleLi.com/qr](/assets/img/links-qr-code.png)
 
 **tripleli.com/qr**
