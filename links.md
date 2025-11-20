@@ -49,3 +49,13 @@ Help make these games a reality:
 - [Find the First Forgery](https://tripleli.com/forgery) - Secretly improve handwriting
 - [Insider Fruit Trading](https://tripleli.com/fruittrading) - Buy low, sell high
 - [Last cupful](https://tripleli.com/cup) - Water-fight playground game
+
+---
+
+## Share This Page
+
+Show others this QR code to bring them here:
+
+![QR Code to TripleLi.com/qr](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://tripleli.com/qr)
+
+**tripleli.com/qr**
