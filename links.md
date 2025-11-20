@@ -18,19 +18,13 @@ Or email me at <playtest@TripleLi.com>
 
 ---
 
-## Feedback & Join the Community
+## Playtest Feedback Form
 
-### After Your Playtest
+After playing one of my games, please fill out this form to:
+- Share your feedback and help improve the game
+- Get credited on the official playtesters list
 
-Played one of my games? Share your feedback:
-
-**[📝 Submit Playtest Feedback](https://forms.gle/u7k4qXirrengKNQN6)**
-
-### Get Listed as a Playtester
-
-Want to be credited on the official playtesters list?
-
-**[✅ Join Playtesters List](https://forms.gle/fdDuG1Amtx1wXTn28)**
+**[📝 Submit Feedback & Join Playtesters List](https://forms.gle/fdDuG1Amtx1wXTn28)**
 
 ---
 
