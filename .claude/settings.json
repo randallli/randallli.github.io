@@ -2,14 +2,19 @@
   "permissions": {
     "allow": [
       "Bash(bundle exec jekyll build:*)",
+      "Bash(bundle exec jekyll serve:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git log:*)",
       "Bash(git checkout:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git stash:*)",
+      "Bash(git push:*)",
       "Bash(gh pr create:*)",
       "Bash(git fetch:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(gh pr view:*)",
+      "Bash(git pull:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []
