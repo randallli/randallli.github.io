@@ -42,6 +42,12 @@ Help make these games a reality:
 
 **[💖 Support on Patreon](https://patreon.com/TripleLi)**
 
+### Join the Community
+
+Connect with other players and playtesters:
+
+**[💬 Join Discord Server](https://discord.gg/EE2ZeEwP3u)**
+
 ---
 
 ## My Games
