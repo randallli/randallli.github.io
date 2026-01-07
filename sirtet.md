@@ -4,6 +4,8 @@ title: Sirtet
 subtitle: a secretly social game
 ---
 
+Try the relaunched [beta](/play)
+
 More info to come. 
 
 For now see this old trailer of gameplay.
