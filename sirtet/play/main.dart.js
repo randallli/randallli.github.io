@@ -92261,58 +92261,56 @@ p=m.as
 o=p===!0?q.b:m.d
 p=p===!1?q.b:m.e
 n.sbN(m.asL(o,p,s,q.a))},
-atQ(a0){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a=c.f
-if(!a.Q)return
-s=a.as===!0
-r=s?a.d:a.e
+atQ(a1){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b=this,a=null,a0=b.f
+if(!a0.Q)return
+s=a0.as===!0
+r=s?a0.d:a0.e
 if(r==null){A.bu().$1("   \u26a0\ufe0f No staged row found when ending drag!")
-return}if(a0){A.bu().$1("\ud83c\udfae User released inside bounds - committing row insertion")
-a=c.f
-q=a.a
+return}if(a1){A.bu().$1("\ud83c\udfae User released inside bounds - committing row insertion")
+a0=b.f
+q=a0.a
 p=q.a-1
 o=r.b
 if(o>=p){A.bu().$1("   \u26a0\ufe0f Insertion cancelled - target row "+o+" is beyond original well height ("+p+" rows)")
-n=c.x.MS(r,c.f.a)
-c.sbN(c.f.Yx(b,!1,b,B.aE,b,n.a))
-return}m=c.r
+n=b.x.MS(r,b.f.a)
+b.sbN(b.f.Yx(a,!1,a,B.aE,a,n.a))
+return}m=b.r
 m.Me(o)
-o=c.x
-l=o.Js(a.y,r,q);++c.ch
-q=c.f
-k=q.y*1664525+1013904223>>>0
-a=q.x.a
-j=o.rF(q.a.b,s,new A.ft(a,k),0).rA(k)
-i=c.z.Y3(l.a,c.f.a.a-1)
-q=i.a
-h=c.Q.Xs(q)
-g=h.a
-o=h.b
-if(o.length!==0){f=g.e
-e=t.TG.a(B.b.ga5(f)).arD(o)
-f=A.X(f,t.EW)
-f[f.length-1]=e
-g=g.JF(f)}A.bu().$1("   \u279c Row committed. Score: "+g.gf0()+", Combo: "+g.giZ()+"x")
-if(i.b){A.bu().$1("   \u26a0\ufe0f GAME OVER - overflow detected!")
+o=b.x
+l=o.Js(a0.y,r,q);++b.ch
+q=b.f
+k=q.y
+j=k*1664525+1013904223>>>0
+a0=q.x.a
+i=o.rF(q.a.b,s,new A.ft(a0,k),0).rA(k)
+h=b.z.Y3(l.a,b.f.a.a-1)
+q=h.a
+g=b.Q.Xs(q)
+f=g.a
+o=g.b
+if(o.length!==0){e=f.e
+d=t.TG.a(B.b.ga5(e)).arD(o)
+e=A.X(e,t.EW)
+e[e.length-1]=d
+f=f.JF(e)}A.bu().$1("   \u279c Row committed. Score: "+f.gf0()+", Combo: "+f.giZ()+"x")
+if(h.b){A.bu().$1("   \u26a0\ufe0f GAME OVER - overflow detected!")
 m.Mf()
-q=c.f
-o=s?j:q.r
-m=s?q.w:j
-f=k+1
-c.sbN(q.Yn(f,b,new A.ft(a,f),!1,o,b,B.cR,m,b,g))
+q=b.f
+o=s?i:q.r
+m=s?q.w:i
+b.sbN(q.Yn(j,a,new A.ft(a0,j),!1,o,a,B.cR,m,a,f))
 return}m=o.length
 if(m!==0){A.bu().$1("   \u279c Starting fall animation: "+m+" groups")
-d=c.PJ(q,g,o)
-q=c.f
-o=s?j:q.r
-m=s?q.w:j
-f=k+1
-c.sbN(q.asl(0,f,b,d,new A.ft(a,f),!1,o,b,B.kl,m,b,g))}else{q=c.f
-o=s?j:q.r
-m=s?q.w:j
-f=k+1
-c.sbN(q.Yn(f,b,new A.ft(a,f),!1,o,b,B.aE,m,b,g))}}else{A.bu().$1("\ud83c\udfae User released outside bounds - canceling row insertion")
-n=c.x.MS(r,c.f.a)
-c.sbN(c.f.Yx(b,!1,b,B.aE,b,n.a))}},
+c=b.PJ(q,f,o)
+q=b.f
+o=s?i:q.r
+m=s?q.w:i
+b.sbN(q.asl(0,j,a,c,new A.ft(a0,j),!1,o,a,B.kl,m,a,f))}else{q=b.f
+o=s?i:q.r
+m=s?q.w:i
+b.sbN(q.Yn(j,a,new A.ft(a0,j),!1,o,a,B.aE,m,a,f))}}else{A.bu().$1("\ud83c\udfae User released outside bounds - canceling row insertion")
+n=b.x.MS(r,b.f.a)
+b.sbN(b.f.Yx(a,!1,a,B.aE,a,n.a))}},
 q0(){var s,r,q,p,o=this,n=o.f.a.e
 if(n.length===0){A.bu().$1("\ud83c\udfae User pressed Undo - no moves to undo")
 return}s=B.b.ga5(n)
@@ -92442,26 +92440,23 @@ ay8(){A.bu().$1("   \u2705 Falling animation complete")
 var s=this.f
 this.sbN(s.asD(null,null,s.a.ga_9()?B.bK:B.aE))},
 aBq(a){this.sbN(this.f.asb(a))},
-ayT(){var s,r,q,p,o,n,m,l,k,j,i,h,g=this,f=null
-if(g.f.CW==null)return
+ayT(){var s,r,q,p,o,n,m,l,k,j,i=this
+if(i.f.CW==null)return
 A.bu().$1("   \u2705 Slide-out animation complete")
-s=B.b.ga5(g.f.a.e)
-if(s instanceof A.fR){r=g.x
-q=g.z.Y3(r.aBa(s,g.f.a).a,9).a
+s=B.b.ga5(i.f.a.e)
+if(s instanceof A.fR){r=i.x
+q=i.z.Y3(r.aBa(s,i.f.a).a,9).a
 A.bu().$1("   \u279c Undo complete. Score: "+q.gf0()+", Combo: "+q.giZ()+"x")
-p=g.f
+p=i.f
 o=p.r
 n=p.w
 m=s.e
 if(m!=null){l=s.c
 k=r.rF(p.a.b,l,new A.ft(p.x.a,m),0).rA(m)
 if(l)o=k
-else n=k}j=o==null?f:o.e
+else n=k}j=n==null?null:n.e
 if(j==null)j=0
-i=n==null?f:n.e
-if(i==null)i=0
-h=j>i?j:i
-g.sbN(g.f.asR(h*1664525+1013904223>>>0,o,B.aE,n,B.bS,f,f,q))}},
+i.sbN(i.f.asR(j*1664525+1013904223>>>0,o,B.aE,n,B.bS,null,null,q))}},
 aBl(a){this.sbN(this.f.as5(a))},
 ayz(a,b){var s,r=this.f.cy
 if(r==null||J.fI(r))return
