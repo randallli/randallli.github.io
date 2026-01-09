@@ -92445,7 +92445,7 @@ if(i.f.CW==null)return
 A.bu().$1("   \u2705 Slide-out animation complete")
 s=B.b.ga5(i.f.a.e)
 if(s instanceof A.fR){r=i.x
-q=i.z.Y3(r.aBa(s,i.f.a).a,9).a
+q=i.z.Y3(r.aBa(s,i.f.a).a,i.at.a.d).a
 A.bu().$1("   \u279c Undo complete. Score: "+q.gf0()+", Combo: "+q.giZ()+"x")
 p=i.f
 o=p.r
