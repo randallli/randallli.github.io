@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "boardRows": 6,
+  "boardColumns": 5,
+  "numberOfColors": 3,
+  "startCells": [
+    ". R R . .",
+    "R R . . G",
+    ". . . G G",
+    ". . . G .",
+    "B . . . .",
+    "B B B B B"
+  ],
+  "rows": [
+    "G B B B B",
+    "R G G R R",
+    "B G G B B"
+  ],
+  "seed": "0x12345"
+}

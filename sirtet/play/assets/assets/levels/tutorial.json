@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "boardRows": 12,
+  "boardColumns": 6,
+  "numberOfColors": 2,
+  "startCells": [
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    "C C C C C Y",
+    "C C C C C C",
+    "C C C C C C"
+  ],
+  "rows": [
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y",
+    "Y Y Y Y Y Y"
+  ],
+  "seed": "0x19bb1172122"
+}
