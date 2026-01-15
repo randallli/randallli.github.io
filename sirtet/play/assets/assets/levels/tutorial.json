@@ -1,12 +1,9 @@
 {
   "version": 2,
-  "boardRows": 12,
+  "boardRows": 9,
   "boardColumns": 6,
   "numberOfColors": 2,
   "startCells": [
-    ". . . . . .",
-    ". . . . . .",
-    ". . . . . .",
     ". . . . . .",
     ". . . . . .",
     ". . . . . .",

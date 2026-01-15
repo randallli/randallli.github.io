@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "13d9f574157df62149f6ba182b0b9df4",
+const RESOURCES = {"flutter_bootstrap.js": "feff4304a7b5a4138241652b9b9cd46c",
 "version.json": "6f2e1af87c3ea4f02ea02e24e2f59367",
 "index.html": "275a4871af9d92eb0add41a3ef23a011",
 "/": "275a4871af9d92eb0add41a3ef23a011",
-"main.dart.js": "3de1ece6ee3419909f4ac2eb4afc18d1",
+"main.dart.js": "5ea37536d130af7f2e089e6a9d10b49e",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "favicon.png": "4adbf7f3c7869bdc9303ae24cb7913a2",
 "icons/Icon-192.png": "91c6c59b41cc436c2e249647b6d5b1dd",
@@ -32,7 +32,7 @@ const RESOURCES = {"flutter_bootstrap.js": "13d9f574157df62149f6ba182b0b9df4",
 "assets/assets/audio/kick.wav": "4d174f9d67c10ca742d4328ebcf8381b",
 "assets/assets/audio/clave.m4a": "79f85b038a31136508885e2c8ca4d5f4",
 "assets/assets/audio/clave.aif": "614b0c803da2f33d135cd67ad348177c",
-"assets/assets/levels/tutorial.json": "9e4b44b578b3adb492694efec1d5c539",
+"assets/assets/levels/tutorial.json": "056293ce80e547d2937402ea8b247cbd",
 "assets/assets/levels/level_1.json": "ab8ac59125a5c861a9582b91170743b7",
 "canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
 "canvaskit/skwasm_heavy.js": "740d43a6b8240ef9e23eed8c48840da4",
