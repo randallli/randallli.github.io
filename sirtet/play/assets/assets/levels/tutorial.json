@@ -8,21 +8,21 @@
     ". . . . . .",
     ". . . . . .",
     ". . . . . .",
-    ". . . . . .",
-    ". . . . . .",
+    "C . . . Y .",
+    "C C C . Y .",
     "C C C C C Y",
-    "C C C C C C",
-    "C C C C C C"
+    "Y C C C C C",
+    "Y C C C C C"
   ],
   "rows": [
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y",
-    "Y Y Y Y Y Y"
+    "C C C C Y Y",
+    "Y Y Y Y Y C",
+    "C C Y Y C C",
+    "Y Y C C Y Y",
+    "C Y Y C C Y",
+    "Y C C Y Y C",
+    "C C Y Y C C",
+    "Y Y C C Y Y"
   ],
   "seed": "0x19bb1172122"
 }

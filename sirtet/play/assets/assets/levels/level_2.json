@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "boardRows": 9,
+  "boardColumns": 6,
+  "numberOfColors": 6,
+  "startCells": [
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". R R . . .",
+    "R C C . G G",
+    "C C Y Y G .",
+    ". . Y Y Y .",
+    "B . . . R R",
+    "B R R B B R"
+  ],
+  "rows": [
+    "G B B B B",
+    "G R R R R",
+    "R G G R R",
+    "B G G B B"
+  ],
+  "seed": "0x12345"
+}
