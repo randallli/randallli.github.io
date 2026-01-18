@@ -95783,11 +95783,11 @@ s=k+(" GAME STATE (Mode: "+l.b.j(0)+")\n")
 j.a=s
 s+=k
 j.a=s
+r=l.a
+q=r.EI().split("\n")
 s+="\n"
 j.a=s
-r=l.a
 j.a=s+("WELL ("+r.a+"x"+r.b+"):\n")
-q=r.EI().split("\n")
 for(s=q.length,p=0;p<s;++p){o=q[p]
 if(o.length!==0)j.a+="  "+o+"\n"}s=j.a=(j.a+="\n")+"CANDIDATES:\n"
 n=l.r
