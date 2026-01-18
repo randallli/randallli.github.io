@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "boardRows": 15,
+  "boardColumns": 6,
+  "numberOfColors": 6,
+  "startCells": [
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . .",
+    ". . . . . ."
+  ],
+  "rows": [
+    "R R R R R R",
+    "G G G G G G",
+    "B B B B B B",
+    "Y Y Y Y Y Y",
+    "C C C C C C",
+    "R G R G R G",
+    "G R G R G R",
+    "B Y B Y B Y",
+    "Y B Y B Y B",
+    "C R C R C R"
+  ],
+  "seed": "0x12345"
+}
