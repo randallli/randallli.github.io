@@ -95566,41 +95566,42 @@ s=m.gH()
 r=m.gH().a.ga0M()?B.bX:B.ar
 m.sH(s.avd(null,null,r,m.gH().cy+1,n))},
 aDZ(a){this.sH(this.gH().auw(a))},
-aBk(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a=c.gH().dy
-if(a==null)return
-if(a.d){A.bm().$1("   \u2705 Slide-in animation complete, waiting for release")
-c.sH(c.gH().a_5(B.pg,!0,b,b))}else{A.bm().$1("   \u2705 Slide-out animation complete")
-s=B.b.ga9(c.gH().a.e)
-if(s instanceof A.fI){r=c.at
+aBk(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b=this,a=null,a0=b.gH().dy
+if(a0==null)return
+if(a0.d){A.bm().$1("   \u2705 Slide-in animation complete, waiting for release")
+b.sH(b.gH().a_5(B.pg,!0,a,a))}else{A.bm().$1("   \u2705 Slide-out animation complete")
+s=B.b.ga9(b.gH().a.e)
+if(s instanceof A.fI){r=b.at
 r===$&&A.a()
-q=r.aDJ(s,c.gH().a)
-p=c.ay
-p===$&&A.a()
-o=c.cx
+q=r.aDJ(s,b.gH().a)
+if(b.gH().Q!=null)p=q.a.a
+else{o=b.cx
 o===$&&A.a()
-o=p.Ks(q.a,o.a.d).a
+p=o.a.d}o=b.ay
+o===$&&A.a()
+o=o.Ks(q.a,p).a
 A.bm().$1("   \u279c Undo complete. Score: "+o.gf5()+", Combo: "+o.gjl()+"x")
-n=c.gH().r
-m=c.gH().w
-l=c.gH().x
-p=s.e
-k=c.gH().x.hp(p)
-j=s.f
-l=j!=null?k.a3X(j):k
-i=s.c
-h=r.nr(c.gH().a.b,i,l,0).BO(j,p)
-if(i)n=h
-else m=h
-if(l instanceof A.jV){g=n==null?b:n.f
-if(g==null)g=0
-f=m==null?b:m.f
+n=b.gH().r
+m=b.gH().w
+l=b.gH().x
+k=s.e
+j=b.gH().x.hp(k)
+i=s.f
+l=i!=null?j.a3X(i):j
+h=s.c
+g=r.nr(b.gH().a.b,h,l,0).BO(i,k)
+if(h)n=g
+else m=g
+if(l instanceof A.jV){f=n==null?a:n.f
 if(f==null)f=0
-e=g>f?g:f
-l=new A.jV(l.a,l.b,e+1)}l=l.hp(p)
-d=m==null?b:m.e
-if(d==null)d=0
-c.sH(c.gH().avk(d*1664525+1013904223>>>0,l,n,B.ar,m,B.bD,b,b,o))
-c.gH().wC()}}},
+e=m==null?a:m.f
+if(e==null)e=0
+d=f>e?f:e
+l=new A.jV(l.a,l.b,d+1)}l=l.hp(k)
+c=m==null?a:m.e
+if(c==null)c=0
+b.sH(b.gH().avk(c*1664525+1013904223>>>0,l,n,B.ar,m,B.bD,a,a,o))
+b.gH().wC()}}},
 aDU(a){this.sH(this.gH().aup(a))},
 aB0(a,b){var s,r,q=this.gH().fx
 if(q==null||J.fx(q))return
