@@ -96774,7 +96774,7 @@ r===$&&A.a()
 r.cW("mini_tutorial_triggered",A.a4(["side",i?"left":"right","attempt_count",j],t.N,t.K))
 m.sC(m.gC().avy(j,i,!0))}}g.ad(new A.aB2(g))}r=$.qn()
 s.bQ(r.$1(g.a.as).geD(),t.Wh).awK(n)
-if(!n){h=s.bQ(r.$1(g.a.as),t.nS)
+if(!n&&p){h=s.bQ(r.$1(g.a.as),t.nS)
 s=g.y
 s===$&&A.a()
 g.ad(new A.aB3(g,g.Vp(s,g.a.w,h.y)))}g.ad(new A.aB4(g))},
