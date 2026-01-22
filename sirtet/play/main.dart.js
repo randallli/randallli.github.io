@@ -96979,7 +96979,7 @@ return(r^q^p^o)>>>0},
 j(a){var s=this
 return"SlidingRowState(targetRow: "+s.a+", fromLeft: "+s.b+", cells: "+s.c.length+", isInserting: "+s.d+")"}}
 A.S6.prototype={
-aH(a,b){var s,r,q,p=b.a,o=b.b,n=A.lu(new A.i(p/2,o/2),Math.min(p,o)/2-3)
+aH(a,b){var s,r,q,p=b.a,o=b.b,n=A.lu(new A.i(p/2,o/2),Math.min(p,o)/2-2)
 $.a6()
 s=A.aY()
 o=this.c
@@ -96987,9 +96987,9 @@ s.r=o.iq(0.15).gp()
 s.b=B.bq
 a.CC(n,s)
 r=A.aY()
-r.r=o.iq(0.3).gp()
+r.r=o.iq(1).gp()
 r.b=B.b6
-r.c=3
+r.c=2
 a.CC(n,r)
 p=this.b
 if(p>0){q=A.aY()
