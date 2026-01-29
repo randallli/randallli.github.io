@@ -63,6 +63,41 @@
 </head>
 <body>
   <div id="loading">Loading Sirtet...</div>
+
+  <!-- Firebase Analytics Debug Mode (auto-enabled for localhost) -->
+  <script>
+    (function() {
+      var isLocalhost = window.location.hostname === 'localhost' ||
+                        window.location.hostname === '127.0.0.1' ||
+                        window.location.hostname === '[::1]';
+      var hasDebugParam = window.location.search.includes('firebase_debug=1');
+      var shouldEnableDebug = isLocalhost || hasDebugParam;
+
+      // Configure gtag for debug mode before Firebase initializes
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      if (shouldEnableDebug) {
+        // Enable debug mode for Firebase Analytics
+        gtag('config', 'G-DH87219QHD', {
+          'debug_mode': true
+        });
+
+        console.log('🐛 Firebase DebugView enabled (localhost)');
+        console.log('   Events will appear in: Firebase Console → Analytics → DebugView');
+        console.log('   View at: https://console.firebase.google.com/project/sirtet-26/analytics/debugview');
+      }
+
+      // Allow explicit disabling with ?firebase_debug=0
+      if (window.location.search.includes('firebase_debug=0')) {
+        gtag('config', 'G-DH87219QHD', {
+          'debug_mode': false
+        });
+        console.log('Firebase DebugView disabled');
+      }
+    })();
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
