@@ -4,7 +4,8 @@ title: Sirtet
 subtitle: a secretly social game
 ---
 
-Try the relaunched [beta](/sirtet/play)
+Please [record](/sirtet/help) your tries of Sirtet. Especially if you have not played before.
+Try the relaunched [beta](/sirtet/play).
 
 More info to come. 
 
