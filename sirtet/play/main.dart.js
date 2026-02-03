@@ -48860,13 +48860,13 @@ for(;;)switch(s){case 0:k=v.G
 if(k.firebase_core!=null){s=1
 break}o=A.bJ(k.flutterfire_web_sdk_version)
 if(o==null)o=null
-n=o==null?"12.3.0":o
+n=o==null?"12.7.0":o
 m=p.gaml()
 k=$.a7v()
 l=A.n(k).h("b9<2>")
 s=3
 return A.t(A.iQ(A.iY(new A.b9(k,l),new A.ae8(p,m,n),l.h("o.E"),t.C),t.H),$async$Al)
-case 3:$.aN6.m(0,"flutter-fire-core","4.3.0")
+case 3:$.aN6.m(0,"flutter-fire-core","4.4.0")
 $.aN6.af(0,A.bep())
 case 1:return A.v(q,r)}})
 return A.w($async$Al,r)},
@@ -104148,7 +104148,7 @@ o=new A.X6(A.A(t.N,t.Oq))
 s.m(0,o,$.aQ1())
 $.b20=o
 $.b4v=new A.axs(new A.dB(r,r,t.kn))
-$.aN6.m(0,"flutter-fire-analytics","12.1.0")
+$.aN6.m(0,"flutter-fire-analytics","12.1.1")
 A.b43("analytics")
 o=A.aSo(r,r)
 A.jQ(o,$.a7u(),!0)
