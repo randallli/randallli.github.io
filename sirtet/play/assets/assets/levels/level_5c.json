@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "boardRows": 12,
+  "boardColumns": 8,
+  "numberOfColors": 3,
+  "startCells": [
+    "C Y . Y C . . .",
+    "C Y . Y C . . C",
+    "C Y C Y . . C C",
+    "Y C C Y Y C . C",
+    "Y C C Y Y C C C",
+    "Y . O Y . . . O",
+    ". . Y . . Y Y O",
+    ". Y . Y O O . O",
+    "O Y . Y . . C C",
+    "O . . . C . C O",
+    "C C O O C C C C",
+    "C C O O O O C O"
+  ],
+  "rows": [
+    "C C C C O C O O",
+    "O Y Y Y Y O Y O"
+  ],
+  "seed": "0xEC331DB1",
+  "challengeUrl": "https://tripleli.com/sirtet/play/#/challenge?state=AQAMCAPsMx2xVd_qu1_3X1XAR-IFIvMIK44DlpWWkWYFYkFiQA"
+}
