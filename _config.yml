@@ -20,12 +20,10 @@ author: Randall Li
 ###############################################
 
 navbar-links:
+  Sirtet: "sirtet"
   Cup: "cup"
   Fruit: "fruittrading"
   Forgery: "forgery"
-  Old Games:
-    - Sirtet: "sirtet"
-    - more: "aboutme"
   Newsletter: "newsletter"
   About Me: "aboutme"
   # Resources:
