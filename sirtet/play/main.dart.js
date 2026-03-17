@@ -104486,7 +104486,7 @@ gJw(){var s=B.e.fB(this.d,16)
 return"0x"+s},
 J(a){var s=null,r="monospace",q=B.m.ik(0.3),p=A.ja(4),o=A.EH(B.KI,B.l.ik(0.6),s,12),n=t.p,m=A.b([],n)
 m.push(A.cU(A.b([A.bo("Initial: "+("0x"+B.e.fB(this.c,16)),s,s,s,s,A.jH(s,s,B.l.ik(0.6),s,s,s,s,s,r,s,s,10,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s),A.bo("Current: "+A.o(this.gJw()),s,s,s,s,A.jH(s,s,B.l.ik(0.6),s,s,s,s,s,r,s,s,10,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s)],n),B.bz,B.G,B.ah))
-m.push(A.bo(A.ab_("4.13.0","2026.03.16.22:18"),s,s,s,s,A.jH(s,s,B.l.ik(0.6),s,s,s,s,s,r,s,s,10,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s))
+m.push(A.bo(A.ab_("4.14.0","2026.03.17.02:54"),s,s,s,s,A.jH(s,s,B.l.ik(0.6),s,s,s,s,s,r,s,s,10,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s))
 return A.is(s,A.fl(s,A.f8(A.b([o,B.WR,A.cU(m,B.bz,B.G,B.ah)],n),B.E,B.G,B.ah,0),B.w,s,new A.dE(q,s,s,p,s,s,B.aO),s,s,s,B.kG,s),B.a7,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.au9(this,a),s,s,s,s,s,s)}}
 A.au9.prototype={
 $0(){var s,r,q,p,o,n=null,m=this.a,l=m.e.$0()
@@ -104496,7 +104496,7 @@ p=B.e.fB(q,16)
 o=m.gJw()
 q=B.e.fB(q,16)
 m=m.gJw()
-s="Initial: "+("0x"+p)+" | Current: "+A.o(o)+" | Version: "+A.ab_("4.13.0","2026.03.16.22:18")
+s="Initial: "+("0x"+p)+" | Current: "+A.o(o)+" | Version: "+A.ab_("4.14.0","2026.03.17.02:54")
 r="Seeds Initial: "+("0x"+q)+" | Current: "+A.o(m)+" copied to clipboard and version"}A.t9(new A.nq(s))
 this.b.al(t.Pu).f.pl(A.Xo(n,n,n,n,B.mB,B.y,n,A.bo(r,n,n,n,n,n,n,n),n,B.e1,n,n,n,n,n,n,n,n,n,n))
 return n},
@@ -104968,7 +104968,7 @@ r=s.rx
 l=l.cb(r==null?s.k3:r)}l=A.bo("A Unique Match-4 Puzzle Game",o,o,o,o,l,o,o)
 s=A.is(o,this.SQ(a,B.OT,"Development"),B.a7,!1,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,this.gapM(),o,o,o,o,o,o)
 r=this.SQ(a,B.OM,"Acknowledgments")
-q=A.ab_("4.13.0","2026.03.16.22:18")
+q=A.ab_("4.14.0","2026.03.17.02:54")
 p=A.S(a).ok.Q
 return A.mC(n,A.or(A.cU(A.b([m,B.c3,l,B.mA,s,B.ex,r,B.ex,A.bo(q,o,o,o,o,p==null?o:p.cb(B.kg),o,o),B.mA],t.p),B.E,B.G,B.a0),B.fg))},
 SQ(a,b,c){var s=null,r=A.S(a).ok.r
@@ -105191,7 +105191,7 @@ break}s=3
 return A.q(A.Ph(!1,new A.aGK(p,o),a,t.H),$async$AZ)
 case 3:case 1:return A.t(q,r)}})
 return A.u($async$AZ,r)},
-J(a){var s=this,r=null,q=t.p,p=A.b([A.aN(r,new A.h1(B.jN,A.aWS("assets/images/sirtet_logo.png",r,r,B.nX,r,r),r),!1,r,r,!1,r,!1,r,r,r,r,r,r,r,"Sirtet logo",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c3,A.aN(r,A.bo("beta",r,r,r,r,A.S(a).ok.c,r,r),!1,r,r,!1,r,!1,r,r,!0,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c3,new A.YG(A.ab_("4.13.0","2026.03.16.22:18"),r),B.BV,A.aN(r,A.fn(!1,B.a1C,r,r,r,r,r,r,new A.aGP(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Start a new classic game with custom board size",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ex,A.aN(r,A.fn(!1,B.a1T,r,r,r,r,r,r,new A.aGQ(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Learn how to play with an interactive tutorial",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aN(r,A.fn(!1,B.a1c,r,r,r,r,r,r,new A.aGR(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play a game with a specific seed",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aN(r,A.fn(!1,B.a1O,r,r,r,r,r,r,new A.aGS(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play predefined levels",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aN(r,A.fn(!1,B.Cz,r,r,r,r,r,r,new A.aGT(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Configure audio and game settings",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad],q),o=s.geD().co($.aPK(),t.fD)
+J(a){var s=this,r=null,q=t.p,p=A.b([A.aN(r,new A.h1(B.jN,A.aWS("assets/images/sirtet_logo.png",r,r,B.nX,r,r),r),!1,r,r,!1,r,!1,r,r,r,r,r,r,r,"Sirtet logo",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c3,A.aN(r,A.bo("beta",r,r,r,r,A.S(a).ok.c,r,r),!1,r,r,!1,r,!1,r,r,!0,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c3,new A.YG(A.ab_("4.14.0","2026.03.17.02:54"),r),B.BV,A.aN(r,A.fn(!1,B.a1C,r,r,r,r,r,r,new A.aGP(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Start a new classic game with custom board size",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ex,A.aN(r,A.fn(!1,B.a1T,r,r,r,r,r,r,new A.aGQ(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Learn how to play with an interactive tutorial",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aN(r,A.fn(!1,B.a1c,r,r,r,r,r,r,new A.aGR(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play a game with a specific seed",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aN(r,A.fn(!1,B.a1O,r,r,r,r,r,r,new A.aGS(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play predefined levels",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aN(r,A.fn(!1,B.Cz,r,r,r,r,r,r,new A.aGT(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Configure audio and game settings",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad],q),o=s.geD().co($.aPK(),t.fD)
 if(o.Q8()&&!o.Gx())p.push(A.cU(A.b([A.aN(r,A.UO(B.a1A,new A.aGU(s,a)),!1,r,r,!1,r,!1,r,r,r,"Subscribe to mobile launch notifications",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad],q),B.E,B.G,B.a0))
 p.push(A.aN(r,A.UO(B.Cx,new A.aGV(s,a)),!1,r,r,!1,r,!1,r,r,r,"View developer credits and acknowledgments",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r))
 return A.mC(r,A.ed(A.or(new A.b1(B.fg,A.cU(p,B.E,B.cG,B.a0),r),r),r,r))},
