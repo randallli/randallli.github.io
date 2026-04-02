@@ -102190,7 +102190,7 @@ return A.bbF(!1,A.mK(i,A.eU(B.aN,h,B.y,B.az,j)),new A.aFC(g,f),t.K)},
 asM(a){var s=a.e.a
 if((s===B.bz||s===B.au||s===B.aH)&&A.a95(a.a.a.e)>0)$.ab.y2$.push(new A.aFv(this,a))},
 afA(a,b,c,d){var s=this,r=b.a,q=s.ay
-return A.d1(A.b([new A.T3(r.a,r.c.ga0x(),q.b,q.c,d.e,null),A.aR1(s.afy(a,b,c,d,r.b)),new A.T2(A.b9I(b),A.b9H(b),c.gv2(),c.gFW(),new A.aFr(s,b,a),r.e,r.d,A.aQA("4.15.0","2026.04.01.16:35"),new A.aFs(s,b),null),B.DK],t.p),B.C,B.G,B.X)},
+return A.d1(A.b([new A.T3(r.a,r.c.ga0x(),q.b,q.c,d.e,null),A.aR1(s.afy(a,b,c,d,r.b)),new A.T2(A.b9I(b),A.b9H(b),c.gv2(),c.gFW(),new A.aFr(s,b,a),r.e,r.d,A.aQA("4.16.0","2026.04.02.14:08"),new A.aFs(s,b),null),B.DK],t.p),B.C,B.G,B.X)},
 afy(a,b,c,d,e){return A.aRE(new A.aFq(this,b,e,d,c))},
 T_(a,b,c,d,e,f,g,h,i,j){var s=g?"row_insert_left":"row_insert_right",r=this.gw3()
 return new A.A5(j,new A.HB(g,c,d,a,h,i,this.ay.d,f,b,r,e,new A.dn(s,t.kK)),null)},
@@ -105201,7 +105201,7 @@ r=s.rx
 l=l.cb(r==null?s.k3:r)}l=A.bo("A Unique Match-4 Puzzle Game",o,o,o,o,l,o,o)
 s=A.jd(o,this.T0(a,B.P6,"Development"),B.a7,!1,o,o,o,o,o,o,o,o,o,o,o,o,o,o,this.gaq6(),o,o,o,o,o,o)
 r=this.T0(a,B.P_,"Acknowledgments")
-q=A.aQA("4.15.0","2026.04.01.16:35")
+q=A.aQA("4.16.0","2026.04.02.14:08")
 p=A.S(a).ok.Q
 return A.mK(n,A.oB(A.d1(A.b([m,B.c4,l,B.mA,s,B.eA,r,B.eA,A.bo(q,o,o,o,o,p==null?o:p.cb(B.kg),o,o),B.mA],t.p),B.C,B.G,B.X),B.fh))},
 T0(a,b,c){var s=null,r=A.S(a).ok.r
@@ -105428,7 +105428,7 @@ break}s=3
 return A.q(A.Pt(!1,new A.aH3(p,o),a,t.H),$async$B7)
 case 3:case 1:return A.t(q,r)}})
 return A.u($async$B7,r)},
-J(a){var s=this,r=null,q=t.p,p=A.b([A.aM(r,new A.hN(B.Ea,A.aXh("assets/images/sirtet_logo.png",r,r,B.nX,r,r),r),!1,r,r,!1,r,!1,r,r,r,r,r,r,r,"Sirtet logo",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c4,A.aM(r,A.bo("beta",r,r,r,r,A.S(a).ok.c,r,r),!1,r,r,!1,r,!1,r,r,!0,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c4,new A.YS(A.aQA("4.15.0","2026.04.01.16:35"),r),B.C0,A.aM(r,A.nG(!1,B.a1B,r,r,r,r,r,r,new A.aH8(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Start a new classic game with custom board size",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.eA,A.aM(r,A.nG(!1,B.a1S,r,r,r,r,r,r,new A.aH9(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Learn how to play with an interactive tutorial",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aM(r,A.nG(!1,B.a1b,r,r,r,r,r,r,new A.aHa(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play a game with a specific seed",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aM(r,A.nG(!1,B.a1N,r,r,r,r,r,r,new A.aHb(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play predefined levels",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aM(r,A.nG(!1,B.CF,r,r,r,r,r,r,new A.aHc(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Configure audio and game settings",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad],q),o=s.geR().co($.aQ7(),t.fD)
+J(a){var s=this,r=null,q=t.p,p=A.b([A.aM(r,new A.hN(B.Ea,A.aXh("assets/images/sirtet_logo.png",r,r,B.nX,r,r),r),!1,r,r,!1,r,!1,r,r,r,r,r,r,r,"Sirtet logo",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c4,A.aM(r,A.bo("beta",r,r,r,r,A.S(a).ok.c,r,r),!1,r,r,!1,r,!1,r,r,!0,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.c4,new A.YS(A.aQA("4.16.0","2026.04.02.14:08"),r),B.C0,A.aM(r,A.nG(!1,B.a1B,r,r,r,r,r,r,new A.aH8(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Start a new classic game with custom board size",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.eA,A.aM(r,A.nG(!1,B.a1S,r,r,r,r,r,r,new A.aH9(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Learn how to play with an interactive tutorial",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aM(r,A.nG(!1,B.a1b,r,r,r,r,r,r,new A.aHa(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play a game with a specific seed",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aM(r,A.nG(!1,B.a1N,r,r,r,r,r,r,new A.aHb(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Play predefined levels",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad,A.aM(r,A.nG(!1,B.CF,r,r,r,r,r,r,new A.aHc(s,a),r,r),!1,r,r,!1,r,!1,r,r,r,"Configure audio and game settings",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad],q),o=s.geR().co($.aQ7(),t.fD)
 if(o.Qi()&&!o.GI())p.push(A.d1(A.b([A.aM(r,A.aYo(B.a1z,new A.aHd(s,a)),!1,r,r,!1,r,!1,r,r,r,"Subscribe to mobile launch notifications",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),B.ad],q),B.C,B.G,B.X))
 p.push(A.aM(r,A.aYo(B.CD,new A.aHe(s,a)),!1,r,r,!1,r,!1,r,r,r,"View developer credits and acknowledgments",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r))
 return A.mK(r,A.ed(A.oB(new A.bm(B.fh,A.d1(p,B.C,B.cI,B.X),r),r),r,r))},
