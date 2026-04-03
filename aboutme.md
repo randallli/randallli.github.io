@@ -9,6 +9,10 @@ redirect_from:
 
 I am rebooting some old game ideas that I have had before: [Insider Fruit Trading](https://TripleLi.com/fruit), and [Last Cupful](https://TripleLi.com/cup). Sign up for the [newsletter](https://TripleLi.com/newsletter) if you are interested in hearing the latest developments. Or ping me at <about@tripleli.com>.
 
+### Game Publishing Contact
+
+**Direwolf Digital** - For pitching game ideas, contact **info@direwolf.com**. They created the digital version of Isle of Cats and are open to reviewing pitches.
+
 ### Worked @ Google for 8+ years
 Took a break from making games while working at Google. 
 
