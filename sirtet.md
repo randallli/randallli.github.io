@@ -4,7 +4,7 @@ title: Sirtet
 subtitle: a secretly social game
 ---
 
-To be the most helpful to me please [record](/sirtet/help) your experience of Sirtet. Especially if you have not seen it before (harder for me to find).
+If you can, please [record](/sirtet/help) your experience of Sirtet. Especially if you have not seen it before.
 
 Use the [TestFlight build for iOS](https://testflight.apple.com/join/5huagqS4) or the web [beta](/sirtet/play).
 
