@@ -102241,7 +102241,7 @@ B.b.M(k,A.bje(s,j.f,a,h,r,i,q,o,m,g,n,p))
 return A.bbX(!1,A.lr(null,A.zm(!1,A.eB(B.aH,k,B.y,B.ax,null),B.aK,!0)),new A.aFL(i,h),t.K)},
 asM(a){var s=a.e.a
 if((s===B.bs||s===B.au||s===B.aC)&&A.a9b(a.a.a.e)>0)$.ab.y2$.push(new A.aFE(this,a))},
-afz(a,b,c,d){var s=this,r=b.a,q=r.c.ga0w(),p=s.ay,o=A.aRk(s.afx(a,b,c,d,r.b)),n=A.ba_(b),m=A.b9Z(b),l=A.aQS("4.17.1","2026.04.15.10:09"),k=b.e.a
+afz(a,b,c,d){var s=this,r=b.a,q=r.c.ga0w(),p=s.ay,o=A.aRk(s.afx(a,b,c,d,r.b)),n=A.ba_(b),m=A.b9Z(b),l=A.aQS("4.17.1","2026.04.15.10:12"),k=b.e.a
 k=k!==B.au&&k!==B.aC
 return A.cN(A.b([B.DJ,new A.T9(r.a,q,p.b,p.c,d.e,null),o,new A.T8(n,m,c.gv4(),c.gFU(),new A.aFA(s,b,a),r.e,r.d,l,new A.aFB(s,b),k,c.gaGv(),null)],t.p),B.C,B.D,B.R)},
 afx(a,b,c,d,e){return A.aRY(new A.aFz(this,b,e,d,c))},
@@ -104204,8 +104204,8 @@ o=A.f7(o,B.C,B.D,B.R,0)
 s=A.aXy(B.lp,r.c?r.e:q,"Undo")
 return new A.bj(B.br,A.f7(A.b([new A.l9(1,B.dp,o,q),A.f7(A.b([s,B.j2,A.aXy(B.L0,r.d?r.f:q,"Redo")],p),B.C,B.D,B.R,0)],p),B.C,B.cZ,B.R,0),q)}}
 A.T9.prototype={
-J(a){var s=this,r=null,q=s.c,p=q.gjn(),o=q.gfJ()
-return new A.bj(B.br,A.f7(A.b([A.aL(r,A.bs(""+q.gjn()+" (\ud83d\udc51 "+q.gfJ()+")",s.r,r,r,r,A.V(a).ok.f,r,r),!1,r,r,!1,r,!1,r,r,r,r,r,r,r,"combo: "+p+" (highest: "+o+")",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),new A.H3(q.gaxp(),q.c,s.d,B.h0,s.w,s.f)],t.p),B.C,B.cZ,B.R,0),r)}}
+J(a){var s=this,r=null,q=s.c,p=q.gfJ(),o=q.gjn()
+return new A.bj(B.br,A.f7(A.b([A.aL(r,A.bs("\ud83d\udc51: "+q.gfJ()+" ) "+q.gjn(),s.r,r,r,r,A.V(a).ok.f,r,r),!1,r,r,!1,r,!1,r,r,r,r,r,r,r,"best combo: "+p+", current combo: "+o,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),new A.H3(q.gaxp(),q.c,s.d,B.h0,s.w,s.f)],t.p),B.C,B.cZ,B.R,0),r)}}
 A.Ta.prototype={
 jl(a,b){var s,r,q,p,o=this,n=null,m=b.bh(0,$.j9(),t.g),l=B.m.li(0.7),k=A.V(a).ok.b,j=t.p
 k=A.b([A.aL(n,A.bs("Game Over",n,n,n,n,k==null?n:k.kR(B.aj),n,n),!1,n,n,!1,n,!1,n,n,!0,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n),B.ez],j)
@@ -105307,7 +105307,7 @@ r=s.rx
 l=l.cb(r==null?s.k3:r)}l=A.bs("A Unique Match-4 Puzzle Game",o,o,o,o,l,o,o)
 s=A.iu(o,this.SZ(a,B.P4,"Development"),B.a3,!1,o,o,o,o,o,o,o,o,o,o,o,o,o,o,this.gaq6(),o,o,o,o,o,o)
 r=this.SZ(a,B.OY,"Acknowledgments")
-q=A.aQS("4.17.1","2026.04.15.10:09")
+q=A.aQS("4.17.1","2026.04.15.10:12")
 p=A.V(a).ok.Q
 return A.lr(n,A.dQ(A.oD(new A.bj(B.dk,A.cN(A.b([m,B.cn,l,B.mB,s,B.ez,r,B.ez,A.bs(q,o,o,o,o,p==null?o:p.cb(B.kh),o,o),B.mB],t.p),B.C,B.D,B.R),o),o),o,o))},
 SZ(a,b,c){var s=null,r=A.V(a).ok.r
@@ -105531,7 +105531,7 @@ o.push(B.ad)
 s=r.geE().cj($.aQp(),t.fD)
 if(s.Qg()&&!s.GG())o.push(A.cN(A.b([A.aL(q,A.aYI(B.a1B,new A.aHt(r,a)),!1,q,q,!1,q,!1,q,q,q,"Subscribe to mobile launch notifications",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q),B.ad],p),B.C,B.D,B.R))
 o.push(A.aL(q,A.aYI(B.CC,new A.aHu(r,a)),!1,q,q,!1,q,!1,q,q,q,"View developer credits and acknowledgments",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q))
-return A.lr(q,A.eB(B.aH,A.b([A.dQ(A.oD(new A.bj(B.dk,A.cN(o,B.C,B.cG,B.R),q),q),q,q),A.fr(16,new A.YY(A.aQS("4.17.1","2026.04.15.10:09"),q),q,q,16,q,q,q)],p),B.y,B.ax,q))},
+return A.lr(q,A.eB(B.aH,A.b([A.dQ(A.oD(new A.bj(B.dk,A.cN(o,B.C,B.cG,B.R),q),q),q,q),A.fr(16,new A.YY(A.aQS("4.17.1","2026.04.15.10:12"),q),q,q,16,q,q,q)],p),B.y,B.ax,q))},
 atL(a){return this.y.e4(new A.aHk(this,a))}}
 A.aHc.prototype={
 $0(){var s=0,r=A.v(t.H),q,p=this,o,n,m,l,k,j,i
