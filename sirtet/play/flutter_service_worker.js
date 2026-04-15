@@ -47,13 +47,15 @@ const RESOURCES = {"assets/assets/audio/clave.aif": "614b0c803da2f33d135cd67ad34
 "canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
 "canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "c8e7b53ee037ebede25ee26b488e16c8",
-"main.dart.js": "687b948757ef00983cf1d02a424e1965",
+"flutter_bootstrap.js": "89f8afb9dea9f2434256a8d3ad7b73ae",
+"main.dart.js": "89ba8bb3107173ac667d07007c10cca9",
 "version.json": "8fd347b1d4a3989baafecee4ddd12a13",
 "icons/Icon-maskable-512.png": "f8b378c31c86c10ba1f1293ca54978b5",
 "icons/Icon-maskable-192.png": "91c6c59b41cc436c2e249647b6d5b1dd",
 "icons/Icon-512.png": "f8b378c31c86c10ba1f1293ca54978b5",
-"icons/Icon-192.png": "91c6c59b41cc436c2e249647b6d5b1dd"};
+"icons/Icon-192.png": "91c6c59b41cc436c2e249647b6d5b1dd",
+".well-known/apple-app-site-association": "565c03e0f3dc2b10aa026a8e834b191e",
+".well-known/assetlinks.json": "2fbd81f9d1b16b426fc457b80089992c"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
