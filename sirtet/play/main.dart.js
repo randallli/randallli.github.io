@@ -102105,7 +102105,7 @@ B.b.M(k,A.bj2(s,j.f,a,h,r,i,q,o,m,g,n,p))
 return A.bbM(!1,A.lq(null,A.zi(!1,A.eC(B.aH,k,B.y,B.ax,null),B.aK,!0)),new A.aFE(i,h),t.K)},
 asN(a){var s=a.e.a
 if((s===B.bf||s===B.au||s===B.aC)&&A.a9a(a.a.a.e)>0)$.ab.y2$.push(new A.aFx(this,a))},
-afz(a,b,c,d){var s,r=this,q=b.a,p=q.c.ga0w(),o=r.ay,n=A.aRd(r.afx(a,b,c,d,q.b)),m=A.b9Q(b),l=A.b9P(b),k=A.aQK("4.18.0","2026.04.16.11:06"),j=b.e.a,i=j!==B.au&&j!==B.aC
+afz(a,b,c,d){var s,r=this,q=b.a,p=q.c.ga0w(),o=r.ay,n=A.aRd(r.afx(a,b,c,d,q.b)),m=A.b9Q(b),l=A.b9P(b),k=A.aQK("4.18.0","2026.04.16.11:28"),j=b.e.a,i=j!==B.au&&j!==B.aC
 j=j===B.bf
 s=j?c.ga5O():c.gaGy()
 return A.cE(A.b([B.DJ,new A.T9(q.a,p,o.b,o.c,d.e,b.f,null),n,new A.T8(m,l,c.gv0(),c.gFR(),new A.aFt(r,b,a),q.e,q.d,k,new A.aFu(r,b),i,s,j,null)],t.p),B.C,B.z,B.O)},
@@ -105208,7 +105208,7 @@ r=s.rx
 l=l.ca(r==null?s.k3:r)}l=A.bo("A Unique Match-4 Puzzle Game",o,o,o,o,l,o,o)
 s=A.iu(o,this.SZ(a,B.Pd,"Development"),B.a2,!1,o,o,o,o,o,o,o,o,o,o,o,o,o,o,this.gaq7(),o,o,o,o,o,o)
 r=this.SZ(a,B.P6,"Acknowledgments")
-q=A.aQK("4.18.0","2026.04.16.11:06")
+q=A.aQK("4.18.0","2026.04.16.11:28")
 p=A.V(a).ok.Q
 return A.lq(n,A.dA(A.oD(new A.bj(B.dl,A.cE(A.b([m,B.cn,l,B.mB,s,B.fY,r,B.fY,A.bo(q,o,o,o,o,p==null?o:p.ca(B.kh),o,o),B.mB],t.p),B.C,B.z,B.O),o),o),o,o))},
 SZ(a,b,c){var s=null,r=A.V(a).ok.r
@@ -105424,7 +105424,7 @@ m.push(B.ad)
 s=r.geD().cj($.aQh(),t.fD)
 if(s.Qg()&&!s.GC())m.push(A.cE(A.b([A.aM(q,A.eP(B.Lb,B.a1K,new A.aHk(r,a)),!1,q,q,!1,q,!1,q,q,q,"Subscribe to mobile launch notifications",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q),B.ad],n),B.C,B.z,B.O))
 m.push(A.aM(q,A.eP(B.La,B.CA,new A.aHl(r,a)),!1,q,q,!1,q,!1,q,q,q,"View developer credits and acknowledgments",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q))
-return A.lq(q,A.eC(B.aH,A.b([A.dA(A.oD(new A.bj(B.dl,A.cE(A.b([p,B.cn,A.V7(A.TU(A.cE(m,B.c9,B.z,B.O)),new A.od(o))],n),B.C,B.cF,B.O),q),q),q,q),A.ft(16,new A.Z_(A.aQK("4.18.0","2026.04.16.11:06"),q),q,q,16,q,q,q)],n),B.y,B.ax,q))},
+return A.lq(q,A.eC(B.aH,A.b([A.dA(A.oD(new A.bj(B.dl,A.cE(A.b([p,B.cn,A.V7(A.TU(A.cE(m,B.c9,B.z,B.O)),new A.od(o))],n),B.C,B.cF,B.O),q),q),q,q),A.ft(16,new A.Z_(A.aQK("4.18.0","2026.04.16.11:28"),q),q,q,16,q,q,q)],n),B.y,B.ax,q))},
 atN(a){return this.y.en(new A.aHd(this,a))}}
 A.aH5.prototype={
 $0(){var s=0,r=A.v(t.H),q,p=this,o,n,m,l,k,j,i
