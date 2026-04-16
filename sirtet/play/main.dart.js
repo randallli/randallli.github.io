@@ -102151,7 +102151,7 @@ j.push(new A.Te(k.a,k.c.ga0v(),s.b,s.c,d.e,b.f,l))
 j.push(A.SQ(m.afx(a,b,c,d,k.b)))
 s=A.ba1(b)
 r=A.ba0(b)
-q=A.aQV("4.19.0","2026.04.16.17:16")
+q=A.aQV("4.20.0","2026.04.16.17:29")
 p=b.e.a
 o=p!==B.au&&p!==B.aD
 p=p===B.bf
@@ -105269,7 +105269,7 @@ r=s.rx
 l=l.ca(r==null?s.k3:r)}l=A.bo("A Unique Match-4 Puzzle Game",o,o,o,o,l,o,o)
 s=A.hW(o,this.SZ(a,B.Pl,"Development"),B.a1,!1,o,o,o,o,o,o,o,o,o,o,o,o,o,o,this.gaq7(),o,o,o,o,o,o)
 r=this.SZ(a,B.Pe,"Acknowledgments")
-q=A.aQV("4.19.0","2026.04.16.17:16")
+q=A.aQV("4.20.0","2026.04.16.17:29")
 p=A.V(a).ok.Q
 return A.lq(n,A.dB(A.oE(new A.bj(B.dm,A.cN(A.b([m,B.cn,l,B.mC,s,B.fZ,r,B.fZ,A.bo(q,o,o,o,o,p==null?o:p.ca(B.ki),o,o),B.mC],t.p),B.B,B.C,B.O),o),o),o,o))},
 SZ(a,b,c){var s=null,r=A.V(a).ok.r
@@ -105485,7 +105485,7 @@ m.push(B.ae)
 s=r.gep().cj($.aQs(),t.fD)
 if(s.Qg()&&!s.GF())B.b.M(m,A.b([A.aM(q,A.eP(B.Li,B.a1V,new A.aHr(r,a)),!1,q,q,!1,q,!1,q,q,q,"Subscribe to mobile launch notifications",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q),B.ae],n))
 m.push(A.aM(q,A.eP(B.Lh,B.CI,new A.aHs(r,a)),!1,q,q,!1,q,!1,q,q,q,"View developer credits and acknowledgments",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q))
-return A.lq(q,A.eB(B.aI,A.b([A.dB(A.oE(new A.bj(B.dm,A.cN(A.b([p,B.cn,A.Vd(A.U_(A.cN(m,B.c9,B.C,B.O)),new A.oe(o))],n),B.B,B.cF,B.O),q),q),q,q),A.fu(16,new A.Z5(A.aQV("4.19.0","2026.04.16.17:16"),q),q,q,16,q,q,q)],n),B.y,B.ax,q))},
+return A.lq(q,A.eB(B.aI,A.b([A.dB(A.oE(new A.bj(B.dm,A.cN(A.b([p,B.cn,A.Vd(A.U_(A.cN(m,B.c9,B.C,B.O)),new A.oe(o))],n),B.B,B.cF,B.O),q),q),q,q),A.fu(16,new A.Z5(A.aQV("4.20.0","2026.04.16.17:29"),q),q,q,16,q,q,q)],n),B.y,B.ax,q))},
 atP(a){return this.y.eq(new A.aHk(this,a))}}
 A.aHc.prototype={
 $0(){var s=0,r=A.v(t.H),q,p=this,o,n,m,l,k,j,i
