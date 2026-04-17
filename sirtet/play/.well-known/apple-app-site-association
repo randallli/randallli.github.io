@@ -1,12 +1,23 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "G843P6Q6M4.com.tripleli.sirtet",
-        "paths": [
-          "/sirtet/challenge",
-          "/sirtet/play/*"
+        "appIDs": [
+          "G843P6Q6M4.com.tripleli.sirtet"
+        ],
+        "components": [
+          {
+            "/": "/sirtet/challenge",
+            "comment": "Path-based challenge URLs for universal links"
+          },
+          {
+            "/": "/sirtet/play/",
+            "comment": "Hash-based challenge URLs (backwards compat)"
+          },
+          {
+            "/": "/sirtet/play/*",
+            "comment": "Subpaths under /sirtet/play/"
+          }
         ]
       }
     ]

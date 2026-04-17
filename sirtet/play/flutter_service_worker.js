@@ -35,6 +35,7 @@ const RESOURCES = {"assets/assets/audio/clave.aif": "614b0c803da2f33d135cd67ad34
 "manifest.json": "a2584b26b62a0ccb264cb11fc9919a9c",
 "index.html": "3cdd640c6614eceb56d1e0005a1a3031",
 "/": "3cdd640c6614eceb56d1e0005a1a3031",
+"404.html": "edb9e59e9784c191e37b0e73738ef6e6",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
 "canvaskit/chromium/canvaskit.js.symbols": "e2d09f0e434bc118bf67dae526737d07",
 "canvaskit/chromium/canvaskit.wasm": "a726e3f75a84fcdf495a15817c63a35d",
@@ -48,14 +49,14 @@ const RESOURCES = {"assets/assets/audio/clave.aif": "614b0c803da2f33d135cd67ad34
 "canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
 "canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "6dd6c040b326bfb13acc436788a2fcaa",
-"main.dart.js": "a405edd17f9b35d0faa76f07ebe6d40d",
+"flutter_bootstrap.js": "449c50d0ab7830e66bbce1a71fdf2ec3",
+"main.dart.js": "8699d8b4e479fe941a2e839381b72508",
 "version.json": "29f4389d021f0a1b022f5fe9a392ba0a",
 "icons/Icon-maskable-512.png": "f8b378c31c86c10ba1f1293ca54978b5",
 "icons/Icon-maskable-192.png": "91c6c59b41cc436c2e249647b6d5b1dd",
 "icons/Icon-512.png": "f8b378c31c86c10ba1f1293ca54978b5",
 "icons/Icon-192.png": "91c6c59b41cc436c2e249647b6d5b1dd",
-".well-known/apple-app-site-association": "565c03e0f3dc2b10aa026a8e834b191e",
+".well-known/apple-app-site-association": "789341c69a80eada8a09953f83855aff",
 ".well-known/assetlinks.json": "2fbd81f9d1b16b426fc457b80089992c"};
 // The application shell files that are downloaded before a service worker can
 // start.
