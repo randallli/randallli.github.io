@@ -100378,7 +100378,7 @@ s.push(new A.Sq(i.a,i.c.ga_z(),r.b,r.c,e.e,g.f,j))
 s.push(A.aOu(k.ae7(a,g,f,e,i.b)))
 q=A.b6_(g)
 p=A.b5Z(g)
-o=A.aO1("4.21.0","2026.04.17.14:05")
+o=A.aO1("4.22.0","2026.04.17.15:18")
 n=g.e.a
 m=n!==B.ay&&n!==B.aR
 n=n===B.bf
@@ -103376,7 +103376,7 @@ this.asg()}},
 asg(){var s=this.c
 s.toString
 A.ON(!0,new A.aAT(),s,t.H)},
-K(a){var s=null,r=A.rR(A.a9K(new A.aAU(a)),B.Cp),q=A.air("assets/images/sirtet_logo.png",s,s,B.hc,s,s),p=A.ij(s,this.S6(a,B.Oy,"Development"),B.a1,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,this.gaoy(),s,s,s,s,s,s),o=A.FR(B.a0p,new A.aAV(a)),n=this.S6(a,B.Os,"Acknowledgments"),m=A.aO1("4.21.0","2026.04.17.14:05"),l=A.W(a).ok.Q
+K(a){var s=null,r=A.rR(A.a9K(new A.aAU(a)),B.Cp),q=A.air("assets/images/sirtet_logo.png",s,s,B.hc,s,s),p=A.ij(s,this.S6(a,B.Oy,"Development"),B.a1,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,this.gaoy(),s,s,s,s,s,s),o=A.FR(B.a0p,new A.aAV(a)),n=this.S6(a,B.Os,"Acknowledgments"),m=A.aO1("4.22.0","2026.04.17.15:18"),l=A.W(a).ok.Q
 return A.le(r,A.dx(A.op(new A.bi(B.di,A.cK(A.b([new A.fY(B.jL,q,s),B.BM,p,B.ev,o,B.ev,n,B.ev,A.bt(m,s,s,s,s,l==null?s:l.cd(B.kf),s,s),B.BM],t.p),B.F,B.B,B.U),s),s),s,s))},
 S6(a,b,c){var s=null,r=A.W(a).ok.r
 r=A.b([A.aK(s,A.bt(c,s,s,s,s,r==null?s:r.kN(B.ag),s,s),!1,s,s,!1,s,!1,s,s,!0,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s),B.cH],t.p)
@@ -103599,7 +103599,7 @@ k.push(B.aa)
 q=s.c7($.aNA(),t.fD)
 if(q.Po()&&!q.FU())B.b.M(k,A.b([A.aK(o,A.eX(B.L_,B.a0u,new A.aET(p,a)),!1,o,o,!1,o,!1,o,o,o,"Subscribe to mobile launch notifications",o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o),B.aa],l))
 k.push(A.aK(o,A.eX(B.KZ,B.Cp,new A.aEU(p,a)),!1,o,o,!1,o,!1,o,o,o,"View developer credits and acknowledgments",o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o))
-return A.le(o,A.ew(B.aG,A.b([A.dx(A.op(new A.bi(B.di,A.cK(A.b([n,B.cH,A.Un(A.Tb(A.cK(k,B.c9,B.B,B.U)),new A.o_(m))],l),B.F,B.cW,B.U),o),o),o,o),A.fn(16,new A.Y5(A.aO1("4.21.0","2026.04.17.14:05"),o),o,o,16,o,o,o)],l),B.y,B.aw,o))},
+return A.le(o,A.ew(B.aG,A.b([A.dx(A.op(new A.bi(B.di,A.cK(A.b([n,B.cH,A.Un(A.Tb(A.cK(k,B.c9,B.B,B.U)),new A.o_(m))],l),B.F,B.cW,B.U),o),o),o,o),A.fn(16,new A.Y5(A.aO1("4.22.0","2026.04.17.15:18"),o),o,o,16,o,o,o)],l),B.y,B.aw,o))},
 asc(a){return this.y.e6(new A.aEK(this,a))}}
 A.aEC.prototype={
 $0(){var s=0,r=A.y(t.H),q,p=this,o,n,m,l,k,j,i
