@@ -102160,7 +102160,7 @@ j.push(new A.Tf(k.a,k.c.ga0v(),s.b,s.c,d.e,b.f,l))
 j.push(A.SR(m.afx(a,b,c,d,k.b)))
 s=A.ba4(b)
 r=A.ba3(b)
-q=A.aQY("4.20.0","2026.04.17.09:14")
+q=A.aQY("4.21.0","2026.04.17.09:27")
 p=b.e.a
 o=p!==B.au&&p!==B.aD
 p=p===B.bf
@@ -104531,39 +104531,39 @@ if(!r.w)return
 s=r.gep().bf(0,$.kQ().$1(r.a.as).ge0(),t.Wh)
 if(r.w)s.Nm(!1)
 r.a7(new A.aKb(r))},
-alq(a){var s,r,q,p,o,n,m,l,k,j,i,h,g=this,f="left",e="right",d=", isShowingHint="
-if(!g.w)return
-if(g.Q!=null){s=Date.now()
-r=g.Q
+alq(a){var s,r,q,p,o,n,m,l,k,j,i,h=this,g="left",f="right",e=", isShowingHint="
+if(!h.w)return
+if(h.Q!=null){s=Date.now()
+r=h.Q
 r.toString
 q=new A.cE(s,0,!1).d3(r)}else q=B.v
-s=g.as
-p=s!=null&&g.y.a0(0,s).gcu()>=10
-o=g.aoW(g.y)
-n=q.a>=4e5&&!g.x||o
-s=g.gep()
-m=s.bf(0,$.np().ge0(),t.yh)
-if(n){g.a7(new A.aKc(g))
-if(p)m.a5m()}else{if(!p){r=g.a.d
-l=r?m.gJ(0).d+1:m.gJ(0).d
-k=r?m.gJ(0).e:m.gJ(0).e+1
-A.aZ().$1("\ud83d\udc46 Mini-tutorial recordFailedAttempt: side="+(r?f:e)+", newLeft="+l+", newRight="+k)
-m.sJ(0,m.gJ(0).azg(l,k))
-j=m.gJ(0).d>m.gJ(0).e?m.gJ(0).d:m.gJ(0).e
-r=m.y
-A.aZ().$1("\ud83d\udd0d Mini-tutorial _checkThreshold: maxAttempts="+j+", threshold="+r+d+m.gJ(0).b+", hintType="+m.gJ(0).w.j(0))
-if(j>=r&&!m.gJ(0).b){i=m.gJ(0).d>m.gJ(0).e
-A.aZ().$1("\u2705 Mini-tutorial TRIGGERING row insertion hint! side="+(i?f:e))
-r=m.x
+s=h.as
+p=s!=null&&h.y.a0(0,s).gcu()>=10
+if(!h.aoW(h.y))o=q.a>=4e5&&!h.x&&h.a.y==null
+else o=!0
+s=h.gep()
+n=s.bf(0,$.np().ge0(),t.yh)
+if(o){h.a7(new A.aKc(h))
+if(p)n.a5m()}else{if(!p){r=h.a.d
+m=r?n.gJ(0).d+1:n.gJ(0).d
+l=r?n.gJ(0).e:n.gJ(0).e+1
+A.aZ().$1("\ud83d\udc46 Mini-tutorial recordFailedAttempt: side="+(r?g:f)+", newLeft="+m+", newRight="+l)
+n.sJ(0,n.gJ(0).azg(m,l))
+k=n.gJ(0).d>n.gJ(0).e?n.gJ(0).d:n.gJ(0).e
+r=n.y
+A.aZ().$1("\ud83d\udd0d Mini-tutorial _checkThreshold: maxAttempts="+k+", threshold="+r+e+n.gJ(0).b+", hintType="+n.gJ(0).w.j(0))
+if(k>=r&&!n.gJ(0).b){j=n.gJ(0).d>n.gJ(0).e
+A.aZ().$1("\u2705 Mini-tutorial TRIGGERING row insertion hint! side="+(j?g:f))
+r=n.x
 r===$&&A.a()
-r.d7(0,"mini_tutorial_triggered",A.a7(["side",i?f:e,"attempt_count",j],t.N,t.K))
-m.sJ(0,m.gJ(0).azM(j,i,B.ln,!0))
-A.aZ().$1("\u2705 Mini-tutorial state updated: hintType="+m.gJ(0).w.j(0)+d+m.gJ(0).b+", hintSide="+A.o(m.gJ(0).c))}}g.a7(new A.aKd(g))}r=$.kQ()
-s.bf(0,r.$1(g.a.as).ge0(),t.Wh).Nm(n)
-if(!n&&p){h=s.bf(0,r.$1(g.a.as),t.nS)
-s=g.z
+r.d7(0,"mini_tutorial_triggered",A.a7(["side",j?g:f,"attempt_count",k],t.N,t.K))
+n.sJ(0,n.gJ(0).azM(k,j,B.ln,!0))
+A.aZ().$1("\u2705 Mini-tutorial state updated: hintType="+n.gJ(0).w.j(0)+e+n.gJ(0).b+", hintSide="+A.o(n.gJ(0).c))}}h.a7(new A.aKd(h))}r=$.kQ()
+s.bf(0,r.$1(h.a.as).ge0(),t.Wh).Nm(o)
+if(!o&&p){i=s.bf(0,r.$1(h.a.as),t.nS)
+s=h.z
 s===$&&A.a()
-g.a7(new A.aKe(g,g.Xy(s,g.a.w,h.a.d)))}g.a7(new A.aKf(g))},
+h.a7(new A.aKe(h,h.Xy(s,h.a.w,i.a.d)))}h.a7(new A.aKf(h))},
 aqn(){if(this.ax!==B.cv)this.a7(new A.aKl(this))},
 K(a5){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a=this,a0=null,a1=a.gep(),a2=$.kQ(),a3=t.nS,a4=t.zz
 a1.ia(A.z1(a2.$1(a.a.as),new A.aKr(),a3,a4),new A.aKs(a),a4)
@@ -105272,7 +105272,7 @@ this.atU()}},
 atU(){var s=this.c
 s.toString
 A.PF(!0,new A.aDk(),s,t.H)},
-K(a){var s=null,r=A.t9(A.aaV(new A.aDl(a)),B.CI),q=A.ajK("assets/images/sirtet_logo.png",s,s,B.he,s,s),p=A.hW(s,this.SZ(a,B.Pl,"Development"),B.a1,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,this.gaq8(),s,s,s,s,s,s),o=A.Gw(B.a1R,new A.aDm(a)),n=this.SZ(a,B.Pe,"Acknowledgments"),m=A.aQY("4.20.0","2026.04.17.09:14"),l=A.W(a).ok.Q
+K(a){var s=null,r=A.t9(A.aaV(new A.aDl(a)),B.CI),q=A.ajK("assets/images/sirtet_logo.png",s,s,B.he,s,s),p=A.hW(s,this.SZ(a,B.Pl,"Development"),B.a1,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s,this.gaq8(),s,s,s,s,s,s),o=A.Gw(B.a1R,new A.aDm(a)),n=this.SZ(a,B.Pe,"Acknowledgments"),m=A.aQY("4.21.0","2026.04.17.09:27"),l=A.W(a).ok.Q
 return A.lq(r,A.dC(A.oE(new A.bk(B.dl,A.cN(A.b([new A.h3(B.jN,q,s),B.C4,p,B.ey,o,B.ey,n,B.ey,A.bs(m,s,s,s,s,l==null?s:l.cd(B.kh),s,s),B.C4],t.p),B.D,B.B,B.Q),s),s),s,s))},
 SZ(a,b,c){var s=null,r=A.W(a).ok.r
 r=A.b([A.aM(s,A.bs(c,s,s,s,s,r==null?s:r.kQ(B.ad),s,s),!1,s,s,!1,s,!1,s,s,!0,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s),B.cJ],t.p)
@@ -105490,7 +105490,7 @@ m.push(B.ae)
 s=r.gep().co($.aQw(),t.fD)
 if(s.Qg()&&!s.GF())B.b.M(m,A.b([A.aM(q,A.eO(B.Li,B.a1W,new A.aHu(r,a)),!1,q,q,!1,q,!1,q,q,q,"Subscribe to mobile launch notifications",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q),B.ae],n))
 m.push(A.aM(q,A.eO(B.Lh,B.CI,new A.aHv(r,a)),!1,q,q,!1,q,!1,q,q,q,"View developer credits and acknowledgments",q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q))
-return A.lq(q,A.eB(B.aI,A.b([A.dC(A.oE(new A.bk(B.dl,A.cN(A.b([p,B.cJ,A.Vd(A.U0(A.cN(m,B.c9,B.B,B.Q)),new A.oe(o))],n),B.D,B.cZ,B.Q),q),q),q,q),A.fu(16,new A.Z5(A.aQY("4.20.0","2026.04.17.09:14"),q),q,q,16,q,q,q)],n),B.y,B.ax,q))},
+return A.lq(q,A.eB(B.aI,A.b([A.dC(A.oE(new A.bk(B.dl,A.cN(A.b([p,B.cJ,A.Vd(A.U0(A.cN(m,B.c9,B.B,B.Q)),new A.oe(o))],n),B.D,B.cZ,B.Q),q),q),q,q),A.fu(16,new A.Z5(A.aQY("4.21.0","2026.04.17.09:27"),q),q,q,16,q,q,q)],n),B.y,B.ax,q))},
 atQ(a){return this.y.eq(new A.aHn(this,a))}}
 A.aHf.prototype={
 $0(){var s=0,r=A.v(t.H),q,p=this,o,n,m,l,k,j,i
