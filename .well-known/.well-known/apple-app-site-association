@@ -3,20 +3,20 @@
     "details": [
       {
         "appIDs": [
-          "G843P6Q6M4.com.tripleli.sirtet"
+          "G843P6Q6M4.com.tripleli.sirtetFlutter"
         ],
         "components": [
           {
-            "/": "/sirtet/challenge",
-            "comment": "Path-based challenge URLs for universal links"
+            "/": "/challenge",
+            "comment": "Challenge URLs on playsirtet.com"
           },
           {
-            "/": "/sirtet/play/",
-            "comment": "Hash-based challenge URLs (backwards compat)"
+            "/": "/",
+            "comment": "Root path"
           },
           {
-            "/": "/sirtet/play/*",
-            "comment": "Subpaths under /sirtet/play/"
+            "/": "/*",
+            "comment": "All paths"
           }
         ]
       }

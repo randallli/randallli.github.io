@@ -2,7 +2,7 @@
     "name": "Sirtet: match 4",
     "short_name": "Sirtet",
     "description": "A unique match-4 puzzle game",
-    "start_url": "/sirtet/play/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#1a1a2e",
     "theme_color": "#1a1a2e",
