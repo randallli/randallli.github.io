@@ -1,8 +1,0 @@
-# Redirect old tripleli.com paths to new playsirtet.com paths
-# Cloudflare Pages _redirects format: https://developers.cloudflare.com/pages/configuration/redirects/
-/sirtet/play/* / 301
-/sirtet/challenge/* /challenge/:splat 301
-
-# SPA fallback: serve index.html for all unmatched paths
-# This must be the last rule (Cloudflare processes top-to-bottom, first match wins)
-/* /index.html 200
