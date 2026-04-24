@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0;url=https://playsirtet.com/">
   <title>Sirtet has moved</title>
+  <script>
+    // Convert old hash-based URLs (/#/challenge?state=...) to path-based URLs
+    var hash = window.location.hash;
+    if (hash && hash.startsWith('#/')) {
+      window.location.replace("https://playsirtet.com" + hash.substring(1));
+    } else {
+      window.location.replace("https://playsirtet.com/");
+    }
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://playsirtet.com/">
+  </noscript>
 </head>
 <body>
   <p>Sirtet has moved to <a href="https://playsirtet.com/">playsirtet.com</a></p>
