@@ -33,4 +33,10 @@ It is a beta, not an App Store release. I would genuinely like to hear what you 
 
 Porting a board game to a companion app is the work I am looking for more of, and this is the best example of it I have. If you have a game that wants one, come find me at the table or write to <randall@tripleli.com>.
 
+### Share this page
+
+<p style="text-align:center;margin:1.5rem 0 0.5rem;"><img src="/assets/img/medusa-qr.svg" alt="QR code linking to tripleli.com/medusa" width="220" height="220" style="max-width:100%;height:auto;"></p>
+
+<p style="text-align:center;color:#777;font-size:0.9rem;margin-bottom:2rem;">Point a camera at this to hand the page to whoever is standing next to you. It goes to <strong>tripleli.com/medusa</strong>.<br><a href="/assets/img/medusa-qr.svg">Print-quality SVG</a> · <a href="/assets/img/medusa-qr.png">PNG</a></p>
+
 <p style="color:#999;font-size:0.8rem;margin-top:3rem;">TestFlight and iPhone are trademarks of Apple Inc. This page is not affiliated with or endorsed by Apple.</p>
