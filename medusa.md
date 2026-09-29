@@ -15,21 +15,22 @@ redirect_from:
   - /BostonFig
 ---
 
-> **NOTE**
-> This app is a beta. It is not on the App Store, and the link below closes on **Sunday 5 October**.
-
 Hello — you probably just scanned this at BostonFIG.
 
-**Medusa's Garden** is a board game by Phil Gross and Jono Naito-Tetro, published by DVC Games. It is already out, and it is [on BoardGameGeek](https://boardgamegeek.com/boardgame/456133/medusas-garden). This app is the phone version of it that I built for them: your phone's front-facing camera becomes the mirror, and the game is played by passing it around.
+<a class="btn btn-lg btn-block" href="https://testflight.apple.com/join/c3nXFFU2" style="background-color:#008AFF;border-color:#008AFF;color:#fff;font-weight:600;padding:0.9rem 1rem;margin:1.5rem 0 0.75rem;">Install the beta on iPhone&nbsp;→</a>
 
-### Try it
-
-**On iPhone or iPad** — [install the beta through TestFlight](https://testflight.apple.com/join/c3nXFFU2). You will need Apple's free TestFlight app; the link walks you through it.
+<p style="text-align:center;color:#777;font-size:0.9rem;margin-bottom:2rem;">Works with TestFlight, Apple's free beta app — the link walks you through it.<br>This beta closes on <strong>Sunday 5 October</strong>.</p>
 
 **On Android** — not yet, sorry. Android testing is invite-only at the moment, so there is no link I can put here. Email <randall@tripleli.com> and I will add you as soon as there is a build to add you to.
 
-Either way, I would genuinely like to hear what you thought — the same address works for that.
+### What this is
+
+**Medusa's Garden** is a board game by Phil Gross and Jono Naito-Tetro, published by DVC Games. It is already out, and it is [on BoardGameGeek](https://boardgamegeek.com/boardgame/456133/medusas-garden). This app is the phone version of it that I built for them: your phone's front-facing camera becomes the mirror, and the game is played by passing it around.
+
+It is a beta, not an App Store release. I would genuinely like to hear what you thought — <randall@tripleli.com> reaches me.
 
 ### I build these
 
 Porting a board game to a companion app is the work I am looking for more of, and this is the best example of it I have. If you have a game that wants one, come find me at the table or write to <randall@tripleli.com>.
+
+<p style="color:#999;font-size:0.8rem;margin-top:3rem;">TestFlight and iPhone are trademarks of Apple Inc. This page is not affiliated with or endorsed by Apple.</p>
