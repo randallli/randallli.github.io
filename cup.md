@@ -3,6 +3,9 @@ layout: page
 title: Last cupful
 subtitle: A water-fight playground game with a 1 second re-setup
 redirect_from:
+  - /cupQR
+  - /cupqr
+  - /CUPQR
   - /cupQRv1
   - /lastcup
   - /lastcupful
