@@ -6,6 +6,9 @@ redirect_from:
   - /qr
   - /qrcode
   - /QR
+  - /QRCode
+  - /QRcode
+  - /Links
 ---
 
 ## Schedule a Playtest

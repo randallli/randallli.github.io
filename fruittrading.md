@@ -12,6 +12,7 @@ redirect_from:
   - /Fruit
   - /InsiderFruitTrading
   - /InsiderTruitTrader
+  - /InsiderFruitTrader
   - /FruitTrader
   - /Trader
   - /Trading

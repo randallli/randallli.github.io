@@ -10,6 +10,12 @@ redirect_from:
   - /lastcup
   - /lastcupful
   - /lastcupfull
+  - /Cup
+  - /LastCup
+  - /LastCupful
+  - /LastCupfull
+  - /Lastcupful
+  - /last-cupful
 ---
 
 ![Last cupful logo](/assets/img/LastCupfulLogo.png)
